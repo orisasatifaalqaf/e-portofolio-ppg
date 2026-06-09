@@ -1,11 +1,10 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="E-Portfolio Guru Profesional. Dokumentasi perjalanan profesional, karya, dan refleksi pembelajaran." />
-  <title>E-Portfolio | Guru Profesional</title>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pilih E-Portfolio</title>
+  
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,8 +13,187 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #21363a;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 3rem 1rem;
+    }
+    .landing-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      margin-top: 2rem;
+    }
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2.5rem;
+    }
+    .landing-logo {
+      width: 250px;
+      margin-bottom: 0.5rem;
+      object-fit: contain;
+    }
+    .logo-text {
+      font-family: 'Outfit', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: #E53935; /* Red color matching the screenshot */
+      letter-spacing: 2px;
+    }
+    .landing-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+    }
+    .landing-subtitle {
+      color: #a0aec0;
+      font-size: 1.1rem;
+    }
+    
+    .cards-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 1200px;
+    }
+    
+    .landing-card {
+      background-color: #2a3f44;
+      border: 1px solid #3c5257;
+      border-radius: 20px;
+      padding: 3rem 2.5rem;
+      width: 340px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      position: relative;
+    }
+    
+    .landing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+      border-color: #4fd1c5;
+    }
+    
+    .badge-top-right {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+    }
+    
+    .card-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .card-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    
+    .card-desc {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    
+    .card-link {
+      color: #38bdf8;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    .landing-card:hover .card-link {
+      color: #7dd3fc;
+    }
+    
+    /* Intro Tear Animation */
+    :root {
+      --tear-color: #FA8072; /* Salmon red */
+    }
+    .intro-tear {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100vh;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      pointer-events: all;
+      transition: opacity 0.5s ease 0.5s, visibility 0.5s ease 0.5s;
+    }
+    .intro-tear.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .intro-tear-half {
+      width: 100%;
+      height: 50vh;
+      background-color: var(--tear-color);
+      transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .intro-tear.hidden .intro-tear-top {
+      transform: translateY(-100%);
+    }
+    .intro-tear.hidden .intro-tear-bottom {
+      transform: translateY(100%);
+    }
+    .intro-panel-content {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #fff;
+      z-index: 10000;
+      transition: opacity 0.3s ease;
+      cursor: pointer;
+    }
+    .intro-tear.hidden .intro-panel-content {
+      opacity: 0;
+    }
+    .intro-panel-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 500;
+      margin-bottom: 2rem;
+      letter-spacing: 1px;
+    }
+    .intro-panel-prompt {
+      font-size: 1.1rem;
+    }
+    .intro-panel-prompt small {
+      display: inline-block;
+      margin-left: 0.3rem;
+      font-size: 0.9rem;
+      opacity: 0.9;
+    }
+  </style>
 </head>
 <body>
 
@@ -25,9 +203,6 @@
     <div class="intro-tear-half intro-tear-bottom"></div>
     <div class="intro-panel-content">
       <div class="intro-panel-title">E-Portfolio Profesional</div>
-      <div class="intro-panel-loading">
-        <div class="intro-panel-loading-fill"></div>
-      </div>
       <div class="intro-panel-prompt">
         <span>Klik atau Geser</span>
         <small>untuk membuka e-portfolio</small>
@@ -35,231 +210,77 @@
     </div>
   </div>
 
-  <!-- Animated Particle Background -->
-  <canvas id="particleCanvas"></canvas>
-
-  <!-- Navigation -->
-  <nav class="navbar" id="navbar">
-    <div class="container">
-      <a href="#hero" class="nav-logo" aria-label="PPG Logo">
-        <span class="logo-text" style="color: #0F5EA8; display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.5rem;">
-          <i class="fa-solid fa-graduation-cap"></i> PPG
-        </span>
-      </a>
-      <ul class="nav-links" id="navLinks">
-        <li><a href="#hero" class="active">Beranda</a></li>
-        <li><a href="#about">Profil</a></li>
-        <li><a href="#education">Pendidikan</a></li>
-        <li><a href="#portfolio">Artefak</a></li>
-        <li><a href="#analisis">Analisis</a></li>
-        <li><a href="#penilaian">Penilaian</a></li>
-        <li><a href="#model-guru">Model Guru</a></li>
-        <li><a href="#gallery">Galeri</a></li>
-        <li><a href="#contact">Kontak</a></li>
-      </ul>
-      <div class="nav-actions">
-        <button class="action-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Mode Gelap/Terang">
-          <i class="fa-solid fa-moon theme-icon"></i>
-        </button>
-        <button class="action-btn home-btn" id="homeBtn" aria-label="Home" title="Kembali ke Awal">
-          <i class="fa-solid fa-house" style="color: #39BDE8;"></i>
-        </button>
-        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
+  <div class="landing-header">
+    <div class="logo-container">
+      <img src="uad-logo.png" alt="UAD Logo" class="landing-logo">
+      <h2 class="logo-text">UAD</h2>
     </div>
-  </nav>
+    <h1 class="landing-title">Pilih E-Portfolio</h1>
+    <p class="landing-subtitle">Silakan pilih e-portfolio yang ingin Anda lihat</p>
+  </div>
 
-  <!-- Hero Section -->
-  <section class="hero section" id="hero">
-    <div class="container">
-      <div class="hero-card">
-        <div class="hero-greeting"><span class="wave">👋</span> Halo, Saya</div>
-        <h1 class="hero-name"><span class="highlight">Orisa <br class="mobile-name-break" />Satifa Alqaf</span></h1>
-        <p class="hero-role">
-          <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
-        </p>
-        <p class="hero-desc">
-          Saya adalah calon guru profesional dari Program Studi Pendidikan Bahasa dan Sastra Indonesia, Universitas Ahmad Dahlan. Saya berkomitmen menghadirkan pengalaman belajar yang bermakna, aplikatif, dan relevan. Melalui pendekatan yang berpusat pada peserta didik, saya berupaya mengembangkan keterampilan literasi dan karakter siswa.
-        </p>
-        <div class="hero-actions">
-          <a href="#portfolio" class="btn btn-primary">
-            <i class="fa-solid fa-folder"></i> Lihat Portofolio
-          </a>
-          <a href="#contact" class="btn btn-secondary">
-            <i class="fa-solid fa-envelope"></i> Hubungi Saya
-          </a>
-        </div>
-        <div class="hero-social">
-          <a href="#" target="_blank" class="social-li"><i class="fab fa-linkedin-in"></i></a>
-          <a href="#" target="_blank" class="social-ig"><i class="fab fa-instagram"></i></a>
-          <a href="#" target="_blank" class="social-yt"><i class="fab fa-youtube"></i></a>
-          <a href="#" target="_blank" class="social-mail"><i class="fa-solid fa-envelope"></i></a>
-        </div>
+  <div class="cards-container">
+    
+    <!-- Topik 4 -->
+    <a href="portfolio.html" class="landing-card">
+      <div class="badge-top-right" style="background-color: #8b5cf6;">T4</div>
+      <div class="card-icon" style="color: #c4b5fd;">
+        <i class="fa-solid fa-folder-open"></i>
       </div>
-      <div class="hero-image-section">
-        <div class="hero-image-wrapper">
-          <div class="image-placeholder">
-            <i class="fa-solid fa-user-circle"></i>
-          </div>
-        </div>
-        <div class="hero-badges">
-          <div class="hero-badge"><i class="fa-solid fa-graduation-cap" style="color: #4A154B;"></i> PPG Prajabatan 2026</div>
-          <div class="hero-badge"><i class="fa-solid fa-book" style="color: #E27D60;"></i> Pend. Bahasa Indonesia</div>
-          <div class="hero-badge"><i class="fa-solid fa-university" style="color: #85CDCA;"></i> Univ. Ahmad Dahlan</div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <h2 class="card-title">Topik 4</h2>
+      <p class="card-desc">
+        Kumpulan tugas dan refleksi pembelajaran khusus untuk materi Topik 4 selama program PPG Prajabatan 2026.
+      </p>
+      <span class="card-link">Lihat Topik 4 &rarr;</span>
+    </a>
 
-  <!-- About Section -->
-  <section class="about section" id="about">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge"><i class="fa-solid fa-user"></i> Profil</div>
-        <h2 class="section-title">Mengenal Saya Lebih Dekat</h2>
-        <p class="section-subtitle">Narasi perjalanan hidup dan inspirasi karir saya</p>
+    <!-- E-Portfolio 1 -->
+    <a href="portfolio.html" class="landing-card">
+      <div class="badge-top-right" style="background-color: #0ea5e9;">UTS</div>
+      <div class="card-icon" style="color: #7dd3fc;">
+        <i class="fa-solid fa-book"></i>
       </div>
-      <div class="about-grid">
-        <div class="about-image">
-          <div class="about-image-card placeholder-card">
-            <i class="fa-solid fa-image"></i>
-          </div>
-          <blockquote class="profil-quote">
-            <p><em>"Ilmu adalah senjata terkuat di dunia. Ia menerangi jalan di tengah kegelapan, mengubah ketidakmungkinan menjadi peluang."</em></p>
-            <cite>— Nama Anda</cite>
-          </blockquote>
-        </div>
-        <div class="about-content">
-          <div class="profil-narasi">
-            <h3 class="narasi-heading">📍 Latar Belakang</h3>
-            <p class="about-text">
-              Deskripsi tentang latar belakang Anda, tempat asal, dan nilai-nilai yang membentuk karakter Anda sebagai seorang profesional.
-            </p>
-          </div>
-          <div class="profil-narasi">
-            <h3 class="narasi-heading">💡 Inspirasi</h3>
-            <p class="about-text">
-              Ceritakan momen atau pengalaman yang menginspirasi Anda untuk memilih jalur karir ini dan bagaimana hal itu mempengaruhi pandangan Anda.
-            </p>
-          </div>
-          <div class="profil-narasi">
-            <h3 class="narasi-heading">🎯 Tujuan</h3>
-            <p class="about-text">
-              Tujuan profesional Anda ke depannya dan dampak apa yang ingin Anda berikan melalui karya-karya Anda.
-            </p>
-          </div>
-        </div>
+      <h2 class="card-title">E-Portfolio 1</h2>
+      <p class="card-desc">
+        Dokumentasi perjalanan profesional, karya, dan refleksi pembelajaran selama PPG Prajabatan 2026.
+      </p>
+      <span class="card-link">Lihat E-Portfolio 1 &rarr;</span>
+    </a>
+
+    <!-- E-Portfolio 2 -->
+    <a href="#" class="landing-card" onclick="alert('E-Portfolio 2 sedang dalam pengembangan!')">
+      <div class="badge-top-right" style="background-color: #0ea5e9;">UAS</div>
+      <div class="card-icon" style="color: #fca5a5;">
+        <i class="fa-solid fa-bullseye"></i>
       </div>
-    </div>
-  </section>
+      <h2 class="card-title">E-Portfolio 2</h2>
+      <p class="card-desc">
+        Refleksi akhir Praktik Pengalaman Lapangan Terbimbing dan Filosofi Mengajar.
+      </p>
+      <span class="card-link">Lihat E-Portfolio 2 &rarr;</span>
+    </a>
 
-  <!-- Education Section -->
-  <section class="education section" id="education">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</div>
-        <h2 class="section-title">Perjalanan Akademik</h2>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-year">2025 - Sekarang</span>
-            <h3>Program Profesional / S2</h3>
-            <p class="institution">Nama Institusi</p>
-            <p>Deskripsi singkat mengenai studi yang sedang ditempuh dan fokus pembelajaran.</p>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <span class="timeline-year">2021 - 2025</span>
-            <h3>S1 Program Studi</h3>
-            <p class="institution">Nama Universitas</p>
-            <p>Deskripsi singkat pengalaman kuliah, judul skripsi, atau pencapaian utama selama masa studi S1.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  </div>
 
-  <!-- Portfolio / Artefak Section -->
-  <section class="portfolio section" id="portfolio">
-    <div class="container">
-      <div class="section-header">
-        <div class="section-badge badge-blue"><i class="fa-solid fa-folder"></i> PORTOFOLIO</div>
-        <h2 class="section-title">Karya & Dokumentasi</h2>
-        <p class="section-subtitle">Koleksi perangkat pembelajaran, media, dan dokumentasi kegiatan profesional</p>
-      </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const introTear = document.getElementById('introTear');
+      
+      const hideIntro = () => {
+        if (!introTear.classList.contains('hidden')) {
+          introTear.classList.add('hidden');
+          sessionStorage.setItem('introSeen', 'true');
+        }
+      };
 
-      <!-- Filter Controls -->
-      <div class="portfolio-filters">
-        <!-- Tier 1: Main Switch -->
-        <div class="filter-switch-wrapper">
-          <div class="filter-switch">
-            <button class="switch-btn active"><i class="fa-solid fa-folder"></i> Artefak Guru</button>
-            <button class="switch-btn"><i class="fa-solid fa-user-graduate"></i> Hasil Karya Siswa</button>
-          </div>
-        </div>
-
-        <!-- Tier 2: Siklus -->
-        <div class="filter-tier tier-siklus">
-          <button class="pill-btn active">Semua</button>
-          <button class="pill-btn">Siklus 1</button>
-          <button class="pill-btn">Siklus 2</button>
-          <button class="pill-btn">Siklus 3</button>
-        </div>
-
-        <!-- Tier 3: Category -->
-        <div class="filter-tier tier-category">
-          <button class="pill-btn-outline active">Semua</button>
-          <button class="pill-btn-outline">RPP</button>
-          <button class="pill-btn-outline">Materi</button>
-          <button class="pill-btn-outline">LKM</button>
-          <button class="pill-btn-outline">Media</button>
-          <button class="pill-btn-outline">Asesmen</button>
-          <button class="pill-btn-outline">Lainnya</button>
-        </div>
-      </div>
-
-      <!-- Portfolio Grid -->
-      <div class="portfolio-grid">
-        <!-- Card 1 -->
-        <div class="portfolio-card">
-          <div class="card-image-wrapper">
-            <div class="card-placeholder" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1px solid #bbf7d0;">
-              <span style="color: #166534; font-weight: bold; font-size: 1.5rem; text-align: center; padding: 1rem; font-family: 'Outfit', sans-serif;">PERENCANAAN<br>PEMBELAJARAN</span>
-            </div>
-            <div class="card-badge badge-rpp">RPP</div>
-          </div>
-        </div>
-        <!-- Card 2 -->
-        <div class="portfolio-card">
-          <div class="card-image-wrapper">
-            <div class="card-placeholder" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe;">
-              <span style="color: #1e3a8a; font-weight: bold; font-size: 1.5rem; text-align: center; padding: 1rem; font-family: 'Outfit', sans-serif;">LAMPIRAN RPP<br><small style="font-size:1rem; font-weight:500;">Instrumen Asesmen</small></span>
-            </div>
-            <div class="card-badge badge-asesmen">Asesmen</div>
-          </div>
-        </div>
-        <!-- Card 3 -->
-        <div class="portfolio-card">
-          <div class="card-image-wrapper">
-            <div class="card-placeholder" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0;">
-              <span style="color: #0f172a; font-weight: bold; font-size: 1.5rem; text-align: center; padding: 1rem; font-family: 'Outfit', sans-serif;">LEMBAR KERJA<br>SISWA (LKM)</span>
-            </div>
-            <div class="card-badge badge-lkm">LKM P1</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- JS -->
-  <script src="main.js"></script>
+      if (!sessionStorage.getItem('introSeen')) {
+        introTear.addEventListener('click', hideIntro);
+        // Optional: you can uncomment the next line if you want it to auto-hide after 3 seconds
+        // setTimeout(hideIntro, 3000);
+      } else {
+        introTear.style.display = 'none';
+      }
+    });
+  </script>
 </body>
 </html>

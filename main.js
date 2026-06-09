@@ -1,22 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Intro Tear Animation
-  const introTear = document.getElementById('introTear');
-  
-  // Hide the intro tear when clicking or after a delay
-  const hideIntro = () => {
-    introTear.classList.add('hidden');
-    // Save state to sessionStorage so it doesn't show again on reload
-    sessionStorage.setItem('introSeen', 'true');
-  };
-
-  if (!sessionStorage.getItem('introSeen')) {
-    introTear.addEventListener('click', hideIntro);
-    // Auto-hide after 3 seconds
-    setTimeout(hideIntro, 3000);
-  } else {
-    introTear.style.display = 'none';
-  }
-
   // 2. Theme Toggle (Dark/Light Mode)
   const themeToggle = document.getElementById('themeToggle');
   const themeIcon = themeToggle.querySelector('.theme-icon');
@@ -155,5 +137,53 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     init();
+  });
+
+  // 6. Portfolio Filters Toggle
+  const switchBtns = document.querySelectorAll('.switch-btn');
+  switchBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      switchBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  const siklusBtns = document.querySelectorAll('.tier-siklus .pill-btn');
+  const categoryBtns = document.querySelectorAll('.tier-category .pill-btn-outline');
+  const portfolioCards = document.querySelectorAll('.portfolio-card');
+
+  function filterCards() {
+    const activeSiklus = document.querySelector('.tier-siklus .pill-btn.active').getAttribute('data-siklus');
+    const activeCategory = document.querySelector('.tier-category .pill-btn-outline.active').getAttribute('data-kategori');
+
+    portfolioCards.forEach(card => {
+      const cardSiklus = card.getAttribute('data-siklus');
+      const cardCategory = card.getAttribute('data-kategori');
+
+      const matchSiklus = activeSiklus === 'semua' || cardSiklus === activeSiklus;
+      const matchCategory = activeCategory === 'semua' || cardCategory === activeCategory;
+
+      if (matchSiklus && matchCategory) {
+        card.style.display = 'flex';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  siklusBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      siklusBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCards();
+    });
+  });
+
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      categoryBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      filterCards();
+    });
   });
 });
