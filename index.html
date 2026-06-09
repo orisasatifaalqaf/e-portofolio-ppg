@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="E-Portfolio Guru Profesional. Dokumentasi perjalanan profesional, karya, dan refleksi pembelajaran." />
+  <title>E-Portfolio | Guru Profesional</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Intro Screen — Page Tear -->
+  <div class="intro-tear" id="introTear">
+    <div class="intro-tear-half intro-tear-top"></div>
+    <div class="intro-tear-half intro-tear-bottom"></div>
+    <div class="intro-panel-content">
+      <div class="intro-panel-title">E-Portfolio Profesional</div>
+      <div class="intro-panel-loading">
+        <div class="intro-panel-loading-fill"></div>
+      </div>
+      <div class="intro-panel-prompt">
+        <span>Klik atau Geser</span>
+        <small>untuk membuka e-portfolio</small>
+      </div>
+    </div>
+  </div>
+
+  <!-- Animated Particle Background -->
+  <canvas id="particleCanvas"></canvas>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#hero" class="nav-logo" aria-label="PPG Logo">
+        <span class="logo-text" style="color: #0F5EA8; display: flex; align-items: center; gap: 8px; font-weight: 800; font-size: 1.5rem;">
+          <i class="fa-solid fa-graduation-cap"></i> PPG
+        </span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="active">Beranda</a></li>
+        <li><a href="#about">Profil</a></li>
+        <li><a href="#education">Pendidikan</a></li>
+        <li><a href="#portfolio">Artefak</a></li>
+        <li><a href="#analisis">Analisis</a></li>
+        <li><a href="#penilaian">Penilaian</a></li>
+        <li><a href="#model-guru">Model Guru</a></li>
+        <li><a href="#gallery">Galeri</a></li>
+        <li><a href="#contact">Kontak</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="action-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Mode Gelap/Terang">
+          <i class="fa-solid fa-moon theme-icon"></i>
+        </button>
+        <button class="action-btn home-btn" id="homeBtn" aria-label="Home" title="Kembali ke Awal">
+          <i class="fa-solid fa-house" style="color: #39BDE8;"></i>
+        </button>
+        <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero section" id="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-greeting"><span class="wave">👋</span> Halo, Saya</div>
+        <h1 class="hero-name"><span class="highlight">Orisa <br class="mobile-name-break" />Satifa Alqaf</span></h1>
+        <p class="hero-role">
+          <span class="typed-text" id="typedText"></span><span class="cursor">|</span>
+        </p>
+        <p class="hero-desc">
+          Saya adalah calon guru profesional dari Program Studi Pendidikan Bahasa dan Sastra Indonesia, Universitas Ahmad Dahlan. Saya berkomitmen menghadirkan pengalaman belajar yang bermakna, aplikatif, dan relevan. Melalui pendekatan yang berpusat pada peserta didik, saya berupaya mengembangkan keterampilan literasi dan karakter siswa.
+        </p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary">
+            <i class="fa-solid fa-folder"></i> Lihat Portofolio
+          </a>
+          <a href="#contact" class="btn btn-secondary">
+            <i class="fa-solid fa-envelope"></i> Hubungi Saya
+          </a>
+        </div>
+        <div class="hero-social">
+          <a href="#" target="_blank" class="social-li"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" target="_blank" class="social-ig"><i class="fab fa-instagram"></i></a>
+          <a href="#" target="_blank" class="social-yt"><i class="fab fa-youtube"></i></a>
+          <a href="#" target="_blank" class="social-mail"><i class="fa-solid fa-envelope"></i></a>
+        </div>
+      </div>
+      <div class="hero-image-section">
+        <div class="hero-image-wrapper">
+          <div class="image-placeholder">
+            <i class="fa-solid fa-user-circle"></i>
+          </div>
+        </div>
+        <div class="hero-badges">
+          <div class="hero-badge"><i class="fa-solid fa-graduation-cap" style="color: #4A154B;"></i> PPG Prajabatan 2026</div>
+          <div class="hero-badge"><i class="fa-solid fa-book" style="color: #E27D60;"></i> Pend. Bahasa Indonesia</div>
+          <div class="hero-badge"><i class="fa-solid fa-university" style="color: #85CDCA;"></i> Univ. Ahmad Dahlan</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fa-solid fa-user"></i> Profil</div>
+        <h2 class="section-title">Mengenal Saya Lebih Dekat</h2>
+        <p class="section-subtitle">Narasi perjalanan hidup dan inspirasi karir saya</p>
+      </div>
+      <div class="about-grid">
+        <div class="about-image">
+          <div class="about-image-card placeholder-card">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <blockquote class="profil-quote">
+            <p><em>"Ilmu adalah senjata terkuat di dunia. Ia menerangi jalan di tengah kegelapan, mengubah ketidakmungkinan menjadi peluang."</em></p>
+            <cite>— Nama Anda</cite>
+          </blockquote>
+        </div>
+        <div class="about-content">
+          <div class="profil-narasi">
+            <h3 class="narasi-heading">📍 Latar Belakang</h3>
+            <p class="about-text">
+              Deskripsi tentang latar belakang Anda, tempat asal, dan nilai-nilai yang membentuk karakter Anda sebagai seorang profesional.
+            </p>
+          </div>
+          <div class="profil-narasi">
+            <h3 class="narasi-heading">💡 Inspirasi</h3>
+            <p class="about-text">
+              Ceritakan momen atau pengalaman yang menginspirasi Anda untuk memilih jalur karir ini dan bagaimana hal itu mempengaruhi pandangan Anda.
+            </p>
+          </div>
+          <div class="profil-narasi">
+            <h3 class="narasi-heading">🎯 Tujuan</h3>
+            <p class="about-text">
+              Tujuan profesional Anda ke depannya dan dampak apa yang ingin Anda berikan melalui karya-karya Anda.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Education Section -->
+  <section class="education section" id="education">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fa-solid fa-graduation-cap"></i> Riwayat Pendidikan</div>
+        <h2 class="section-title">Perjalanan Akademik</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2025 - Sekarang</span>
+            <h3>Program Profesional / S2</h3>
+            <p class="institution">Nama Institusi</p>
+            <p>Deskripsi singkat mengenai studi yang sedang ditempuh dan fokus pembelajaran.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-card">
+            <span class="timeline-year">2021 - 2025</span>
+            <h3>S1 Program Studi</h3>
+            <p class="institution">Nama Universitas</p>
+            <p>Deskripsi singkat pengalaman kuliah, judul skripsi, atau pencapaian utama selama masa studi S1.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio / Artefak Section -->
+  <section class="portfolio section" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge badge-blue"><i class="fa-solid fa-folder"></i> PORTOFOLIO</div>
+        <h2 class="section-title">Karya & Dokumentasi</h2>
+        <p class="section-subtitle">Koleksi perangkat pembelajaran, media, dan dokumentasi kegiatan profesional</p>
+      </div>
+
+      <!-- Filter Controls -->
+      <div class="portfolio-filters">
+        <!-- Tier 1: Main Switch -->
+        <div class="filter-switch-wrapper">
+          <div class="filter-switch">
+            <button class="switch-btn active"><i class="fa-solid fa-folder"></i> Artefak Guru</button>
+            <button class="switch-btn"><i class="fa-solid fa-user-graduate"></i> Hasil Karya Siswa</button>
+          </div>
+        </div>
+
+        <!-- Tier 2: Siklus -->
+        <div class="filter-tier tier-siklus">
+          <button class="pill-btn active">Semua</button>
+          <button class="pill-btn">Siklus 1</button>
+          <button class="pill-btn">Siklus 2</button>
+          <button class="pill-btn">Siklus 3</button>
+        </div>
+
+        <!-- Tier 3: Category -->
+        <div class="filter-tier tier-category">
+          <button class="pill-btn-outline active">Semua</button>
+          <button class="pill-btn-outline">RPP</button>
+          <button class="pill-btn-outline">Materi</button>
+          <button class="pill-btn-outline">LKM</button>
+          <button class="pill-btn-outline">Media</button>
+          <button class="pill-btn-outline">Asesmen</button>
+          <button class="pill-btn-outline">Lainnya</button>
+        </div>
+      </div>
+
+      <!-- Portfolio Grid -->
+      <div class="portfolio-grid">
+        <!-- Card 1 -->
+        <div class="portfolio-card">
+          <div class="card-image-wrapper">
+            <div class="card-placeholder" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); border: 1px solid #bbf7d0;">
+              <span style="color: #166534; font-weight: bold; font-size: 1.5rem; text-align: center; padding: 1rem; font-family: 'Outfit', sans-serif;">PERENCANAAN<br>PEMBELAJARAN</span>
+            </div>
+            <div class="card-badge badge-rpp">RPP</div>
+          </div>
+        </div>
+        <!-- Card 2 -->
+        <div class="portfolio-card">
+          <div class="card-image-wrapper">
+            <div class="card-placeholder" style="background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%); border: 1px solid #bfdbfe;">
+              <span style="color: #1e3a8a; font-weight: bold; font-size: 1.5rem; text-align: center; padding: 1rem; font-family: 'Outfit', sans-serif;">LAMPIRAN RPP<br><small style="font-size:1rem; font-weight:500;">Instrumen Asesmen</small></span>
+            </div>
+            <div class="card-badge badge-asesmen">Asesmen</div>
+          </div>
+        </div>
+        <!-- Card 3 -->
+        <div class="portfolio-card">
+          <div class="card-image-wrapper">
+            <div class="card-placeholder" style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%); border: 1px solid #e2e8f0;">
+              <span style="color: #0f172a; font-weight: bold; font-size: 1.5rem; text-align: center; padding: 1rem; font-family: 'Outfit', sans-serif;">LEMBAR KERJA<br>SISWA (LKM)</span>
+            </div>
+            <div class="card-badge badge-lkm">LKM P1</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+</body>
+</html>
