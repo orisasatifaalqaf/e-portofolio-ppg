@@ -228,4 +228,38 @@ document.addEventListener('DOMContentLoaded', () => {
   if (analysisOverlay) {
     analysisOverlay.addEventListener('click', closePanel);
   }
+
+  // 8. Scroll Spy & Nav Link Click (Active Nav Link)
+  const sections = document.querySelectorAll('section');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.clientHeight;
+      if (pageYOffset >= sectionTop - 300) {
+        current = section.getAttribute('id');
+      }
+    });
+
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (current && link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      } else if (!current && link.getAttribute('href') === '#hero') {
+        // Fallback to hero at the very top
+        link.classList.add('active');
+      }
+    });
+  });
+
+  // Also update immediately on click
+  navLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      navLinks.forEach(nav => nav.classList.remove('active'));
+      this.classList.add('active');
+    });
+  });
+
 });

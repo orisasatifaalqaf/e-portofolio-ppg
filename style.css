@@ -537,7 +537,7 @@ a {
    ========================== */
 .timeline {
   position: relative;
-  max-width: 1000px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -1038,8 +1038,8 @@ a {
 
 .penilaian-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
+  grid-template-columns: 1fr;
+  gap: 3rem;
   margin-bottom: 3rem;
 }
 
@@ -1177,11 +1177,18 @@ a {
 [data-theme="dark"] .btn-light-blue:hover { background: rgba(3,105,161,0.5); }
 
 .penilaian-preview {
-  width: 220px;
+  width: 450px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 992px) {
+  .penilaian-preview {
+    width: 100%;
+    margin-top: 2rem;
+  }
 }
 
 .doc-placeholder {
