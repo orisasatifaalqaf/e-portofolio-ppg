@@ -145,6 +145,9 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       switchBtns.forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
+      if (typeof filterCards === 'function') {
+        filterCards();
+      }
     });
   });
 
@@ -153,17 +156,20 @@ document.addEventListener('DOMContentLoaded', () => {
   const portfolioCards = document.querySelectorAll('.portfolio-card');
 
   function filterCards() {
+    const activeTipe = document.querySelector('.filter-switch .switch-btn.active').getAttribute('data-tipe');
     const activeSiklus = document.querySelector('.tier-siklus .pill-btn.active').getAttribute('data-siklus');
     const activeCategory = document.querySelector('.tier-category .pill-btn-outline.active').getAttribute('data-kategori');
 
     portfolioCards.forEach(card => {
+      const cardTipe = card.getAttribute('data-tipe') || 'guru';
       const cardSiklus = card.getAttribute('data-siklus');
       const cardCategory = card.getAttribute('data-kategori');
 
-      const matchSiklus = activeSiklus === 'semua' || cardSiklus === activeSiklus;
+      const matchTipe = cardTipe === activeTipe;
+      const matchSiklus = activeSiklus === 'semua' || cardSiklus === 'semua' || cardSiklus === activeSiklus;
       const matchCategory = activeCategory === 'semua' || cardCategory === activeCategory;
 
-      if (matchSiklus && matchCategory) {
+      if (matchTipe && matchSiklus && matchCategory) {
         card.style.display = 'flex';
       } else {
         card.style.display = 'none';
@@ -193,8 +199,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const closePanelBtns = document.querySelectorAll('.btn-close-panel');
 
   function openPanel(e) {
-    e.preventDefault();
     const targetId = this.getAttribute('data-target');
+    if (!targetId) return; // Allow normal link navigation if no target
+    
+    e.preventDefault();
     const panel = document.getElementById(targetId);
     if (panel) {
       analysisOverlay.classList.add('active');
