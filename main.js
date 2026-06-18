@@ -186,4 +186,38 @@ document.addEventListener('DOMContentLoaded', () => {
       filterCards();
     });
   });
+
+  // 7. Analysis Panel Logic
+  const analysisBtns = document.querySelectorAll('.btn-analysis');
+  const analysisOverlay = document.getElementById('analysisOverlay');
+  const closePanelBtns = document.querySelectorAll('.btn-close-panel');
+
+  function openPanel(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('data-target');
+    const panel = document.getElementById(targetId);
+    if (panel) {
+      analysisOverlay.classList.add('active');
+      panel.classList.add('active');
+      document.body.style.overflow = 'hidden'; // prevent background scrolling
+    }
+  }
+
+  function closePanel() {
+    analysisOverlay.classList.remove('active');
+    document.querySelectorAll('.analysis-panel.active').forEach(p => p.classList.remove('active'));
+    document.body.style.overflow = 'auto'; // restore background scrolling
+  }
+
+  analysisBtns.forEach(btn => {
+    btn.addEventListener('click', openPanel);
+  });
+
+  closePanelBtns.forEach(btn => {
+    btn.addEventListener('click', closePanel);
+  });
+  
+  if (analysisOverlay) {
+    analysisOverlay.addEventListener('click', closePanel);
+  }
 });
