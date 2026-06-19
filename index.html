@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pilih E-Portfolio</title>
+  <title>E-Portfolio | Guru Profesional PPG</title>
+  
+  <!-- Favicon PPG -->
+  <link rel="icon" href="LOGO WEB.jpg" type="image/jpeg" />
   
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -180,7 +183,6 @@
     }
     .scrapbook-intro.hidden {
       opacity: 0;
-      visibility: hidden;
       pointer-events: none;
       transform: scale(1.1) translateY(-100%);
     }
@@ -261,7 +263,6 @@
       font-weight: 700;
       border-radius: 8px;
       box-shadow: 4px 4px 0 #5c4b3f;
-      transform: rotate(-1deg);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -276,6 +277,7 @@
       .scrapbook-polaroid img { height: 220px; }
       .scrapbook-clip { font-size: 3.5rem; top: -20px; }
     }
+
   </style>
 </head>
 <body>
@@ -366,8 +368,6 @@
 
       if (!sessionStorage.getItem('introSeen')) {
         introTear.addEventListener('click', hideIntro);
-        // Optional: you can uncomment the next line if you want it to auto-hide after 3 seconds
-        // setTimeout(hideIntro, 3000);
       } else {
         introTear.style.display = 'none';
       }
