@@ -696,6 +696,16 @@
       padding-bottom: 1.5rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
+    .p2-modal-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
     .p2-modal-title h3 {
       color: #f8fafc;
       font-size: 1.1rem;
@@ -1030,6 +1040,18 @@
     @media (max-width: 500px) {
       .p2-cards-grid-4 { grid-template-columns: 1fr; }
     }
+    
+    /* Light Mode Implementation */
+    html[data-theme="light"] {
+      filter: invert(1) hue-rotate(180deg);
+      background-color: #f4f4f4; /* prevent edge artifacts */
+    }
+    html[data-theme="light"] img,
+    html[data-theme="light"] iframe,
+    html[data-theme="light"] video,
+    html[data-theme="light"] .p2-logo {
+      filter: invert(1) hue-rotate(180deg);
+    }
   </style>
 </head>
 <body>
@@ -1045,8 +1067,7 @@
       <li><a href="#filosofi-mengajar">Filosofi Mengajar</a></li>
     </ul>
     <div class="p2-nav-actions">
-      <a href="#" class="p2-action-btn sun"><i class="fa-solid fa-sun"></i></a>
-      <a href="#" class="p2-action-btn bolt"><i class="fa-solid fa-bolt"></i></a>
+      <a href="#" class="p2-action-btn theme-toggle" id="themeToggleP2"><i class="fa-solid fa-sun theme-icon"></i></a>
       <a href="index.html" class="p2-action-btn active"><i class="fa-solid fa-house"></i></a>
     </div>
   </nav>
@@ -1246,18 +1267,21 @@
           <div class="p2-card-icon teal-bg" style="width:45px;height:45px;font-size:1.1rem;margin-bottom:1rem;"><i class="fa-solid fa-seedling"></i></div>
           <h3 class="p2-card-title" style="font-size: 1.05rem;">Pembelajaran Bermakna</h3>
           <p class="p2-card-desc" style="font-size: 0.85rem; margin-bottom: 0;">Menciptakan pengalaman belajar yang relevan dengan kehidupan nyata peserta didik, mendorong pemahaman konsep alih-alih hafalan semata.</p>
+          <a href="#" class="p2-card-link teal-text" onclick="openModal(event, 'modal-filosofi-1')" style="font-size: 0.8rem; margin-top: 1.2rem;">Baca Selengkapnya <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
         </div>
         <!-- Card 2 -->
         <div class="p2-detail-card" style="padding: 1.8rem;">
           <div class="p2-card-icon blue-bg" style="width:45px;height:45px;font-size:1.1rem;margin-bottom:1rem;"><i class="fa-solid fa-hands-holding-child"></i></div>
           <h3 class="p2-card-title" style="font-size: 1.05rem;">Fasilitator & Scaffolder</h3>
           <p class="p2-card-desc" style="font-size: 0.85rem; margin-bottom: 0;">Menjadi pemandu yang memberikan pijakan yang tepat, lalu perlahan melepaskan peserta didik agar mampu berpikir kritis secara mandiri.</p>
+          <a href="#" class="p2-card-link blue-text" onclick="openModal(event, 'modal-filosofi-2')" style="font-size: 0.8rem; margin-top: 1.2rem;">Baca Selengkapnya <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
         </div>
         <!-- Card 3 -->
         <div class="p2-detail-card" style="padding: 1.8rem;">
           <div class="p2-card-icon purple-bg" style="width:45px;height:45px;font-size:1.1rem;margin-bottom:1rem;"><i class="fa-solid fa-user-tie"></i></div>
           <h3 class="p2-card-title" style="font-size: 1.05rem;">Karakter Profesional</h3>
           <p class="p2-card-desc" style="font-size: 0.85rem; margin-bottom: 0;">Menjunjung tinggi etika keguruan, senantiasa merefleksikan praktik mengajar, dan tak pernah berhenti belajar mengikuti perkembangan zaman.</p>
+          <a href="#" class="p2-card-link purple-text" onclick="openModal(event, 'modal-filosofi-3')" style="font-size: 0.8rem; margin-top: 1.2rem;">Baca Selengkapnya <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem; margin-left: 3px;"></i></a>
         </div>
       </div>
 
@@ -1269,31 +1293,31 @@
       <div class="p2-cards-grid-4">
         <!-- Bottom mini cards -->
         <div class="p2-mini-card">
-          <div class="p2-mini-icon teal-bg"><i class="fa-solid fa-users"></i></div>
-          <div class="p2-mini-text">
-            <h4 style="font-size:0.9rem;">Kolaboratif</h4>
-            <p>Membangun kerja sama</p>
-          </div>
-        </div>
-        <div class="p2-mini-card">
-          <div class="p2-mini-icon blue-bg"><i class="fa-solid fa-child-reaching"></i></div>
+          <div class="p2-mini-icon blue-bg"><i class="fa-solid fa-hands-holding-child"></i></div>
           <div class="p2-mini-text">
             <h4 style="font-size:0.9rem;">Berpihak pada Murid</h4>
-            <p>Siswa sebagai subjek</p>
+            <p>Menuntun, bukan menentukan</p>
           </div>
         </div>
         <div class="p2-mini-card">
-          <div class="p2-mini-icon purple-bg"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+          <div class="p2-mini-icon teal-bg"><i class="fa-solid fa-face-smile-beam"></i></div>
           <div class="p2-mini-text">
-            <h4 style="font-size:0.9rem;">Mandiri</h4>
-            <p>Inisiatif mengembangkan diri</p>
+            <h4 style="font-size:0.9rem;">Mindful & Joyful</h4>
+            <p>Kelas relevan & menyenangkan</p>
           </div>
         </div>
         <div class="p2-mini-card">
-          <div class="p2-mini-icon" style="background: rgba(250, 204, 21, 0.15); color: #facc15;"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="p2-mini-icon" style="background: rgba(250, 204, 21, 0.15); color: #facc15;"><i class="fa-solid fa-seedling"></i></div>
           <div class="p2-mini-text">
-            <h4 style="font-size:0.9rem;">Inovatif</h4>
-            <p>Kreatif mencari solusi</p>
+            <h4 style="font-size:0.9rem;">Growth Mindset</h4>
+            <p>Sabar dibentuk ulang</p>
+          </div>
+        </div>
+        <div class="p2-mini-card">
+          <div class="p2-mini-icon purple-bg"><i class="fa-solid fa-book-open-reader"></i></div>
+          <div class="p2-mini-text">
+            <h4 style="font-size:0.9rem;">Pembelajar Hayat</h4>
+            <p>Tiap tempat adalah sekolah</p>
           </div>
         </div>
       </div>
@@ -1500,7 +1524,69 @@
             <div class="p2-action-text">Fokus menuntaskan kalibrasi waktu, agar kelas yang saya ampu semakin terasa hidup bagi setiap murid, bukan hanya bagi sebagian dari mereka.</div>
           </div>
         </div>
-        
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Filosofi 1 -->
+  <div class="p2-modal-overlay" id="modal-filosofi-1">
+    <div class="p2-modal-content">
+      <button class="p2-modal-close" onclick="closeModal('modal-filosofi-1')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="p2-modal-header" style="align-items: center; gap: 1rem;">
+        <div class="p2-modal-icon teal-bg"><i class="fa-solid fa-seedling"></i></div>
+        <div class="p2-modal-title">
+          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(45, 212, 191, 0.15); color: #2dd4bf; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 1</span></p>
+          <h3 style="margin: 0; font-size: 1.25rem;">Pembelajaran Bermakna</h3>
+        </div>
+      </div>
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;">
+      
+      <div class="p2-modal-body">
+        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.2rem;">Saya percaya, kelas yang baik dibangun di atas tiga fondasi, yaitu mindful, meaningful, dan joyful. Mindful karena murid harus disapa sesuai kondisi nyata mereka, bukan kondisi ideal yang saya bayangkan sendirian di atas kertas RPP. Meaningful karena setiap materi sekering apa pun kelihatannya di permukaan, karya tulis ilmiah misalnya, harus berakar pada keresahan yang murid kenali, bukan sekadar konsep yang melayang di awang-awang.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0;">Joyful karena saya percaya satu lembar <em>sticky note</em> yang ditempel dengan tawa bisa menciptakan keterlibatan yang jauh lebih hidup daripada lembar penilaian paling formal sekalipun. Ketiganya bukan teori yang saya hafal, melainkan kompas yang saya pegang setiap kali menyusun dan menjalankan rencana pembelajaran.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Filosofi 2 -->
+  <div class="p2-modal-overlay" id="modal-filosofi-2">
+    <div class="p2-modal-content">
+      <button class="p2-modal-close" onclick="closeModal('modal-filosofi-2')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="p2-modal-header" style="align-items: center; gap: 1rem;">
+        <div class="p2-modal-icon blue-bg"><i class="fa-solid fa-hands-holding-child"></i></div>
+        <div class="p2-modal-title">
+          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 2</span></p>
+          <h3 style="margin: 0; font-size: 1.25rem;">Fasilitator & Scaffolder</h3>
+        </div>
+      </div>
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;">
+      
+      <div class="p2-modal-body">
+        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.2rem;">Saya percaya, mengajar adalah seni membentuk tanpa memaksa bentuk. Filosofi ini tidak saya temukan dari buku, melainkan dari tanah liat Kasongan tempat saya dibesarkan di mana sesuatu yang awalnya tidak berbentuk bisa menjadi berharga, bukan karena dipaksa, tetapi karena disabari. Saya membawa prinsip itu ke dalam kelas, setiap murid datang dengan karakteristiknya sendiri, dengan kecepatan serta keingintahuannya masing-masing. Tugas saya bukan menyeragamkan mereka menjadi satu bentuk ideal, melainkan menuntun mereka menemukan bentuk terbaik dari diri mereka sendiri. Inilah yang saya pahami dari gagasan Ki Hadjar Dewantara tentang pendidikan yang berpihak pada kodrat anak, pendidik menuntun, bukan menentukan.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0;">Pada akhirnya, saya tidak ingin sekadar dikenal sebagai guru yang pintar menyampaikan materi. Saya ingin dikenal sebagai guru yang menjadikan kelasnya terasa seperti rumah, tempat murid berani salah, berani bertanya, dan berani menjadi diri mereka sendiri. Karena bagi saya, itulah inti dari profesi ini, bukan mentransfer ilmu dari satu kepala ke kepala lain, melainkan menumbuhkan keberanian seorang murid untuk terus tumbuh sebagaimana tanah liat yang sabar dibentuk hingga ia berdiri sebagai sesuatu yang utuh, kuat, dan bermakna.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Filosofi 3 -->
+  <div class="p2-modal-overlay" id="modal-filosofi-3">
+    <div class="p2-modal-content">
+      <button class="p2-modal-close" onclick="closeModal('modal-filosofi-3')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="p2-modal-header" style="align-items: center; gap: 1rem;">
+        <div class="p2-modal-icon purple-bg"><i class="fa-solid fa-user-tie"></i></div>
+        <div class="p2-modal-title">
+          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 3</span></p>
+          <h3 style="margin: 0; font-size: 1.25rem;">Karakter Profesional</h3>
+        </div>
+      </div>
+      <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;">
+      
+      <div class="p2-modal-body">
+        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.2rem;">Keyakinan itu semakin saya pegang erat melalui satu kutipan yang menjadi kompas sejak awal perjalanan ini. Jadikan setiap tempat sebagai sekolah dan jadikan setiap orang sebagai guru. Bagi saya, kutipan Ki Hadjar Dewantara ini bukan sekadar kalimat indah untuk diucapkan, melainkan pengingat bahwa ruang kelas hanyalah satu dari banyak ruang belajar, dan gelar guru bukan satu-satunya sumber ilmu. Maka saya berusaha untuk tidak pernah berhenti belajar dari murid, dari rekan sejawat, bahkan dari kegagalan kecil di setiap pertemuan.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0;">Dan saya percaya, guru yang baik bukan guru yang sempurna sejak hari pertama melainkan guru yang berani terus dibentuk ulang. Sepanjang tiga siklus praktik mengajar, saya jatuh pada pola yang sama berulang kali. Waktu yang kurang, instruksi yang tidak sampai, rencana yang harus diubah mendadak. Tapi setiap kali itu terjadi, saya memilih untuk tidak berhenti di rasa gagal. Saya memilih bertanya apa yang bisa saya bentuk ulang dari sini? Itulah <em>growth mindset</em> yang saya yakini, bukan sekadar konsep motivasi, tetapi cara saya memperlakukan setiap kekurangan bukan sebagai noda permanen melainkan sebagai tanah liat yang masih bisa dibentuk ulang.</p>
       </div>
     </div>
   </div>
@@ -1549,6 +1635,35 @@
         }
       });
     });
+
+    // Theme Toggle Functionality
+    const themeToggleP2 = document.getElementById('themeToggleP2');
+    if (themeToggleP2) {
+      const themeIcon = themeToggleP2.querySelector('.theme-icon');
+      
+      // Check saved theme or system preference
+      const savedTheme = localStorage.getItem('theme-p2');
+      const html = document.documentElement;
+      
+      if (savedTheme === 'light') {
+        html.setAttribute('data-theme', 'light');
+        if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+      }
+
+      themeToggleP2.addEventListener('click', (e) => {
+        e.preventDefault();
+        const currentTheme = html.getAttribute('data-theme');
+        if (currentTheme === 'dark' || !currentTheme) {
+          html.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme-p2', 'light');
+          if (themeIcon) themeIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+          html.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme-p2', 'dark');
+          if (themeIcon) themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+      });
+    }
   </script>
 
 </body>
