@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>E-Portfolio 2 | Refleksi & Filosofi</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0b1120;
+      background-image: 
+        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.05), transparent 30%), 
+        radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.05), transparent 30%);
+      color: #e2e8f0;
+      font-family: 'Inter', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* Navbar */
+    .p2-navbar {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      background: rgba(11, 17, 32, 0.8);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    
+    .p2-logo {
+      background: #fff;
+      padding: 6px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 800;
+      color: #0F5EA8;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.1rem;
+    }
+
+    .p2-nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .p2-nav-links a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+      padding-bottom: 5px;
+      border-bottom: 2px solid transparent;
+    }
+
+    .p2-nav-links a:hover, .p2-nav-links a.active {
+      color: #38bdf8;
+    }
+
+    .p2-nav-links a.active {
+      border-bottom-color: #38bdf8;
+    }
+
+    .p2-nav-actions {
+      display: flex;
+      gap: 12px;
+    }
+
+    .p2-action-btn {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+    }
+
+    .p2-action-btn:hover {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+
+    .p2-action-btn.active {
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+    
+    .p2-action-btn.sun { color: #facc15; }
+    .p2-action-btn.bolt { color: #ef4444; }
+
+    /* Main Container */
+    .p2-container {
+      max-width: 1200px;
+      margin: 120px auto 50px;
+      padding: 0 2rem;
+    }
+
+    /* Hero Section */
+    .p2-hero {
+      display: flex;
+      gap: 4rem;
+      align-items: center;
+      margin-bottom: 4rem;
+      position: relative;
+    }
+
+    /* Background tech elements placeholder */
+    .tech-bg {
+      position: absolute;
+      top: -100px;
+      right: -200px;
+      width: 800px;
+      height: 800px;
+      background-image: 
+        radial-gradient(circle, rgba(56,189,248,0.1) 1px, transparent 1px),
+        linear-gradient(rgba(56,189,248,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(56,189,248,0.05) 1px, transparent 1px);
+      background-size: 20px 20px, 40px 40px, 40px 40px;
+      opacity: 0.5;
+      z-index: -1;
+      border-radius: 50%;
+      mask-image: radial-gradient(circle, black 30%, transparent 70%);
+      -webkit-mask-image: radial-gradient(circle, black 30%, transparent 70%);
+    }
+
+    /* Left Card */
+    .p2-profile-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      text-align: center;
+      width: 340px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+    }
+
+    .p2-profile-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.15), transparent 50%);
+      pointer-events: none;
+    }
+
+    .p2-profile-img {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 45%;
+      margin: 0 auto 1.5rem;
+      border: 2px solid rgba(56, 189, 248, 0.4);
+      padding: 6px;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-profile-name {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-profile-title {
+      color: #94a3b8;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-badge {
+      display: inline-block;
+      background: rgba(16, 185, 129, 0.1);
+      color: #10b981;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+      border: 1px solid rgba(16, 185, 129, 0.2);
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-badge.teal {
+      background: rgba(20, 184, 166, 0.1);
+      color: #14b8a6;
+      border-color: rgba(20, 184, 166, 0.2);
+    }
+
+    .p2-badge i { margin-right: 6px; }
+
+    .p2-socials {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #94a3b8;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      text-decoration: none;
+    }
+
+    .p2-social-btn:hover {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Right Content */
+    .p2-content {
+      flex: 1;
+    }
+
+    .p2-tag {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.15);
+      color: #38bdf8;
+      padding: 0.4rem 1rem;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .p2-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .p2-desc {
+      color: #94a3b8;
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      max-width: 650px;
+    }
+
+    .p2-quote {
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 3px solid #a855f7;
+      padding: 1.5rem;
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: #cbd5e1;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      backdrop-filter: blur(5px);
+    }
+
+    .p2-actions {
+      display: flex;
+      gap: 1.2rem;
+    }
+
+    .p2-btn-primary {
+      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      color: #0f172a;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .p2-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+    }
+
+    .p2-btn-secondary {
+      background: rgba(30, 41, 59, 0.8);
+      color: #e2e8f0;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+    }
+
+    .p2-btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.9);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Bottom Section */
+    .p2-sections {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .p2-section-card {
+      flex: 1;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 1.8rem;
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+    }
+
+    .p2-section-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .p2-icon-box {
+      width: 55px;
+      height: 55px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .p2-icon-teal {
+      background: rgba(45, 212, 191, 0.15);
+      color: #2dd4bf;
+    }
+
+    .p2-icon-purple {
+      background: rgba(168, 85, 247, 0.15);
+      color: #a855f7;
+    }
+
+    .p2-section-info {
+      flex: 1;
+    }
+
+    .p2-section-label {
+      color: #64748b;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      margin-bottom: 0.4rem;
+    }
+
+    .p2-section-title {
+      color: #f8fafc;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .p2-section-desc {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .p2-section-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      opacity: 0.6;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    .p2-num-teal { color: #2dd4bf; }
+    .p2-num-purple { color: #a855f7; }
+
+    .p2-quote-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2.5rem 3rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .p2-quote-card i {
+      font-size: 2rem;
+      color: rgba(255, 255, 255, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .p2-quote-card p {
+      font-family: 'Outfit', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: #f8fafc;
+      line-height: 1.5;
+    }
+
+    .p2-nilai-inti-header {
+      text-align: center;
+      margin: 3rem 0 1.5rem;
+    }
+
+    .p2-nilai-inti-header h4 {
+      color: #f8fafc;
+      font-size: 1rem;
+      letter-spacing: 2px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .p2-nilai-inti-header p {
+      color: #64748b;
+      font-size: 0.8rem;
+    }
+
+    .p2-detail-section {
+      padding: 4rem 0 6rem 0;
+      position: relative;
+    }
+
+    .p2-section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .p2-tag-small {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      color: #38bdf8;
+      padding: 0.3rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .p2-section-header h2 {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.2rem;
+      color: #fff;
+      margin-bottom: 0.8rem;
+    }
+
+    .p2-section-header p {
+      color: #94a3b8;
+      font-size: 1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .p2-cards-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .p2-detail-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s, border-color 0.3s;
+    }
+
+    .p2-detail-card:hover {
+      transform: translateY(-5px);
+      border-color: rgba(56, 189, 248, 0.3);
+    }
+
+    .p2-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 1.5rem;
+    }
+
+    .p2-card-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+    }
+
+    .teal-bg { background: rgba(45, 212, 191, 0.15); color: #2dd4bf; }
+    .teal-text { color: #2dd4bf; }
+    
+    .blue-bg { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .blue-text { color: #38bdf8; }
+
+    .purple-bg { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+    .purple-text { color: #a855f7; }
+
+    .p2-card-number {
+      font-family: 'Outfit', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 800;
+      opacity: 0.3;
+      line-height: 1;
+    }
+
+    .p2-card-title {
+      color: #f8fafc;
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+
+    .p2-card-desc {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .p2-card-link {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      transition: opacity 0.3s;
+    }
+    .p2-card-link:hover { opacity: 0.8; }
+
+    .p2-cards-grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .p2-mini-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      backdrop-filter: blur(10px);
+    }
+
+    .p2-mini-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      color: #94a3b8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .p2-mini-text h4 {
+      color: #f8fafc;
+      font-size: 0.85rem;
+      margin-bottom: 0.2rem;
+    }
+
+    .p2-mini-text p {
+      color: #64748b;
+      font-size: 0.7rem;
+      line-height: 1.3;
+    }
+
+    /* Modal Styles */
+    .p2-modal-overlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(5px);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .p2-modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .p2-modal-content {
+      background: #0f172a;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      width: 90%;
+      max-width: 650px;
+      padding: 2.5rem;
+      position: relative;
+      transform: translateY(20px) scale(0.95);
+      transition: all 0.3s ease;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+    .p2-modal-overlay.active .p2-modal-content {
+      transform: translateY(0) scale(1);
+    }
+    .p2-modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #94a3b8;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .p2-modal-close:hover {
+      background: #ef4444;
+      color: #fff;
+      border-color: #ef4444;
+    }
+    .p2-modal-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .p2-modal-title h3 {
+      color: #f8fafc;
+      font-size: 1.1rem;
+      margin-top: 0.3rem;
+      line-height: 1.4;
+    }
+    .p2-modal-title p {
+      color: #2dd4bf;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .p2-modal-body p.p2-modal-intro {
+      color: #cbd5e1;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+    .p2-modal-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+    .p2-modal-item {
+      display: flex;
+      gap: 1rem;
+    }
+    .p2-modal-item-number.teal { background: rgba(45, 212, 191, 0.15); color: #2dd4bf; }
+    .p2-modal-item-number.blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .p2-modal-item-number.yellow { background: rgba(250, 204, 21, 0.15); color: #facc15; }
+    
+    .p2-modal-item-number {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .p2-modal-item-text h4 {
+      color: #f8fafc;
+      font-size: 0.95rem;
+      margin-bottom: 0.4rem;
+    }
+    .p2-modal-item-text p {
+      color: #94a3b8;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      margin-bottom: 0;
+    }
+
+    /* Challenge Cards inside Modal */
+    .p2-challenge-card {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .p2-challenge-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .p2-tag-red {
+      background: rgba(239, 68, 68, 0.15);
+      color: #f87171;
+      padding: 0.3rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .p2-challenge-header h4 {
+      color: #f8fafc;
+      font-size: 1rem;
+      margin: 0;
+    }
+    .p2-challenge-card > p {
+      color: #cbd5e1;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-bottom: 1rem;
+    }
+    .p2-solution-box {
+      background: rgba(45, 212, 191, 0.08);
+      border-left: 3px solid #2dd4bf;
+      border-radius: 4px 8px 8px 4px;
+      padding: 1rem;
+    }
+    .p2-solution-box h5 {
+      color: #2dd4bf;
+      font-size: 0.85rem;
+      margin-bottom: 0.4rem;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .p2-solution-box p {
+      color: #e2e8f0;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+
+    /* Timeline Cards */
+    .p2-timeline-cards {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.8rem;
+      margin-top: 3rem;
+    }
+    .p2-timeline-card {
+      background: rgba(15, 23, 42, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.2rem;
+      flex: 1;
+    }
+    .p2-timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .p2-timeline-icon {
+      width: 32px;
+      height: 32px;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .p2-timeline-header h4 {
+      color: #f8fafc;
+      font-size: 0.95rem;
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .p2-timeline-text p {
+      color: #94a3b8;
+      font-size: 0.8rem;
+      line-height: 1.5;
+      margin: 0;
+    }
+    .p2-timeline-arrow {
+      color: #475569;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .p2-timeline-cards {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .p2-timeline-arrow {
+        text-align: center;
+        transform: rotate(90deg);
+        margin: 0.5rem 0;
+      }
+    }
+
+    /* Feedback Cards inside Modal */
+    .p2-feedback-card {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1.2rem;
+    }
+    .p2-feedback-header {
+      margin-bottom: 1rem;
+    }
+    .p2-tag-purple {
+      background: rgba(168, 85, 247, 0.15);
+      color: #c084fc;
+      padding: 0.35rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .p2-feedback-quote {
+      border-left: 2px solid #a855f7;
+      padding-left: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .p2-feedback-quote p {
+      color: #e2e8f0;
+      font-size: 0.95rem;
+      font-style: italic;
+      margin: 0;
+      line-height: 1.5;
+    }
+    .p2-feedback-action {
+      background: rgba(45, 212, 191, 0.05);
+      border-radius: 8px;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .p2-action-label {
+      color: #2dd4bf;
+      font-weight: 700;
+      font-size: 0.85rem;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .p2-action-text {
+      color: #cbd5e1;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .p2-footer {
+      background: #070b14;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 4rem 2rem 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .p2-footer-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6rem;
+      margin-bottom: 3rem;
+    }
+
+    .p2-footer-left {
+      text-align: center;
+      min-width: 300px;
+    }
+
+    .p2-footer-right {
+      text-align: center;
+      min-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .p2-btn-ganti {
+      display: flex;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.4);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 12px;
+      padding: 0.8rem 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .p2-btn-ganti:hover {
+      background: rgba(30, 41, 59, 0.8);
+      border-color: rgba(56, 189, 248, 0.3);
+      transform: translateY(-2px);
+    }
+    .p2-btn-ganti-icon {
+      color: #2dd4bf;
+      margin-right: 15px;
+      font-size: 1.2rem;
+    }
+    .p2-btn-ganti-text {
+      text-align: left;
+    }
+    .p2-btn-ganti-text strong {
+      display: block;
+      color: #2dd4bf;
+      font-size: 0.95rem;
+      margin-bottom: 0.2rem;
+    }
+    .p2-btn-ganti-text span {
+      display: block;
+      color: #64748b;
+      font-size: 0.75rem;
+    }
+
+    .p2-footer-bottom {
+      text-align: center;
+      color: #475569;
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 1.5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 900px) {
+      .p2-hero {
+        flex-direction: column;
+        text-align: center;
+      }
+      .p2-actions {
+        justify-content: center;
+      }
+      .p2-sections {
+        flex-direction: column;
+      }
+      .p2-quote {
+        border-left: none;
+        border-top: 3px solid #a855f7;
+        border-radius: 0 0 12px 12px;
+      }
+      .p2-cards-grid-3 { grid-template-columns: 1fr; }
+      .p2-cards-grid-4 { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 500px) {
+      .p2-cards-grid-4 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="p2-navbar">
+    <div class="p2-logo">
+      <i class="fa-solid fa-graduation-cap"></i> PPG
+    </div>
+    <ul class="p2-nav-links">
+      <li><a href="#beranda" class="active">Beranda</a></li>
+      <li><a href="#refleksi-ppl">Refleksi PPL</a></li>
+      <li><a href="#filosofi-mengajar">Filosofi Mengajar</a></li>
+    </ul>
+    <div class="p2-nav-actions">
+      <a href="#" class="p2-action-btn sun"><i class="fa-solid fa-sun"></i></a>
+      <a href="#" class="p2-action-btn bolt"><i class="fa-solid fa-bolt"></i></a>
+      <a href="index.html" class="p2-action-btn active"><i class="fa-solid fa-house"></i></a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="p2-container">
+    
+    <div class="p2-hero" id="beranda">
+      <div class="tech-bg"></div>
+
+      <!-- Left Profile Card -->
+      <div class="p2-profile-card">
+        <!-- Using foto-profil.jpg as it exists in the folder, or a fallback -->
+        <img src="foto-profil.jpg" alt="Orisa Satifa Alqaf" class="p2-profile-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+        <h2 class="p2-profile-name">Orisa Satifa Alqaf</h2>
+        <p class="p2-profile-title">Calon Guru Bahasa Indonesia</p>
+        
+        <div><span class="p2-badge"><i class="fa-solid fa-graduation-cap"></i> PPG Prajabatan 2026</span></div>
+        <div><span class="p2-badge teal"><i class="fa-solid fa-school"></i> SMA Negeri 8 Yogyakarta</span></div>
+
+        <div class="p2-socials">
+          <a href="#" class="p2-social-btn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="p2-social-btn"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="p2-social-btn"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="p2-social-btn"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+
+      <!-- Right Content -->
+      <div class="p2-content">
+        <span class="p2-tag"><i class="fa-solid fa-book"></i> E-Portfolio 2 — UAS</span>
+        <h1 class="p2-title">RefleksiAkhir&<br>FilosofiMengajar</h1>
+        <p class="p2-desc">
+          Dokumentasi refleksi perjalanan Praktik Pengalaman Lapangan Terbimbing dan prinsip-prinsip yang mendasari praktik pengajaran saya sebagai calon guru profesional Bahasa Indonesia.
+        </p>
+
+        <div class="p2-quote">
+          <i class="fa-solid fa-quote-left" style="color: #a855f7; margin-right: 10px;"></i>
+          Mengajar adalah seni membentuk tanpa memaksa bentuk.
+        </div>
+
+        <div class="p2-actions">
+          <a href="#refleksi-ppl" class="p2-btn-primary" style="text-decoration: none;">
+            <i class="fa-solid fa-lock" style="color: #fde047;"></i> Lihat Refleksi
+          </a>
+          <a href="#filosofi-mengajar" class="p2-btn-secondary" style="text-decoration: none;">
+            <i class="fa-solid fa-lightbulb" style="color: #38bdf8;"></i> Filosofi Mengajar
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Sections -->
+    <div class="p2-sections">
+      
+      <!-- Section 1 -->
+      <a href="#refleksi-ppl" class="p2-section-card" style="text-decoration: none;">
+        <div class="p2-icon-box p2-icon-teal">
+          <i class="fa-solid fa-clipboard-check"></i>
+        </div>
+        <div class="p2-section-info">
+          <div class="p2-section-label">SECTION 01</div>
+          <div class="p2-section-title">Refleksi Akhir PPL Terbimbing</div>
+          <div class="p2-section-desc">3 pertanyaan refleksi mendalam tentang pembelajaran, tantangan & umpan balik selama PPL.</div>
+        </div>
+        <div class="p2-section-number p2-num-teal">3</div>
+      </a>
+
+      <!-- Section 2 -->
+      <a href="#filosofi-mengajar" class="p2-section-card" style="text-decoration: none;">
+        <div class="p2-icon-box p2-icon-purple">
+          <i class="fa-solid fa-lightbulb"></i>
+        </div>
+        <div class="p2-section-info">
+          <div class="p2-section-label">SECTION 02</div>
+          <div class="p2-section-title">Filosofi Mengajar</div>
+          <div class="p2-section-desc">Prinsip pembelajaran bermakna, fasilitator scaffolder, & karakter profesional dengan 4 nilai inti.</div>
+        </div>
+        <div class="p2-section-number p2-num-purple">3+4</div>
+      </a>
+
+    </div>
+
+    <!-- Section: Refleksi PPL -->
+    <section id="refleksi-ppl" class="p2-detail-section">
+      <div class="p2-section-header">
+        <span class="p2-tag-small">SECTION 01</span>
+        <h2>Refleksi Akhir PPL Terbimbing</h2>
+        <p>3 pertanyaan refleksi mendalam tentang pembelajaran, tantangan & umpan balik selama Praktik Pengalaman Lapangan.</p>
+      </div>
+
+      <div class="p2-cards-grid-3">
+        <!-- Card 1 -->
+        <div class="p2-detail-card">
+          <div class="p2-card-top">
+            <div class="p2-card-icon teal-bg"><i class="fa-solid fa-book-open"></i></div>
+            <div class="p2-card-number teal-text">01</div>
+          </div>
+          <h3 class="p2-card-title">Apa yang Telah Saya Pelajari?</h3>
+          <p class="p2-card-desc">Pengalaman baru dan insight paling berharga yang saya dapatkan selama PPL di sekolah mitra.</p>
+          <a href="#" class="p2-card-link teal-text" onclick="openModal(event, 'modal-refleksi-1')">Lihat Refleksi &rarr;</a>
+        </div>
+        <!-- Card 2 -->
+        <div class="p2-detail-card">
+          <div class="p2-card-top">
+            <div class="p2-card-icon blue-bg"><i class="fa-solid fa-triangle-exclamation"></i></div>
+            <div class="p2-card-number blue-text">02</div>
+          </div>
+          <h3 class="p2-card-title">Pengalaman Menantang & Solusi</h3>
+          <p class="p2-card-desc">Tantangan paling nyata yang saya hadapi dalam mengajar, dan bagaimana cara saya menemukan solusinya.</p>
+          <a href="#" class="p2-card-link blue-text" onclick="openModal(event, 'modal-refleksi-2')">Lihat Refleksi &rarr;</a>
+        </div>
+        <!-- Card 3 -->
+        <div class="p2-detail-card">
+          <div class="p2-card-top">
+            <div class="p2-card-icon purple-bg"><i class="fa-solid fa-comments"></i></div>
+            <div class="p2-card-number purple-text">03</div>
+          </div>
+          <h3 class="p2-card-title">Umpan Balik & Rencana Tindak Lanjut</h3>
+          <p class="p2-card-desc">Evaluasi umpan balik dari DPL dan Guru Pamong, serta rencana perbaikan berkelanjutan.</p>
+          <a href="#" class="p2-card-link purple-text" onclick="openModal(event, 'modal-refleksi-3')">Lihat Refleksi &rarr;</a>
+        </div>
+      </div>
+
+      <!-- Timeline Cards -->
+      <div class="p2-timeline-cards">
+        <div class="p2-timeline-card">
+          <div class="p2-timeline-header">
+            <div class="p2-timeline-icon">01</div>
+            <h4>Observasi</h4>
+          </div>
+          <div class="p2-timeline-text">
+            <p>Mengenal 'tekstur' dan kepadatan kelas, di mana setiap murid itu unik.</p>
+          </div>
+        </div>
+        
+        <div class="p2-timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <div class="p2-timeline-card">
+          <div class="p2-timeline-header">
+            <div class="p2-timeline-icon">02</div>
+            <h4>Asistensi</h4>
+          </div>
+          <div class="p2-timeline-text">
+            <p>Mulai membantu guru menyusun sketsa awal pembelajaran yang bermakna.</p>
+          </div>
+        </div>
+        
+        <div class="p2-timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <div class="p2-timeline-card">
+          <div class="p2-timeline-header">
+            <div class="p2-timeline-icon">03</div>
+            <h4>Praktik</h4>
+          </div>
+          <div class="p2-timeline-text">
+            <p>Berani membentuk ulang rencana dengan kelenturan di kelas nyata.</p>
+          </div>
+        </div>
+        
+        <div class="p2-timeline-arrow"><i class="fa-solid fa-chevron-right"></i></div>
+        
+        <div class="p2-timeline-card">
+          <div class="p2-timeline-header">
+            <div class="p2-timeline-icon">04</div>
+            <h4>Refleksi</h4>
+          </div>
+          <div class="p2-timeline-text">
+            <p>Menerima catatan perbaikan sebagai peta jalan untuk terus bertumbuh.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section: Filosofi Mengajar -->
+    <section id="filosofi-mengajar" class="p2-detail-section" style="padding-top: 2rem;">
+      <div class="p2-section-header">
+        <span class="p2-tag-small" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);">SECTION 02</span>
+        <h2>Filosofi Mengajar</h2>
+        <p>Prinsip pembelajaran bermakna, fasilitator scaffolder, & karakter profesional dengan 4 nilai inti.</p>
+      </div>
+
+      <div class="p2-quote-card">
+        <i class="fa-solid fa-quote-left"></i>
+        <p>"Mengajar adalah seni membentuk tanpa memaksa bentuk."</p>
+        <div style="font-size: 0.95rem; color: #cbd5e1; font-weight: 400; line-height: 1.7; margin-top: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+          Filosofi ini tidak saya temukan dari buku, melainkan dari tanah liat Kasongan, tempat saya dibesarkan di mana sesuatu yang awalnya tidak berbentuk bisa menjadi berharga, bukan karena dipaksa, tetapi karena disabari. Saya membawa prinsip itu ke dalam kelas, setiap murid datang dengan karakteristiknya sendiri, dengan kecepatan serta keingintahuannya masing-masing. Tugas saya bukan menyeragamkan mereka menjadi satu bentuk ideal, melainkan menuntun mereka menemukan bentuk terbaik dari diri mereka sendiri. Inilah yang saya pahami dari gagasan Ki Hadjar Dewantara tentang pendidikan yang berpihak pada kodrat anak, pendidik menuntun, bukan menentukan.
+        </div>
+        <div style="margin-top: 2rem; font-weight: 600; color: #38bdf8; font-size: 0.9rem; letter-spacing: 1px;">
+          — ORISA SATIFA ALQAF
+        </div>
+      </div>
+
+      <div class="p2-cards-grid-3">
+        <!-- Card 1 -->
+        <div class="p2-detail-card" style="padding: 1.8rem;">
+          <div class="p2-card-icon teal-bg" style="width:45px;height:45px;font-size:1.1rem;margin-bottom:1rem;"><i class="fa-solid fa-seedling"></i></div>
+          <h3 class="p2-card-title" style="font-size: 1.05rem;">Pembelajaran Bermakna</h3>
+          <p class="p2-card-desc" style="font-size: 0.85rem; margin-bottom: 0;">Menciptakan pengalaman belajar yang relevan dengan kehidupan nyata peserta didik, mendorong pemahaman konsep alih-alih hafalan semata.</p>
+        </div>
+        <!-- Card 2 -->
+        <div class="p2-detail-card" style="padding: 1.8rem;">
+          <div class="p2-card-icon blue-bg" style="width:45px;height:45px;font-size:1.1rem;margin-bottom:1rem;"><i class="fa-solid fa-hands-holding-child"></i></div>
+          <h3 class="p2-card-title" style="font-size: 1.05rem;">Fasilitator & Scaffolder</h3>
+          <p class="p2-card-desc" style="font-size: 0.85rem; margin-bottom: 0;">Menjadi pemandu yang memberikan pijakan yang tepat, lalu perlahan melepaskan peserta didik agar mampu berpikir kritis secara mandiri.</p>
+        </div>
+        <!-- Card 3 -->
+        <div class="p2-detail-card" style="padding: 1.8rem;">
+          <div class="p2-card-icon purple-bg" style="width:45px;height:45px;font-size:1.1rem;margin-bottom:1rem;"><i class="fa-solid fa-user-tie"></i></div>
+          <h3 class="p2-card-title" style="font-size: 1.05rem;">Karakter Profesional</h3>
+          <p class="p2-card-desc" style="font-size: 0.85rem; margin-bottom: 0;">Menjunjung tinggi etika keguruan, senantiasa merefleksikan praktik mengajar, dan tak pernah berhenti belajar mengikuti perkembangan zaman.</p>
+        </div>
+      </div>
+
+      <div class="p2-nilai-inti-header">
+        <h4>NILAI INTI</h4>
+        <p>4 pilar utama yang menjadi pondasi karakter pengajaran saya</p>
+      </div>
+
+      <div class="p2-cards-grid-4">
+        <!-- Bottom mini cards -->
+        <div class="p2-mini-card">
+          <div class="p2-mini-icon teal-bg"><i class="fa-solid fa-users"></i></div>
+          <div class="p2-mini-text">
+            <h4 style="font-size:0.9rem;">Kolaboratif</h4>
+            <p>Membangun kerja sama</p>
+          </div>
+        </div>
+        <div class="p2-mini-card">
+          <div class="p2-mini-icon blue-bg"><i class="fa-solid fa-child-reaching"></i></div>
+          <div class="p2-mini-text">
+            <h4 style="font-size:0.9rem;">Berpihak pada Murid</h4>
+            <p>Siswa sebagai subjek</p>
+          </div>
+        </div>
+        <div class="p2-mini-card">
+          <div class="p2-mini-icon purple-bg"><i class="fa-solid fa-person-walking-arrow-right"></i></div>
+          <div class="p2-mini-text">
+            <h4 style="font-size:0.9rem;">Mandiri</h4>
+            <p>Inisiatif mengembangkan diri</p>
+          </div>
+        </div>
+        <div class="p2-mini-card">
+          <div class="p2-mini-icon" style="background: rgba(250, 204, 21, 0.15); color: #facc15;"><i class="fa-solid fa-lightbulb"></i></div>
+          <div class="p2-mini-text">
+            <h4 style="font-size:0.9rem;">Inovatif</h4>
+            <p>Kreatif mencari solusi</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <footer class="p2-footer">
+    <div class="p2-footer-content">
+      <div class="p2-footer-left">
+        <div style="margin-bottom: 1rem;">
+          <span style="background: #fff; padding: 6px 12px; border-radius: 6px; color: #0F5EA8; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-family: 'Outfit', sans-serif;">
+            <i class="fa-solid fa-graduation-cap"></i> PPG
+          </span>
+          <span style="display: block; margin-top: 8px; font-weight: 600; font-size: 0.9rem; color: #f8fafc;">E-Portfolio</span>
+        </div>
+        <p style="color: #64748b; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">Calon Guru Bahasa Indonesia<br>PPG Prajabatan 2026, Universitas Ahmad Dahlan</p>
+        <div class="p2-socials" style="margin-top: 0; justify-content: center;">
+          <a href="#" class="p2-social-btn" style="background: #0077b5; color: #fff; border: none;"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" class="p2-social-btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; border: none;"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="p2-social-btn" style="background: #ff0000; color: #fff; border: none;"><i class="fab fa-youtube"></i></a>
+          <a href="#" class="p2-social-btn" style="background: #333; color: #fff; border: none;"><i class="fab fa-github"></i></a>
+        </div>
+      </div>
+      
+      <div class="p2-footer-right">
+        <h4 style="color: #f8fafc; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1.5rem; text-align: center; font-weight: 700;">NAVIGASI</h4>
+        <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem;">
+          <a href="#beranda" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#94a3b8'">Beranda</a>
+          <a href="#refleksi-ppl" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#94a3b8'">Refleksi PPL</a>
+          <a href="#filosofi-mengajar" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#94a3b8'">Filosofi Mengajar</a>
+        </div>
+        <a href="index.html" class="p2-btn-ganti">
+          <div class="p2-btn-ganti-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+          <div class="p2-btn-ganti-text">
+            <strong>Ganti Portofolio</strong>
+            <span>Kembali ke pemilihan E-Portfolio</span>
+          </div>
+          <i class="fa-solid fa-chevron-right" style="color: #475569; font-size: 0.8rem; margin-left: 20px;"></i>
+        </a>
+      </div>
+    </div>
+    <div class="p2-footer-bottom">
+      &copy; 2026 Orisa Satifa Alqaf. PPG Prajabatan 2026, Universitas Ahmad Dahlan.
+    </div>
+  </footer>
+
+  <!-- Modals -->
+  <div class="p2-modal-overlay" id="modal-refleksi-1">
+    <div class="p2-modal-content">
+      <button class="p2-modal-close" onclick="closeModal('modal-refleksi-1')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="p2-modal-header">
+        <div class="p2-modal-icon teal-bg"><i class="fa-solid fa-book-open"></i></div>
+        <div class="p2-modal-title">
+          <p>TOPIK REFLEKSI 01</p>
+          <h3>Apa yang Telah Saya Pelajari Sebagai Peserta PPG Calon Guru</h3>
+        </div>
+      </div>
+      
+      <div class="p2-modal-body">
+        <p class="p2-modal-intro">Jika tiga bulan PPL Terbimbing ini diibaratkan satu proses membentuk tanah liat, inilah esensi yang saya pelajari dari setiap tahapannya:</p>
+        
+        <div class="p2-modal-list">
+          <div class="p2-modal-item">
+            <div class="p2-modal-item-number teal">1</div>
+            <div class="p2-modal-item-text">
+              <h4>Tahap Observasi & Asistensi: Mengenal Tekstur</h4>
+              <p>Ini adalah momen di mana saya belajar mengenal 'tekstur' kelas. Saya memahami bahwa setiap kelas punya kelembapan dan kepadatannya sendiri, dan tidak ada satu cara tunggal yang bisa diterapkan untuk semua peserta didik.</p>
+            </div>
+          </div>
+          
+          <div class="p2-modal-item">
+            <div class="p2-modal-item-number blue">2</div>
+            <div class="p2-modal-item-text">
+              <h4>Tahap Praktik Terbimbing: Menyesuaikan Tekanan</h4>
+              <p>Begitu masuk ke praktik, saya baru benar-benar merasakan bahwa rencana yang rapi di atas kertas hanyalah sketsa awal. Kenyataan di kelas selalu menuntut saya untuk membentuk ulang, serta menyesuaikan tekanan tangan kapan harus menekan dan kapan harus melonggarkan pendekatan.</p>
+            </div>
+          </div>
+
+          <div class="p2-modal-item">
+            <div class="p2-modal-item-number yellow">3</div>
+            <div class="p2-modal-item-text">
+              <h4>Esensi Mengajar: Hadir Penuh & Fleksibel</h4>
+              <p>Saya belajar bahwa menjadi guru bukan soal menjalankan rencana sampai sempurna, tetapi soal hadir penuh di setiap putaran roda. Kemampuan membaca momen dan keberanian mengubah arah ketika murid membutuhkan sesuatu yang berbeda sangatlah krusial.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p2-modal-overlay" id="modal-refleksi-2">
+    <div class="p2-modal-content">
+      <button class="p2-modal-close" onclick="closeModal('modal-refleksi-2')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="p2-modal-header">
+        <div class="p2-modal-icon blue-bg"><i class="fa-solid fa-triangle-exclamation"></i></div>
+        <div class="p2-modal-title">
+          <p style="color: #38bdf8;">PERTANYAAN 2</p>
+          <h3>Pengalaman Menantang & Solusi yang Diterapkan</h3>
+        </div>
+      </div>
+      
+      <div class="p2-modal-body">
+        <p class="p2-modal-intro">Selama PPL Terbimbing, tantangan terbesar saya bukan datang dari satu kejadian besar, melainkan dari pola kecil yang terus berulang dalam wajah berbeda: waktu yang selalu terasa kurang.</p>
+        
+        <!-- Challenge 1 -->
+        <div class="p2-challenge-card">
+          <div class="p2-challenge-header">
+            <span class="p2-tag-red"><i class="fa-solid fa-circle-exclamation"></i> TANTANGAN 1</span>
+            <h4>Menyusun Modul Pembelajaran</h4>
+          </div>
+          <p>Tuntutan untuk menyusun modul yang harus benar-benar mindful, joyful, dan meaningful hingga ke akar-akarnya menyita energi, sehingga waktu pengerjaan selalu terasa kurang.</p>
+          <div class="p2-solution-box">
+            <h5><i class="fa-solid fa-lightbulb"></i> Solusi:</h5>
+            <p>Belajar untuk lebih lentur (fleksibel) dalam menyusun perencanaan, menyadari bahwa modul tidak harus langsung sempurna di awal, tetapi bisa terus dievaluasi dan disempurnakan seiring berjalannya proses.</p>
+          </div>
+        </div>
+
+        <!-- Challenge 2 -->
+        <div class="p2-challenge-card">
+          <div class="p2-challenge-header">
+            <span class="p2-tag-red"><i class="fa-solid fa-circle-exclamation"></i> TANTANGAN 2</span>
+            <h4>Dinamika Tak Terduga di Kelas</h4>
+          </div>
+          <p>Situasi di kelas yang sering di luar rencana, seperti pelaksanaan ulangan yang molor, jadwal presentasi yang harus diganti mendadak, atau instruksi yang tidak sampai ke semua murid.</p>
+          <div class="p2-solution-box">
+            <h5><i class="fa-solid fa-lightbulb"></i> Solusi:</h5>
+            <p>Mengubah susunan kegiatan berdasarkan diskusi dengan murid, dan menambah saluran komunikasi agar pesan benar-benar tersampaikan tanpa memaksakan rencana awal berjalan kaku.</p>
+          </div>
+        </div>
+
+        <!-- Challenge 3 -->
+        <div class="p2-challenge-card">
+          <div class="p2-challenge-header">
+            <span class="p2-tag-red"><i class="fa-solid fa-circle-exclamation"></i> TANTANGAN 3</span>
+            <h4>Mengelola Perasaan "Gagal"</h4>
+          </div>
+          <p>Awalnya saya melihat perubahan jadwal dan ketidaksempurnaan ini sebagai sebuah kegagalan kecil yang terus terjadi berulang kali.</p>
+          <div class="p2-solution-box">
+            <h5><i class="fa-solid fa-lightbulb"></i> Solusi:</h5>
+            <p>Menerima bahwa fleksibilitas bukanlah tanda kegagalan rencana, melainkan wujud kelenturan adaptasi dan tanda kedewasaan dalam mengajar.</p>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="p2-modal-overlay" id="modal-refleksi-3">
+    <div class="p2-modal-content">
+      <button class="p2-modal-close" onclick="closeModal('modal-refleksi-3')"><i class="fa-solid fa-xmark"></i></button>
+      
+      <div class="p2-modal-header">
+        <div class="p2-modal-icon purple-bg"><i class="fa-solid fa-comments"></i></div>
+        <div class="p2-modal-title">
+          <p style="color: #a855f7;">PERTANYAAN 3</p>
+          <h3>Umpan Balik & Saran Konstruktif untuk PPL Mandiri</h3>
+        </div>
+      </div>
+      
+      <div class="p2-modal-body">
+        <p class="p2-modal-intro">Jika saya menyusun ulang seluruh catatan Guru Pamong dari pertemuan pertama hingga ketiga menjadi satu garis lurus, garis itu menunjukkan sebuah perjalanan pertumbuhan, bukan sekadar angka yang naik:</p>
+        
+        <!-- Feedback 1 -->
+        <div class="p2-feedback-card">
+          <div class="p2-feedback-header">
+            <span class="p2-tag-purple"><i class="fa-solid fa-user-tie"></i> GURU PAMONG: AWAL SIKLUS</span>
+          </div>
+          <div class="p2-feedback-quote">
+            <p>"Catatannya banyak menyoal variasi media dan interaksi yang masih satu arah."</p>
+          </div>
+          <div class="p2-feedback-action">
+            <div class="p2-action-label"><i class="fa-solid fa-arrow-right"></i> Tindak Lanjut:</div>
+            <div class="p2-action-text">Menyadari bahwa setiap catatan perbaikan bukanlah sekadar kekurangan yang harus ditutupi, melainkan peta jalan yang menunjukkan ke arah mana saya harus terus bertumbuh.</div>
+          </div>
+        </div>
+
+        <!-- Feedback 2 -->
+        <div class="p2-feedback-card">
+          <div class="p2-feedback-header">
+            <span class="p2-tag-purple"><i class="fa-solid fa-user-check"></i> GURU PAMONG: AKHIR SIKLUS</span>
+          </div>
+          <div class="p2-feedback-quote">
+            <p>"Catatan berubah menjadi pengakuan atas pembelajaran yang sudah terpadu dan asesmen yang dilakukan secara personal."</p>
+          </div>
+          <div class="p2-feedback-action">
+            <div class="p2-action-label"><i class="fa-solid fa-arrow-right"></i> Tindak Lanjut:</div>
+            <div class="p2-action-text">Membawa kesadaran positif ini ke PPL Mandiri dan terus memperkaya cara menghadirkan materi secara lebih baik.</div>
+          </div>
+        </div>
+
+        <!-- Feedback 3 -->
+        <div class="p2-feedback-card">
+          <div class="p2-feedback-header">
+            <span class="p2-tag-purple"><i class="fa-solid fa-bullseye"></i> EVALUASI DIRI: FOKUS SELANJUTNYA</span>
+          </div>
+          <div class="p2-feedback-quote">
+            <p>"Satu pekerjaan rumah yang konsisten muncul di ketiga siklus adalah tantangan terkait kalibrasi waktu."</p>
+          </div>
+          <div class="p2-feedback-action">
+            <div class="p2-action-label"><i class="fa-solid fa-arrow-right"></i> Tindak Lanjut:</div>
+            <div class="p2-action-text">Fokus menuntaskan kalibrasi waktu, agar kelas yang saya ampu semakin terasa hidup bagi setiap murid, bukan hanya bagi sebagian dari mereka.</div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        if(this.getAttribute('href') === '#') return; // Skip empty hash links
+        e.preventDefault();
+        
+        // Update active class on nav links
+        document.querySelectorAll('.p2-nav-links a').forEach(nav => nav.classList.remove('active'));
+        if (this.classList.contains('active') === false && this.closest('.p2-nav-links')) {
+          this.classList.add('active');
+        }
+
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({
+            top: target.offsetTop - 80,
+            behavior: 'smooth'
+          });
+        }
+      });
+    });
+
+    // Modal Functions
+    function openModal(e, modalId) {
+      e.preventDefault();
+      document.getElementById(modalId).classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Close modal when clicking outside
+    document.querySelectorAll('.p2-modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === this) {
+          this.classList.remove('active');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
