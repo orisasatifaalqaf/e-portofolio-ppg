@@ -21,13 +21,43 @@
     }
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #21363a;
-      color: #fff;
+      background-color: #efece1;
+      color: #3e4a3d;
       display: flex;
       flex-direction: column;
       align-items: center;
       min-height: 100vh;
       padding: 3rem 1rem;
+      position: relative;
+    }
+
+    /* Watermark Bunga */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 100vw; height: 100vh;
+      min-width: 800px; min-height: 800px;
+      background-image: url('ORNAMEN BUNGA.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: multiply;
+    }
+
+    /* Paper Noise Overlay (Dipertebal) */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.08; /* Thicker grain */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
     .landing-header {
       text-align: center;
@@ -49,7 +79,7 @@
       font-family: 'Outfit', sans-serif;
       font-size: 3.5rem;
       font-weight: 800;
-      color: #E53935; /* Red color matching the screenshot */
+      color: #3e4a3d; /* Earth tone dark green */
       letter-spacing: 2px;
     }
     .landing-title {
@@ -59,7 +89,7 @@
       margin-bottom: 0.8rem;
     }
     .landing-subtitle {
-      color: #a0aec0;
+      color: #7c8069;
       font-size: 1.1rem;
     }
     
@@ -72,8 +102,8 @@
     }
     
     .landing-card {
-      background-color: #2a3f44;
-      border: 1px solid #3c5257;
+      background-color: #fdfbf7;
+      border: 1px solid #d9d2c2;
       border-radius: 20px;
       padding: 3rem 2.5rem;
       width: 340px;
@@ -81,14 +111,14 @@
       transition: all 0.3s ease;
       cursor: pointer;
       text-decoration: none;
-      color: #fff;
+      color: #3e4a3d;
       position: relative;
     }
     
     .landing-card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 30px rgba(0,0,0,0.3);
-      border-color: #4fd1c5;
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      border-color: #555d3f;
     }
     
     .badge-top-right {
@@ -114,14 +144,14 @@
     }
     
     .card-desc {
-      color: #cbd5e1;
+      color: #7c8069;
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 2rem;
     }
     
     .card-link {
-      color: #38bdf8;
+      color: #c96f41;
       font-weight: 600;
       font-size: 1rem;
       display: inline-flex;
@@ -131,82 +161,143 @@
     }
     
     .landing-card:hover .card-link {
-      color: #7dd3fc;
+      color: #d97746;
     }
     
-    /* Intro Tear Animation */
-    :root {
-      --tear-color: #FA8072; /* Salmon red */
-    }
-    .intro-tear {
+    /* Scrapbook Intro Animation & Styling */
+    .scrapbook-intro {
       position: fixed;
       top: 0; left: 0; width: 100%; height: 100vh;
       z-index: 9999;
+      background-color: #efece1;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       pointer-events: all;
-      transition: opacity 0.5s ease 0.5s, visibility 0.5s ease 0.5s;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      cursor: pointer;
+      overflow: hidden;
     }
-    .intro-tear.hidden {
+    .scrapbook-intro.hidden {
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
+      transform: scale(1.1) translateY(-100%);
     }
-    .intro-tear-half {
-      width: 100%;
-      height: 50vh;
-      background-color: var(--tear-color);
-      transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
-    }
-    .intro-tear.hidden .intro-tear-top {
-      transform: translateY(-100%);
-    }
-    .intro-tear.hidden .intro-tear-bottom {
-      transform: translateY(100%);
-    }
-    .intro-panel-content {
+
+    /* Cinematic background blur to fill empty spaces seamlessly */
+    .scrapbook-intro::before {
+      content: "";
       position: absolute;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
-      text-align: center;
-      color: #fff;
-      z-index: 10000;
-      transition: opacity 0.3s ease;
-      cursor: pointer;
+      top: -5%; left: -5%; width: 110%; height: 110%;
+      background-image: url('BACKGROUND.png');
+      background-size: cover;
+      background-position: center;
+      filter: blur(25px) brightness(0.9);
+      z-index: 1;
     }
-    .intro-tear.hidden .intro-panel-content {
-      opacity: 0;
+
+    /* The main uncropped image */
+    .scrapbook-intro::after {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background-image: url('BACKGROUND.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+      z-index: 2;
+      filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
     }
-    .intro-panel-title {
-      font-family: 'Outfit', sans-serif;
-      font-size: 2.2rem;
-      font-weight: 500;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
+
+    .scrapbook-header {
+      position: absolute;
+      top: 0; left: 0; width: 100%;
+      background: #5c4b3f; /* Darker earth tone */
+      padding: 10px 20px;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      z-index: 20;
     }
-    .intro-panel-prompt {
-      font-size: 1.1rem;
+    .scrapbook-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: white;
+      color: #5c4b3f;
+      padding: 5px 15px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 1rem;
     }
-    .intro-panel-prompt small {
-      display: inline-block;
-      margin-left: 0.3rem;
-      font-size: 0.9rem;
-      opacity: 0.9;
+    .scrapbook-logo img {
+      height: 24px;
+    }
+
+    .scrapbook-paper-container {
+      position: relative;
+      width: 100%;
+      max-width: 1400px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* Removed text and polaroid CSS because they are baked into BACKGROUND.png */
+
+    .scrapbook-prompt {
+      position: absolute;
+      bottom: 40px;
+      background: #fff;
+      color: #333;
+      padding: 15px 30px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 8px;
+      box-shadow: 4px 4px 0 #5c4b3f;
+      transform: rotate(-1deg);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 20;
+    }
+
+    @media (max-width: 900px) {
+      .scrapbook-title-porto { font-size: 6rem; }
+      .scrapbook-title-folio { font-size: 5rem; }
+      .tape { font-size: 1.2rem; padding: 5px 15px; }
+      .scrapbook-polaroid { width: 200px; padding: 10px 10px 40px 10px; right: -5%; }
+      .scrapbook-polaroid img { height: 220px; }
+      .scrapbook-clip { font-size: 3.5rem; top: -20px; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Intro Screen — Page Tear -->
-  <div class="intro-tear" id="introTear">
-    <div class="intro-tear-half intro-tear-top"></div>
-    <div class="intro-tear-half intro-tear-bottom"></div>
-    <div class="intro-panel-content">
-      <div class="intro-panel-title">E-Portfolio Profesional</div>
-      <div class="intro-panel-prompt">
-        <span>Klik atau Geser</span>
-        <small>untuk membuka e-portfolio</small>
+  <!-- Intro Screen — Scrapbook Collage -->
+  <div class="scrapbook-intro" id="introTear">
+    
+    <!-- Top Header Bar (Blue) -->
+    <div class="scrapbook-header">
+      <div class="scrapbook-logo">
+        <img src="uad-logo.png" alt="" onerror="this.style.display='none'"> 
+        <span>PPG Calon Guru</span>
       </div>
+      <i class="fa-solid fa-bars"></i>
+    </div>
+
+      <!-- Redundant elements removed since BACKGROUND.png has baked-in design -->
+
+    <div class="scrapbook-prompt">
+      <i class="fa-solid fa-hand-pointer"></i>
+      <span>Klik atau Geser</span>
+      <small>untuk membuka e-portfolio</small>
     </div>
   </div>
 

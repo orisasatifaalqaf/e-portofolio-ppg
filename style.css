@@ -2,32 +2,32 @@
    CSS Variables
    ========================== */
 :root {
-  /* Light Theme */
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --accent: #FF6B6B;
-  --accent-light: #FFE3E3;
-  --glass-bg: rgba(255, 255, 255, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.3);
-  --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  /* Light Theme - Earth Tone */
+  --bg-primary: #fdfbf7;
+  --bg-secondary: #f3efe6;
+  --text-primary: #3e4a3d;
+  --text-secondary: #7c8069;
+  --accent: #d97746;
+  --accent-light: #f5dfd5;
+  --glass-bg: rgba(253, 251, 247, 0.85);
+  --glass-border: rgba(217, 119, 70, 0.2);
+  --shadow-sm: 0 4px 6px -1px rgba(62, 74, 61, 0.05);
+  --shadow-md: 0 10px 15px -3px rgba(62, 74, 61, 0.1);
   --font-main: 'Inter', sans-serif;
   --font-head: 'Outfit', sans-serif;
-  --tear-color: #FF6B6B;
+  --tear-color: #d97746;
 }
 
 [data-theme="dark"] {
-  /* Dark Theme */
-  --bg-primary: #0f172a;
-  --bg-secondary: #1e293b;
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --glass-bg: rgba(15, 23, 42, 0.85);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  /* Dark Theme - Earth Tone */
+  --bg-primary: #2a2e26;
+  --bg-secondary: #3e4a3d;
+  --text-primary: #fdfbf7;
+  --text-secondary: #bca89f;
+  --glass-bg: rgba(42, 46, 38, 0.85);
+  --glass-border: rgba(234, 179, 8, 0.2);
   --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-  --tear-color: #0f172a;
+  --tear-color: #2a2e26;
 }
 
 /* ==========================
@@ -226,6 +226,59 @@ a {
    ========================== */
 .section {
   padding: 6rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Paper noise overlay */
+body::after {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Watermarks on sections */
+.section::before {
+  content: "";
+  position: absolute;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.15; /* Increased opacity to match hero watermark */
+  pointer-events: none;
+  z-index: 0;
+  mix-blend-mode: multiply; /* Helps blend with the background */
+}
+
+[data-theme="dark"] .section::before {
+  opacity: 0.1; /* Lower opacity for dark mode */
+  mix-blend-mode: screen;
+}
+
+.hero::before {
+  display: none !important; /* Remove from hero section */
+}
+
+.section:not(.hero)::before {
+  top: 50%; left: 50%;
+  width: 80vw; height: 80vh;
+  min-width: 600px; min-height: 600px;
+  background-image: url('ORNAMEN BUNGA.png');
+  transform: translate(-50%, -50%);
+}
+
+/* Extra large watermark for long sections */
+.portfolio::before,
+.analisis::before,
+.penilaian::before,
+.education::before {
+  min-width: 2500px; min-height: 2500px;
+  width: 250vw; height: 250vh;
+  opacity: 0.2; /* slightly thicker to be visible */
 }
 
 .hero {
@@ -239,6 +292,14 @@ a {
 
 [data-theme="dark"] .hero {
   background-color: #1a2e26;
+}
+
+.about {
+  background-color: var(--bg-secondary);
+}
+
+.education {
+  background-color: var(--bg-primary);
 }
 
 .hero-bg-text {
@@ -615,6 +676,22 @@ a {
   box-shadow: var(--shadow-md);
 }
 
+.timeline-item:last-child .timeline-dot {
+  background-color: var(--accent);
+}
+
+.school-logo {
+  mix-blend-mode: multiply;
+  background-color: transparent;
+  padding: 0;
+}
+
+[data-theme="dark"] .school-logo {
+  mix-blend-mode: normal;
+  background-color: #fdfbf7; /* Light cream background to act as a sticker */
+  padding: 4px; /* Small padding inside the border radius */
+}
+
 .timeline-year {
   display: inline-block;
   padding: 0.3rem 0.8rem;
@@ -641,7 +718,7 @@ a {
    Portfolio / Artefak Section
    ========================== */
 .portfolio {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   position: relative;
 }
 
@@ -694,9 +771,9 @@ a {
 }
 
 .switch-btn.active {
-  background: #0F5EA8;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(15, 94, 168, 0.3);
+  background: var(--text-primary); /* Olive */
+  color: var(--bg-primary); /* Ensures contrast in both themes */
+  box-shadow: 0 4px 10px rgba(62, 74, 61, 0.3);
 }
 
 [data-theme="dark"] .filter-switch-wrapper {
@@ -733,9 +810,9 @@ a {
 }
 
 .pill-btn.active {
-  background: #1e88e5; /* soft blue */
+  background: var(--accent); /* Terracotta */
   color: #fff;
-  box-shadow: 0 4px 10px rgba(30, 136, 229, 0.3);
+  box-shadow: 0 4px 10px rgba(217, 119, 70, 0.3);
 }
 
 .pill-btn-outline {
@@ -751,8 +828,8 @@ a {
 }
 
 .pill-btn-outline.active {
-  border-color: #fca5a5;
-  color: #0ea5e9;
+  border-color: var(--glass-border);
+  color: var(--accent);
 }
 
 /* Grid & Cards */
@@ -915,9 +992,9 @@ a {
    Analisis Section
    ========================== */
 .analisis {
-  background-color: #F8FAFC;
+  background-color: var(--bg-primary);
+  padding-bottom: 8rem;
 }
-
 [data-theme="dark"] .analisis {
   background-color: var(--bg-primary);
 }
@@ -1019,9 +1096,9 @@ a {
    Penilaian Section
    ========================== */
 .penilaian {
-  background-color: #F0FDF4; /* light minty background */
+  background-color: var(--bg-secondary);
+  position: relative;
 }
-
 [data-theme="dark"] .penilaian {
   background-color: var(--bg-secondary);
 }
@@ -1059,14 +1136,14 @@ a {
 }
 
 .card-cyan {
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
 }
-[data-theme="dark"] .card-cyan { background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%); border-color: #334155; }
+[data-theme="dark"] .card-cyan { background: linear-gradient(135deg, #2a2e26 0%, #3e4a3d 100%); border-color: #555d3f; }
 
 .card-yellow {
-  background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--accent-light) 100%);
 }
-[data-theme="dark"] .card-yellow { background: linear-gradient(135deg, #422006 0%, #713f12 100%); border-color: #713f12; }
+[data-theme="dark"] .card-yellow { background: linear-gradient(135deg, #3e4a3d 0%, #2a2e26 100%); border-color: #555d3f; }
 
 .card-bg-number {
   position: absolute;
@@ -1109,14 +1186,14 @@ a {
   margin-bottom: 1.5rem;
 }
 
-.badge-cyan { background: #E0F2FE; color: #0369A1; }
-.badge-yellow { background: #FEF3C7; color: #B45309; }
-[data-theme="dark"] .badge-cyan { background: rgba(3,105,161,0.3); color: #7DD3FC; }
-[data-theme="dark"] .badge-yellow { background: rgba(180,83,9,0.3); color: #FCD34D; }
+.badge-cyan { background: var(--bg-secondary); color: var(--text-primary); }
+.badge-yellow { background: var(--accent-light); color: var(--accent); }
+[data-theme="dark"] .badge-cyan { background: rgba(62,74,61,0.5); color: #fdfbf7; }
+[data-theme="dark"] .badge-yellow { background: rgba(217,119,70,0.2); color: var(--accent); }
 
 .penilaian-title {
   font-size: 1.8rem;
-  color: #0F172A;
+  color: #3e4a3d;
   margin-bottom: 1rem;
   line-height: 1.3;
 }
@@ -1149,10 +1226,10 @@ a {
 [data-theme="dark"] .penilaian-details li { border-color: rgba(255,255,255,0.05); }
 .penilaian-details li:last-child { border-bottom: none; }
 
-.detail-label { font-weight: 700; color: #0284C7; }
-[data-theme="dark"] .detail-label { color: #38BDF8; }
-.detail-value { color: #64748B; font-weight: 500; font-size: 0.95rem; }
-[data-theme="dark"] .detail-value { color: #CBD5E1; }
+.detail-label { font-weight: 700; color: var(--accent); }
+[data-theme="dark"] .detail-label { color: var(--accent-light); }
+.detail-value { color: var(--text-secondary); font-weight: 500; font-size: 0.95rem; }
+[data-theme="dark"] .detail-value { color: #bca89f; }
 
 .penilaian-actions {
   display: flex;
@@ -1161,8 +1238,8 @@ a {
 }
 
 .btn-light-blue {
-  background: #E0F2FE;
-  color: #0369A1;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
   padding: 0.8rem 1.5rem;
   border-radius: 30px;
   font-weight: 600;
@@ -1172,9 +1249,9 @@ a {
   gap: 0.5rem;
   transition: all 0.3s ease;
 }
-.btn-light-blue:hover { background: #BAE6FD; }
-[data-theme="dark"] .btn-light-blue { background: rgba(3,105,161,0.3); color: #7DD3FC; }
-[data-theme="dark"] .btn-light-blue:hover { background: rgba(3,105,161,0.5); }
+.btn-light-blue:hover { background: var(--text-primary); color: var(--bg-primary); }
+[data-theme="dark"] .btn-light-blue { background: rgba(62,74,61,0.5); color: #fdfbf7; }
+[data-theme="dark"] .btn-light-blue:hover { background: rgba(62,74,61,0.8); }
 
 .penilaian-preview {
   width: 450px;
@@ -1201,7 +1278,7 @@ a {
   display: flex;
   flex-direction: column;
 }
-[data-theme="dark"] .doc-placeholder { background: #1E293B; }
+[data-theme="dark"] .doc-placeholder { background: #3e4a3d; }
 
 .doc-header {
   background: #1E3A8A;
@@ -1230,7 +1307,7 @@ a {
 }
 [data-theme="dark"] .doc-table th, [data-theme="dark"] .doc-table td { border-color: #334155; }
 .doc-table th { background: #F8FAFC; }
-[data-theme="dark"] .doc-table th { background: #0F172A; }
+[data-theme="dark"] .doc-table th { background: #2a2e26; }
 
 .penilaian-bottom-pills {
   display: flex;
@@ -1266,7 +1343,7 @@ a {
    Model Guru Section
    ========================== */
 .model-guru {
-  background-color: #FAFAF9; /* very light warm gray */
+  background-color: var(--bg-primary);
 }
 [data-theme="dark"] .model-guru {
   background-color: var(--bg-primary);
@@ -1361,22 +1438,22 @@ a {
   font-size: 1.8rem;
   margin: 0 auto 1.5rem auto;
 }
-.icon-blue { background: #E0F2FE; color: #0284C7; }
-.icon-purple { background: #F3E8FF; color: #9333EA; }
-.icon-yellow { background: #FEF3C7; color: #D97706; }
-.icon-cyan { background: #CFFAFE; color: #0891B2; }
+.icon-blue { background: var(--accent-light); color: var(--accent); }
+.icon-purple { background: var(--bg-secondary); color: var(--text-primary); }
+.icon-yellow { background: var(--accent-light); color: var(--accent); }
+.icon-cyan { background: var(--bg-secondary); color: var(--text-primary); }
 
-[data-theme="dark"] .icon-blue { background: rgba(2,132,199,0.2); color: #38BDF8; }
-[data-theme="dark"] .icon-purple { background: rgba(147,51,234,0.2); color: #C084FC; }
-[data-theme="dark"] .icon-yellow { background: rgba(217,119,6,0.2); color: #FBBF24; }
-[data-theme="dark"] .icon-cyan { background: rgba(8,145,178,0.2); color: #22D3EE; }
+[data-theme="dark"] .icon-blue { background: rgba(217,119,70,0.2); color: var(--accent); }
+[data-theme="dark"] .icon-purple { background: rgba(62,74,61,0.5); color: #fdfbf7; }
+[data-theme="dark"] .icon-yellow { background: rgba(217,119,70,0.2); color: var(--accent); }
+[data-theme="dark"] .icon-cyan { background: rgba(62,74,61,0.5); color: #fdfbf7; }
 
 .kompetensi-title {
-  color: #1E3A8A;
+  color: var(--text-primary);
   font-size: 1.4rem;
   margin-bottom: 1rem;
 }
-[data-theme="dark"] .kompetensi-title { color: #93C5FD; }
+[data-theme="dark"] .kompetensi-title { color: var(--accent-light); }
 
 .kompetensi-desc {
   color: var(--text-secondary);
@@ -1388,7 +1465,7 @@ a {
    Gallery Section
    ========================== */
 .gallery {
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
 }
 
 .gallery-featured {
@@ -1403,11 +1480,11 @@ a {
   left: 5%;
   width: 90%;
   height: 90%;
-  background: rgba(251, 113, 133, 0.5); /* Soft pinkish/red glow */
+  background: rgba(217, 119, 70, 0.2); /* Soft terracotta glow */
   filter: blur(40px);
   z-index: 0;
 }
-[data-theme="dark"] .featured-glow { background: rgba(225, 29, 72, 0.3); }
+[data-theme="dark"] .featured-glow { background: rgba(234, 179, 8, 0.1); }
 
 .featured-card {
   position: relative;
@@ -1467,7 +1544,7 @@ a {
 }
 
 [data-theme="dark"] .analysis-panel {
-  background: #0F172A; /* darker background for panel */
+  background: #2a2e26; /* darker background for panel */
   box-shadow: 0 15px 50px rgba(0,0,0,0.5);
 }
 
@@ -1765,7 +1842,7 @@ a {
    Contact Section
    ========================== */
 .contact {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
 }
 
 .contact-grid {
@@ -1822,9 +1899,9 @@ a {
   font-size: 1.5rem;
   color: #fff;
 }
-.icon-red { background: #EF4444; }
-.icon-green { background: #22C55E; }
-.icon-blue { background: #3B82F6; }
+.icon-red { background: var(--accent); }
+.icon-green { background: var(--text-primary); }
+.icon-blue { background: var(--text-secondary); }
 
 .contact-text {
   display: flex;
@@ -1921,7 +1998,7 @@ textarea.form-control {
 }
 
 .btn-submit {
-  background: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+  background: var(--accent); /* Terracotta */
   color: #fff;
   border: none;
   border-radius: 12px;
@@ -1934,17 +2011,17 @@ textarea.form-control {
 }
 .btn-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(2, 132, 199, 0.3);
+  box-shadow: 0 10px 20px rgba(217, 119, 70, 0.3);
 }
 
 /* ==========================
    Footer Section
    ========================== */
 .footer {
-  background-color: #1A1E23;
+  background-color: #2D4C3F; /* Matched with hero */
   color: #fff;
   padding: 4rem 0;
-  border-top: 5px solid #0EA5E9;
+  border-top: 5px solid var(--accent);
 }
 
 .footer-content {
@@ -1977,7 +2054,7 @@ textarea.form-control {
 .footer-logo {
   font-size: 1.8rem;
   font-weight: 800;
-  color: #38BDF8;
+  color: var(--accent-light);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -2056,8 +2133,8 @@ textarea.form-control {
   display: flex;
   align-items: center;
   gap: 1rem;
-  background-color: #272E35;
-  border: 1px solid #334155;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 1rem 1.5rem;
   border-radius: 12px;
   text-decoration: none;
@@ -2066,16 +2143,16 @@ textarea.form-control {
 }
 
 .btn-ganti-portfolio:hover {
-  background-color: #334155;
-  border-color: #475569;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
 .btn-gp-icon {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background: #E0F2FE;
-  color: #0284C7;
+  background: var(--accent-light);
+  color: var(--accent);
   display: flex;
   align-items: center;
   justify-content: center;

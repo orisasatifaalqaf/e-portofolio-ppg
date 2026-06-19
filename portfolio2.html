@@ -21,11 +21,11 @@
     }
 
     body {
-      background-color: #0b1120;
+      background-color: #2a2e26;
       background-image: 
-        radial-gradient(circle at 15% 50%, rgba(56, 189, 248, 0.05), transparent 30%), 
-        radial-gradient(circle at 85% 30%, rgba(168, 85, 247, 0.05), transparent 30%);
-      color: #e2e8f0;
+        radial-gradient(circle at 15% 50%, rgba(217, 119, 70, 0.05), transparent 30%), 
+        radial-gradient(circle at 85% 30%, rgba(234, 179, 8, 0.05), transparent 30%);
+      color: #fdfbf7;
       font-family: 'Inter', sans-serif;
       min-height: 100vh;
       overflow-x: hidden;
@@ -40,7 +40,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      background: rgba(11, 17, 32, 0.8);
+      background: rgba(42, 46, 38, 0.8);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     }
@@ -53,7 +53,7 @@
       align-items: center;
       gap: 6px;
       font-weight: 800;
-      color: #0F5EA8;
+      color: #3e4a3d;
       font-family: 'Outfit', sans-serif;
       font-size: 1.1rem;
     }
@@ -65,7 +65,7 @@
     }
 
     .p2-nav-links a {
-      color: #94a3b8;
+      color: #bca89f;
       text-decoration: none;
       font-size: 0.95rem;
       font-weight: 500;
@@ -75,11 +75,11 @@
     }
 
     .p2-nav-links a:hover, .p2-nav-links a.active {
-      color: #38bdf8;
+      color: #d97746;
     }
 
     .p2-nav-links a.active {
-      border-bottom-color: #38bdf8;
+      border-bottom-color: #d97746;
     }
 
     .p2-nav-actions {
@@ -90,7 +90,7 @@
     .p2-action-btn {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #94a3b8;
+      color: #bca89f;
       width: 40px;
       height: 40px;
       border-radius: 8px;
@@ -108,9 +108,9 @@
     }
 
     .p2-action-btn.active {
-      background: rgba(56, 189, 248, 0.1);
-      color: #38bdf8;
-      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(217, 119, 70, 0.1);
+      color: #d97746;
+      border-color: rgba(217, 119, 70, 0.3);
     }
     
     .p2-action-btn.sun { color: #facc15; }
@@ -153,7 +153,7 @@
 
     /* Left Card */
     .p2-profile-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(62, 74, 61, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 24px;
       padding: 2.5rem 2rem;
@@ -169,7 +169,7 @@
       content: '';
       position: absolute;
       top: -50%; left: -50%; width: 200%; height: 200%;
-      background: radial-gradient(circle at 50% 30%, rgba(56, 189, 248, 0.15), transparent 50%);
+      background: radial-gradient(circle at 50% 30%, rgba(217, 119, 70, 0.15), transparent 50%);
       pointer-events: none;
     }
 
@@ -180,9 +180,9 @@
       object-fit: cover;
       object-position: center 45%;
       margin: 0 auto 1.5rem;
-      border: 2px solid rgba(56, 189, 248, 0.4);
+      border: 2px solid rgba(217, 119, 70, 0.4);
       padding: 6px;
-      box-shadow: 0 0 25px rgba(56, 189, 248, 0.2);
+      box-shadow: 0 0 25px rgba(217, 119, 70, 0.2);
       position: relative;
       z-index: 1;
     }
@@ -198,7 +198,7 @@
     }
 
     .p2-profile-title {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 0.95rem;
       margin-bottom: 2rem;
       position: relative;
@@ -207,22 +207,22 @@
 
     .p2-badge {
       display: inline-block;
-      background: rgba(16, 185, 129, 0.1);
-      color: #10b981;
+      background: rgba(163, 177, 138, 0.15); /* Light olive transparent */
+      color: #a3b18a; /* Light olive text */
       padding: 0.5rem 1.2rem;
       border-radius: 30px;
       font-size: 0.85rem;
       font-weight: 600;
       margin-bottom: 0.8rem;
-      border: 1px solid rgba(16, 185, 129, 0.2);
+      border: 1px solid rgba(163, 177, 138, 0.3);
       position: relative;
       z-index: 1;
     }
 
     .p2-badge.teal {
-      background: rgba(20, 184, 166, 0.1);
-      color: #14b8a6;
-      border-color: rgba(20, 184, 166, 0.2);
+      background: rgba(217, 119, 70, 0.15); /* Terracotta transparent */
+      color: #d97746; /* Terracotta text */
+      border-color: rgba(217, 119, 70, 0.3);
     }
 
     .p2-badge i { margin-right: 6px; }
@@ -244,16 +244,16 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #94a3b8;
+      color: #bca89f;
       transition: all 0.3s;
       border: 1px solid rgba(255, 255, 255, 0.05);
       text-decoration: none;
     }
 
     .p2-social-btn:hover {
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
-      border-color: rgba(56, 189, 248, 0.3);
+      background: rgba(217, 119, 70, 0.15);
+      color: #d97746;
+      border-color: rgba(217, 119, 70, 0.3);
       transform: translateY(-2px);
     }
 
@@ -264,8 +264,8 @@
 
     .p2-tag {
       display: inline-block;
-      background: rgba(56, 189, 248, 0.15);
-      color: #38bdf8;
+      background: rgba(217, 119, 70, 0.15);
+      color: #d97746;
       padding: 0.4rem 1rem;
       border-radius: 8px;
       font-size: 0.85rem;
@@ -284,7 +284,7 @@
     }
 
     .p2-desc {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 2.5rem;
@@ -292,12 +292,12 @@
     }
 
     .p2-quote {
-      background: rgba(15, 23, 42, 0.6);
-      border-left: 3px solid #a855f7;
+      background: rgba(62, 74, 61, 0.6);
+      border-left: 3px solid #eab308;
       padding: 1.5rem;
       border-radius: 0 12px 12px 0;
       font-style: italic;
-      color: #cbd5e1;
+      color: #bca89f;
       margin-bottom: 2.5rem;
       font-size: 1rem;
       backdrop-filter: blur(5px);
@@ -309,7 +309,7 @@
     }
 
     .p2-btn-primary {
-      background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+      background: linear-gradient(135deg, #b45f36, #d97746);
       color: #0f172a;
       padding: 1rem 2rem;
       border-radius: 10px;
@@ -325,12 +325,12 @@
 
     .p2-btn-primary:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.3);
+      box-shadow: 0 10px 25px rgba(217, 119, 70, 0.3);
     }
 
     .p2-btn-secondary {
       background: rgba(30, 41, 59, 0.8);
-      color: #e2e8f0;
+      color: #fdfbf7;
       padding: 1rem 2rem;
       border-radius: 10px;
       font-weight: 600;
@@ -352,11 +352,12 @@
     .p2-sections {
       display: flex;
       gap: 2rem;
+      margin-bottom: 4rem;
     }
 
     .p2-section-card {
       flex: 1;
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(62, 74, 61, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       padding: 1.8rem;
@@ -370,7 +371,7 @@
 
     .p2-section-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(56, 189, 248, 0.3);
+      border-color: rgba(217, 119, 70, 0.3);
       box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     }
 
@@ -386,13 +387,13 @@
     }
 
     .p2-icon-teal {
-      background: rgba(45, 212, 191, 0.15);
-      color: #2dd4bf;
+      background: rgba(163, 177, 138, 0.15);
+      color: #a3b18a;
     }
 
     .p2-icon-purple {
-      background: rgba(168, 85, 247, 0.15);
-      color: #a855f7;
+      background: rgba(234, 179, 8, 0.15);
+      color: #eab308;
     }
 
     .p2-section-info {
@@ -400,7 +401,7 @@
     }
 
     .p2-section-label {
-      color: #64748b;
+      color: #7c8069;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 1.5px;
@@ -408,7 +409,7 @@
     }
 
     .p2-section-title {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 1.2rem;
       font-weight: 600;
       margin-bottom: 0.4rem;
@@ -416,7 +417,7 @@
     }
 
     .p2-section-desc {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 0.85rem;
       line-height: 1.5;
     }
@@ -428,11 +429,11 @@
       font-family: 'Outfit', sans-serif;
     }
 
-    .p2-num-teal { color: #2dd4bf; }
-    .p2-num-purple { color: #a855f7; }
+    .p2-num-teal { color: #a3b18a; }
+    .p2-num-purple { color: #eab308; }
 
     .p2-quote-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(62, 74, 61, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       padding: 2.5rem 3rem;
@@ -451,7 +452,7 @@
       font-family: 'Outfit', sans-serif;
       font-size: 1.4rem;
       font-weight: 500;
-      color: #f8fafc;
+      color: #fdfbf7;
       line-height: 1.5;
     }
 
@@ -461,7 +462,7 @@
     }
 
     .p2-nilai-inti-header h4 {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 1rem;
       letter-spacing: 2px;
       font-weight: 700;
@@ -469,13 +470,55 @@
     }
 
     .p2-nilai-inti-header p {
-      color: #64748b;
+      color: #7c8069;
       font-size: 0.8rem;
     }
 
     .p2-detail-section {
-      padding: 4rem 0 6rem 0;
+      padding: 4rem 3rem 6rem 3rem;
       position: relative;
+      border-radius: 30px;
+      margin-bottom: 2rem;
+      overflow: hidden; /* For watermarks */
+    }
+    
+    /* Watermarks for portfolio2 */
+    .p2-detail-section::before,
+    .p2-hero::before {
+      content: "";
+      position: absolute;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.15; /* Increased opacity */
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen; /* Best for dark mode */
+    }
+
+    .p2-detail-section::before,
+    .p2-hero::before {
+      top: 50%; left: 50%;
+      width: 80vw; height: 80vh;
+      min-width: 600px; min-height: 600px;
+      background-image: url('ORNAMEN BUNGA.png');
+      transform: translate(-50%, -50%);
+    }
+
+    /* Paper noise overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.03; /* Subtle grain */
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    #refleksi-ppl {
+      background-color: #3e4a3d;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
     }
 
     .p2-section-header {
@@ -485,8 +528,8 @@
 
     .p2-tag-small {
       display: inline-block;
-      background: rgba(56, 189, 248, 0.1);
-      color: #38bdf8;
+      background: rgba(217, 119, 70, 0.1);
+      color: #d97746;
       padding: 0.3rem 0.8rem;
       border-radius: 6px;
       font-size: 0.75rem;
@@ -503,7 +546,7 @@
     }
 
     .p2-section-header p {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 1rem;
       max-width: 600px;
       margin: 0 auto;
@@ -517,7 +560,7 @@
     }
 
     .p2-detail-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(62, 74, 61, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 16px;
       padding: 2rem;
@@ -527,7 +570,7 @@
 
     .p2-detail-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(56, 189, 248, 0.3);
+      border-color: rgba(217, 119, 70, 0.3);
     }
 
     .p2-card-top {
@@ -547,14 +590,14 @@
       font-size: 1.3rem;
     }
 
-    .teal-bg { background: rgba(45, 212, 191, 0.15); color: #2dd4bf; }
-    .teal-text { color: #2dd4bf; }
+    .teal-bg { background: rgba(163, 177, 138, 0.15); color: #a3b18a; }
+    .teal-text { color: #a3b18a; }
     
-    .blue-bg { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
-    .blue-text { color: #38bdf8; }
+    .blue-bg { background: rgba(217, 119, 70, 0.15); color: #d97746; }
+    .blue-text { color: #d97746; }
 
-    .purple-bg { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
-    .purple-text { color: #a855f7; }
+    .purple-bg { background: rgba(234, 179, 8, 0.15); color: #eab308; }
+    .purple-text { color: #eab308; }
 
     .p2-card-number {
       font-family: 'Outfit', sans-serif;
@@ -565,7 +608,7 @@
     }
 
     .p2-card-title {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 1.1rem;
       font-weight: 600;
       margin-bottom: 1rem;
@@ -573,7 +616,7 @@
     }
 
     .p2-card-desc {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 0.85rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
@@ -597,7 +640,7 @@
     }
 
     .p2-mini-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(62, 74, 61, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 12px;
       padding: 1.2rem;
@@ -612,7 +655,7 @@
       height: 40px;
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.05);
-      color: #94a3b8;
+      color: #bca89f;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -621,13 +664,13 @@
     }
 
     .p2-mini-text h4 {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 0.85rem;
       margin-bottom: 0.2rem;
     }
 
     .p2-mini-text p {
-      color: #64748b;
+      color: #7c8069;
       font-size: 0.7rem;
       line-height: 1.3;
     }
@@ -673,7 +716,7 @@
       right: 1.5rem;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #94a3b8;
+      color: #bca89f;
       width: 32px;
       height: 32px;
       border-radius: 50%;
@@ -707,19 +750,19 @@
       flex-shrink: 0;
     }
     .p2-modal-title h3 {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 1.1rem;
       margin-top: 0.3rem;
       line-height: 1.4;
     }
     .p2-modal-title p {
-      color: #2dd4bf;
+      color: #a3b18a;
       font-size: 0.75rem;
       font-weight: 700;
       letter-spacing: 1px;
     }
     .p2-modal-body p.p2-modal-intro {
-      color: #cbd5e1;
+      color: #bca89f;
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
@@ -733,8 +776,8 @@
       display: flex;
       gap: 1rem;
     }
-    .p2-modal-item-number.teal { background: rgba(45, 212, 191, 0.15); color: #2dd4bf; }
-    .p2-modal-item-number.blue { background: rgba(56, 189, 248, 0.15); color: #38bdf8; }
+    .p2-modal-item-number.teal { background: rgba(163, 177, 138, 0.15); color: #a3b18a; }
+    .p2-modal-item-number.blue { background: rgba(217, 119, 70, 0.15); color: #d97746; }
     .p2-modal-item-number.yellow { background: rgba(250, 204, 21, 0.15); color: #facc15; }
     
     .p2-modal-item-number {
@@ -750,12 +793,12 @@
       margin-top: 2px;
     }
     .p2-modal-item-text h4 {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 0.95rem;
       margin-bottom: 0.4rem;
     }
     .p2-modal-item-text p {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 0.85rem;
       line-height: 1.6;
       margin-bottom: 0;
@@ -763,7 +806,7 @@
 
     /* Challenge Cards inside Modal */
     .p2-challenge-card {
-      background: rgba(15, 23, 42, 0.6);
+      background: rgba(62, 74, 61, 0.6);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 1.5rem;
@@ -788,24 +831,24 @@
       gap: 5px;
     }
     .p2-challenge-header h4 {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 1rem;
       margin: 0;
     }
     .p2-challenge-card > p {
-      color: #cbd5e1;
+      color: #bca89f;
       font-size: 0.9rem;
       line-height: 1.5;
       margin-bottom: 1rem;
     }
     .p2-solution-box {
-      background: rgba(45, 212, 191, 0.08);
-      border-left: 3px solid #2dd4bf;
+      background: rgba(163, 177, 138, 0.08);
+      border-left: 3px solid #a3b18a;
       border-radius: 4px 8px 8px 4px;
       padding: 1rem;
     }
     .p2-solution-box h5 {
-      color: #2dd4bf;
+      color: #a3b18a;
       font-size: 0.85rem;
       margin-bottom: 0.4rem;
       display: flex;
@@ -813,7 +856,7 @@
       gap: 5px;
     }
     .p2-solution-box p {
-      color: #e2e8f0;
+      color: #fdfbf7;
       font-size: 0.85rem;
       line-height: 1.5;
       margin: 0;
@@ -828,7 +871,7 @@
       margin-top: 3rem;
     }
     .p2-timeline-card {
-      background: rgba(15, 23, 42, 0.4);
+      background: rgba(62, 74, 61, 0.4);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 1.2rem;
@@ -843,7 +886,7 @@
     .p2-timeline-icon {
       width: 32px;
       height: 32px;
-      background: #38bdf8;
+      background: #d97746;
       color: #0f172a;
       border-radius: 50%;
       display: flex;
@@ -854,14 +897,14 @@
       flex-shrink: 0;
     }
     .p2-timeline-header h4 {
-      color: #f8fafc;
+      color: #fdfbf7;
       font-size: 0.95rem;
       margin: 0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
     .p2-timeline-text p {
-      color: #94a3b8;
+      color: #bca89f;
       font-size: 0.8rem;
       line-height: 1.5;
       margin: 0;
@@ -886,7 +929,7 @@
 
     /* Feedback Cards inside Modal */
     .p2-feedback-card {
-      background: rgba(15, 23, 42, 0.5);
+      background: rgba(62, 74, 61, 0.5);
       border: 1px solid rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 1.5rem;
@@ -896,7 +939,7 @@
       margin-bottom: 1rem;
     }
     .p2-tag-purple {
-      background: rgba(168, 85, 247, 0.15);
+      background: rgba(234, 179, 8, 0.15);
       color: #c084fc;
       padding: 0.35rem 0.8rem;
       border-radius: 20px;
@@ -908,19 +951,19 @@
       gap: 6px;
     }
     .p2-feedback-quote {
-      border-left: 2px solid #a855f7;
+      border-left: 2px solid #eab308;
       padding-left: 1rem;
       margin-bottom: 1.2rem;
     }
     .p2-feedback-quote p {
-      color: #e2e8f0;
+      color: #fdfbf7;
       font-size: 0.95rem;
       font-style: italic;
       margin: 0;
       line-height: 1.5;
     }
     .p2-feedback-action {
-      background: rgba(45, 212, 191, 0.05);
+      background: rgba(163, 177, 138, 0.05);
       border-radius: 8px;
       padding: 1rem;
       display: flex;
@@ -928,7 +971,7 @@
       gap: 0.6rem;
     }
     .p2-action-label {
-      color: #2dd4bf;
+      color: #a3b18a;
       font-weight: 700;
       font-size: 0.85rem;
       white-space: nowrap;
@@ -937,7 +980,7 @@
       gap: 6px;
     }
     .p2-action-text {
-      color: #cbd5e1;
+      color: #bca89f;
       font-size: 0.85rem;
       line-height: 1.5;
     }
@@ -985,11 +1028,11 @@
     }
     .p2-btn-ganti:hover {
       background: rgba(30, 41, 59, 0.8);
-      border-color: rgba(56, 189, 248, 0.3);
+      border-color: rgba(217, 119, 70, 0.3);
       transform: translateY(-2px);
     }
     .p2-btn-ganti-icon {
-      color: #2dd4bf;
+      color: #a3b18a;
       margin-right: 15px;
       font-size: 1.2rem;
     }
@@ -998,13 +1041,13 @@
     }
     .p2-btn-ganti-text strong {
       display: block;
-      color: #2dd4bf;
+      color: #a3b18a;
       font-size: 0.95rem;
       margin-bottom: 0.2rem;
     }
     .p2-btn-ganti-text span {
       display: block;
-      color: #64748b;
+      color: #7c8069;
       font-size: 0.75rem;
     }
 
@@ -1031,7 +1074,7 @@
       }
       .p2-quote {
         border-left: none;
-        border-top: 3px solid #a855f7;
+        border-top: 3px solid #eab308;
         border-radius: 0 0 12px 12px;
       }
       .p2-cards-grid-3 { grid-template-columns: 1fr; }
@@ -1105,7 +1148,7 @@
         </p>
 
         <div class="p2-quote">
-          <i class="fa-solid fa-quote-left" style="color: #a855f7; margin-right: 10px;"></i>
+          <i class="fa-solid fa-quote-left" style="color: #eab308; margin-right: 10px;"></i>
           Mengajar adalah seni membentuk tanpa memaksa bentuk.
         </div>
 
@@ -1114,7 +1157,7 @@
             <i class="fa-solid fa-lock" style="color: #fde047;"></i> Lihat Refleksi
           </a>
           <a href="#filosofi-mengajar" class="p2-btn-secondary" style="text-decoration: none;">
-            <i class="fa-solid fa-lightbulb" style="color: #38bdf8;"></i> Filosofi Mengajar
+            <i class="fa-solid fa-lightbulb" style="color: #d97746;"></i> Filosofi Mengajar
           </a>
         </div>
       </div>
@@ -1245,7 +1288,7 @@
     <!-- Section: Filosofi Mengajar -->
     <section id="filosofi-mengajar" class="p2-detail-section" style="padding-top: 2rem;">
       <div class="p2-section-header">
-        <span class="p2-tag-small" style="color: #a855f7; background: rgba(168, 85, 247, 0.1);">SECTION 02</span>
+        <span class="p2-tag-small" style="color: #eab308; background: rgba(234, 179, 8, 0.1);">SECTION 02</span>
         <h2>Filosofi Mengajar</h2>
         <p>Prinsip pembelajaran bermakna, fasilitator scaffolder, & karakter profesional dengan 4 nilai inti.</p>
       </div>
@@ -1253,10 +1296,10 @@
       <div class="p2-quote-card">
         <i class="fa-solid fa-quote-left"></i>
         <p>"Mengajar adalah seni membentuk tanpa memaksa bentuk."</p>
-        <div style="font-size: 0.95rem; color: #cbd5e1; font-weight: 400; line-height: 1.7; margin-top: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <div style="font-size: 0.95rem; color: #bca89f; font-weight: 400; line-height: 1.7; margin-top: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto;">
           Filosofi ini tidak saya temukan dari buku, melainkan dari tanah liat Kasongan, tempat saya dibesarkan di mana sesuatu yang awalnya tidak berbentuk bisa menjadi berharga, bukan karena dipaksa, tetapi karena disabari. Saya membawa prinsip itu ke dalam kelas, setiap murid datang dengan karakteristiknya sendiri, dengan kecepatan serta keingintahuannya masing-masing. Tugas saya bukan menyeragamkan mereka menjadi satu bentuk ideal, melainkan menuntun mereka menemukan bentuk terbaik dari diri mereka sendiri. Inilah yang saya pahami dari gagasan Ki Hadjar Dewantara tentang pendidikan yang berpihak pada kodrat anak, pendidik menuntun, bukan menentukan.
         </div>
-        <div style="margin-top: 2rem; font-weight: 600; color: #38bdf8; font-size: 0.9rem; letter-spacing: 1px;">
+        <div style="margin-top: 2rem; font-weight: 600; color: #d97746; font-size: 0.9rem; letter-spacing: 1px;">
           — ORISA SATIFA ALQAF
         </div>
       </div>
@@ -1329,12 +1372,12 @@
     <div class="p2-footer-content">
       <div class="p2-footer-left">
         <div style="margin-bottom: 1rem;">
-          <span style="background: #fff; padding: 6px 12px; border-radius: 6px; color: #0F5EA8; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-family: 'Outfit', sans-serif;">
+          <span style="background: #fff; padding: 6px 12px; border-radius: 6px; color: #3e4a3d; font-weight: 800; display: inline-flex; align-items: center; gap: 6px; font-family: 'Outfit', sans-serif;">
             <i class="fa-solid fa-graduation-cap"></i> PPG
           </span>
-          <span style="display: block; margin-top: 8px; font-weight: 600; font-size: 0.9rem; color: #f8fafc;">E-Portfolio</span>
+          <span style="display: block; margin-top: 8px; font-weight: 600; font-size: 0.9rem; color: #fdfbf7;">E-Portfolio</span>
         </div>
-        <p style="color: #64748b; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">Calon Guru Bahasa Indonesia<br>PPG Prajabatan 2026, Universitas Ahmad Dahlan</p>
+        <p style="color: #7c8069; font-size: 0.85rem; line-height: 1.6; margin-bottom: 1.5rem;">Calon Guru Bahasa Indonesia<br>PPG Prajabatan 2026, Universitas Ahmad Dahlan</p>
         <div class="p2-socials" style="margin-top: 0; justify-content: center;">
           <a href="#" class="p2-social-btn" style="background: #0077b5; color: #fff; border: none;"><i class="fab fa-linkedin-in"></i></a>
           <a href="#" class="p2-social-btn" style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; border: none;"><i class="fab fa-instagram"></i></a>
@@ -1344,11 +1387,11 @@
       </div>
       
       <div class="p2-footer-right">
-        <h4 style="color: #f8fafc; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1.5rem; text-align: center; font-weight: 700;">NAVIGASI</h4>
+        <h4 style="color: #fdfbf7; font-size: 0.9rem; letter-spacing: 2px; margin-bottom: 1.5rem; text-align: center; font-weight: 700;">NAVIGASI</h4>
         <div style="display: flex; gap: 2rem; justify-content: center; margin-bottom: 2rem;">
-          <a href="#beranda" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#94a3b8'">Beranda</a>
-          <a href="#refleksi-ppl" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#94a3b8'">Refleksi PPL</a>
-          <a href="#filosofi-mengajar" style="color: #94a3b8; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#38bdf8'" onmouseout="this.style.color='#94a3b8'">Filosofi Mengajar</a>
+          <a href="#beranda" style="color: #bca89f; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#d97746'" onmouseout="this.style.color='#bca89f'">Beranda</a>
+          <a href="#refleksi-ppl" style="color: #bca89f; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#d97746'" onmouseout="this.style.color='#bca89f'">Refleksi PPL</a>
+          <a href="#filosofi-mengajar" style="color: #bca89f; text-decoration: none; font-size: 0.9rem; transition: color 0.3s;" onmouseover="this.style.color='#d97746'" onmouseout="this.style.color='#bca89f'">Filosofi Mengajar</a>
         </div>
         <a href="index.html" class="p2-btn-ganti">
           <div class="p2-btn-ganti-icon"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
@@ -1417,7 +1460,7 @@
       <div class="p2-modal-header">
         <div class="p2-modal-icon blue-bg"><i class="fa-solid fa-triangle-exclamation"></i></div>
         <div class="p2-modal-title">
-          <p style="color: #38bdf8;">PERTANYAAN 2</p>
+          <p style="color: #d97746;">PERTANYAAN 2</p>
           <h3>Pengalaman Menantang & Solusi yang Diterapkan</h3>
         </div>
       </div>
@@ -1475,7 +1518,7 @@
       <div class="p2-modal-header">
         <div class="p2-modal-icon purple-bg"><i class="fa-solid fa-comments"></i></div>
         <div class="p2-modal-title">
-          <p style="color: #a855f7;">PERTANYAAN 3</p>
+          <p style="color: #eab308;">PERTANYAAN 3</p>
           <h3>Umpan Balik & Saran Konstruktif untuk PPL Mandiri</h3>
         </div>
       </div>
@@ -1536,15 +1579,15 @@
       <div class="p2-modal-header" style="align-items: center; gap: 1rem;">
         <div class="p2-modal-icon teal-bg"><i class="fa-solid fa-seedling"></i></div>
         <div class="p2-modal-title">
-          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(45, 212, 191, 0.15); color: #2dd4bf; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 1</span></p>
+          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(163, 177, 138, 0.15); color: #a3b18a; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 1</span></p>
           <h3 style="margin: 0; font-size: 1.25rem;">Pembelajaran Bermakna</h3>
         </div>
       </div>
       <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;">
       
       <div class="p2-modal-body">
-        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.2rem;">Saya percaya, kelas yang baik dibangun di atas tiga fondasi, yaitu mindful, meaningful, dan joyful. Mindful karena murid harus disapa sesuai kondisi nyata mereka, bukan kondisi ideal yang saya bayangkan sendirian di atas kertas RPP. Meaningful karena setiap materi sekering apa pun kelihatannya di permukaan, karya tulis ilmiah misalnya, harus berakar pada keresahan yang murid kenali, bukan sekadar konsep yang melayang di awang-awang.</p>
-        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0;">Joyful karena saya percaya satu lembar <em>sticky note</em> yang ditempel dengan tawa bisa menciptakan keterlibatan yang jauh lebih hidup daripada lembar penilaian paling formal sekalipun. Ketiganya bukan teori yang saya hafal, melainkan kompas yang saya pegang setiap kali menyusun dan menjalankan rencana pembelajaran.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #bca89f; font-size: 0.95rem; margin-bottom: 1.2rem;">Saya percaya, kelas yang baik dibangun di atas tiga fondasi, yaitu mindful, meaningful, dan joyful. Mindful karena murid harus disapa sesuai kondisi nyata mereka, bukan kondisi ideal yang saya bayangkan sendirian di atas kertas RPP. Meaningful karena setiap materi sekering apa pun kelihatannya di permukaan, karya tulis ilmiah misalnya, harus berakar pada keresahan yang murid kenali, bukan sekadar konsep yang melayang di awang-awang.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #bca89f; font-size: 0.95rem; margin-bottom: 0;">Joyful karena saya percaya satu lembar <em>sticky note</em> yang ditempel dengan tawa bisa menciptakan keterlibatan yang jauh lebih hidup daripada lembar penilaian paling formal sekalipun. Ketiganya bukan teori yang saya hafal, melainkan kompas yang saya pegang setiap kali menyusun dan menjalankan rencana pembelajaran.</p>
       </div>
     </div>
   </div>
@@ -1557,15 +1600,15 @@
       <div class="p2-modal-header" style="align-items: center; gap: 1rem;">
         <div class="p2-modal-icon blue-bg"><i class="fa-solid fa-hands-holding-child"></i></div>
         <div class="p2-modal-title">
-          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(56, 189, 248, 0.15); color: #38bdf8; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 2</span></p>
+          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(217, 119, 70, 0.15); color: #d97746; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 2</span></p>
           <h3 style="margin: 0; font-size: 1.25rem;">Fasilitator & Scaffolder</h3>
         </div>
       </div>
       <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;">
       
       <div class="p2-modal-body">
-        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.2rem;">Saya percaya, mengajar adalah seni membentuk tanpa memaksa bentuk. Filosofi ini tidak saya temukan dari buku, melainkan dari tanah liat Kasongan tempat saya dibesarkan di mana sesuatu yang awalnya tidak berbentuk bisa menjadi berharga, bukan karena dipaksa, tetapi karena disabari. Saya membawa prinsip itu ke dalam kelas, setiap murid datang dengan karakteristiknya sendiri, dengan kecepatan serta keingintahuannya masing-masing. Tugas saya bukan menyeragamkan mereka menjadi satu bentuk ideal, melainkan menuntun mereka menemukan bentuk terbaik dari diri mereka sendiri. Inilah yang saya pahami dari gagasan Ki Hadjar Dewantara tentang pendidikan yang berpihak pada kodrat anak, pendidik menuntun, bukan menentukan.</p>
-        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0;">Pada akhirnya, saya tidak ingin sekadar dikenal sebagai guru yang pintar menyampaikan materi. Saya ingin dikenal sebagai guru yang menjadikan kelasnya terasa seperti rumah, tempat murid berani salah, berani bertanya, dan berani menjadi diri mereka sendiri. Karena bagi saya, itulah inti dari profesi ini, bukan mentransfer ilmu dari satu kepala ke kepala lain, melainkan menumbuhkan keberanian seorang murid untuk terus tumbuh sebagaimana tanah liat yang sabar dibentuk hingga ia berdiri sebagai sesuatu yang utuh, kuat, dan bermakna.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #bca89f; font-size: 0.95rem; margin-bottom: 1.2rem;">Saya percaya, mengajar adalah seni membentuk tanpa memaksa bentuk. Filosofi ini tidak saya temukan dari buku, melainkan dari tanah liat Kasongan tempat saya dibesarkan di mana sesuatu yang awalnya tidak berbentuk bisa menjadi berharga, bukan karena dipaksa, tetapi karena disabari. Saya membawa prinsip itu ke dalam kelas, setiap murid datang dengan karakteristiknya sendiri, dengan kecepatan serta keingintahuannya masing-masing. Tugas saya bukan menyeragamkan mereka menjadi satu bentuk ideal, melainkan menuntun mereka menemukan bentuk terbaik dari diri mereka sendiri. Inilah yang saya pahami dari gagasan Ki Hadjar Dewantara tentang pendidikan yang berpihak pada kodrat anak, pendidik menuntun, bukan menentukan.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #bca89f; font-size: 0.95rem; margin-bottom: 0;">Pada akhirnya, saya tidak ingin sekadar dikenal sebagai guru yang pintar menyampaikan materi. Saya ingin dikenal sebagai guru yang menjadikan kelasnya terasa seperti rumah, tempat murid berani salah, berani bertanya, dan berani menjadi diri mereka sendiri. Karena bagi saya, itulah inti dari profesi ini, bukan mentransfer ilmu dari satu kepala ke kepala lain, melainkan menumbuhkan keberanian seorang murid untuk terus tumbuh sebagaimana tanah liat yang sabar dibentuk hingga ia berdiri sebagai sesuatu yang utuh, kuat, dan bermakna.</p>
       </div>
     </div>
   </div>
@@ -1578,15 +1621,15 @@
       <div class="p2-modal-header" style="align-items: center; gap: 1rem;">
         <div class="p2-modal-icon purple-bg"><i class="fa-solid fa-user-tie"></i></div>
         <div class="p2-modal-title">
-          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(168, 85, 247, 0.15); color: #c084fc; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 3</span></p>
+          <p style="margin-bottom: 0.3rem;"><span class="p2-tag-red" style="background: rgba(234, 179, 8, 0.15); color: #c084fc; padding: 0.2rem 0.6rem; border-radius: 12px; font-size: 0.65rem; font-weight: 700;">FILOSOFI 3</span></p>
           <h3 style="margin: 0; font-size: 1.25rem;">Karakter Profesional</h3>
         </div>
       </div>
       <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.08); margin: 1.5rem 0;">
       
       <div class="p2-modal-body">
-        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 1.2rem;">Keyakinan itu semakin saya pegang erat melalui satu kutipan yang menjadi kompas sejak awal perjalanan ini. Jadikan setiap tempat sebagai sekolah dan jadikan setiap orang sebagai guru. Bagi saya, kutipan Ki Hadjar Dewantara ini bukan sekadar kalimat indah untuk diucapkan, melainkan pengingat bahwa ruang kelas hanyalah satu dari banyak ruang belajar, dan gelar guru bukan satu-satunya sumber ilmu. Maka saya berusaha untuk tidak pernah berhenti belajar dari murid, dari rekan sejawat, bahkan dari kegagalan kecil di setiap pertemuan.</p>
-        <p style="text-align: justify; line-height: 1.8; color: #cbd5e1; font-size: 0.95rem; margin-bottom: 0;">Dan saya percaya, guru yang baik bukan guru yang sempurna sejak hari pertama melainkan guru yang berani terus dibentuk ulang. Sepanjang tiga siklus praktik mengajar, saya jatuh pada pola yang sama berulang kali. Waktu yang kurang, instruksi yang tidak sampai, rencana yang harus diubah mendadak. Tapi setiap kali itu terjadi, saya memilih untuk tidak berhenti di rasa gagal. Saya memilih bertanya apa yang bisa saya bentuk ulang dari sini? Itulah <em>growth mindset</em> yang saya yakini, bukan sekadar konsep motivasi, tetapi cara saya memperlakukan setiap kekurangan bukan sebagai noda permanen melainkan sebagai tanah liat yang masih bisa dibentuk ulang.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #bca89f; font-size: 0.95rem; margin-bottom: 1.2rem;">Keyakinan itu semakin saya pegang erat melalui satu kutipan yang menjadi kompas sejak awal perjalanan ini. Jadikan setiap tempat sebagai sekolah dan jadikan setiap orang sebagai guru. Bagi saya, kutipan Ki Hadjar Dewantara ini bukan sekadar kalimat indah untuk diucapkan, melainkan pengingat bahwa ruang kelas hanyalah satu dari banyak ruang belajar, dan gelar guru bukan satu-satunya sumber ilmu. Maka saya berusaha untuk tidak pernah berhenti belajar dari murid, dari rekan sejawat, bahkan dari kegagalan kecil di setiap pertemuan.</p>
+        <p style="text-align: justify; line-height: 1.8; color: #bca89f; font-size: 0.95rem; margin-bottom: 0;">Dan saya percaya, guru yang baik bukan guru yang sempurna sejak hari pertama melainkan guru yang berani terus dibentuk ulang. Sepanjang tiga siklus praktik mengajar, saya jatuh pada pola yang sama berulang kali. Waktu yang kurang, instruksi yang tidak sampai, rencana yang harus diubah mendadak. Tapi setiap kali itu terjadi, saya memilih untuk tidak berhenti di rasa gagal. Saya memilih bertanya apa yang bisa saya bentuk ulang dari sini? Itulah <em>growth mindset</em> yang saya yakini, bukan sekadar konsep motivasi, tetapi cara saya memperlakukan setiap kekurangan bukan sebagai noda permanen melainkan sebagai tanah liat yang masih bisa dibentuk ulang.</p>
       </div>
     </div>
   </div>
@@ -1668,3 +1711,4 @@
 
 </body>
 </html>
+
