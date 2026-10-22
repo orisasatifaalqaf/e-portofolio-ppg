@@ -1,0 +1,3080 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Topik 3: Praktik Pembelajaran Mandiri - Portofolio Artefak dan Analisis Kritis Guru Profesional PPG Universitas Ahmad Dahlan" />
+  <title>Topik 3: Praktik Mengajar Mandiri | E-Portfolio PPG UAD</title>
+  
+  <!-- Favicon PPG -->
+  <link rel="icon" href="LOGO WEB.jpg" type="image/jpeg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    /* ==========================
+       CSS Variables (Earth Tone & Dark Mode)
+       ========================== */
+    :root {
+      --bg-primary: #efece1;
+      --bg-secondary: #fbf9f5;
+      --bg-card: #ffffff;
+      --text-primary: #2e382d;
+      --text-secondary: #5f6655;
+      --text-muted: #838a75;
+      --accent: #d97746;
+      --accent-hover: #b45f36;
+      --accent-light: rgba(217, 119, 70, 0.12);
+      --teal-primary: #10b981;
+      --teal-light: rgba(16, 185, 129, 0.12);
+      --purple-primary: #8b5cf6;
+      --purple-light: rgba(139, 92, 246, 0.12);
+      --blue-primary: #0284c7;
+      --blue-light: rgba(2, 132, 199, 0.12);
+      --border-color: #dcd6c8;
+      --border-light: rgba(62, 74, 61, 0.1);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+      --shadow-md: 0 8px 24px rgba(62, 74, 61, 0.08);
+      --shadow-lg: 0 16px 36px rgba(62, 74, 61, 0.12);
+      --nav-bg: rgba(239, 236, 225, 0.88);
+      --drawer-bg: #fdfbf7;
+      --font-body: 'Inter', sans-serif;
+      --font-heading: 'Outfit', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --bg-primary: #22261f;
+      --bg-secondary: #2c3228;
+      --bg-card: #333a2f;
+      --text-primary: #f5f4ed;
+      --text-secondary: #c9cebe;
+      --text-muted: #959e89;
+      --accent: #e58b5c;
+      --accent-hover: #f09e72;
+      --accent-light: rgba(229, 139, 92, 0.18);
+      --teal-primary: #34d399;
+      --teal-light: rgba(52, 211, 153, 0.18);
+      --purple-primary: #a78bfa;
+      --purple-light: rgba(167, 139, 250, 0.18);
+      --blue-primary: #38bdf8;
+      --blue-light: rgba(56, 189, 248, 0.18);
+      --border-color: #434c3e;
+      --border-light: rgba(255, 255, 255, 0.08);
+      --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.4);
+      --shadow-lg: 0 16px 36px rgba(0, 0, 0, 0.5);
+      --nav-bg: rgba(34, 38, 31, 0.92);
+      --drawer-bg: #2a3026;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Watermark Bunga */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 50%; left: 50%;
+      width: 100vw; height: 100vh;
+      min-width: 800px; min-height: 800px;
+      background-image: url('ORNAMEN BUNGA.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+      opacity: 0.08;
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: multiply;
+    }
+
+    [data-theme="dark"] body::before {
+      opacity: 0.04;
+      filter: invert(1);
+      mix-blend-mode: screen;
+    }
+
+    /* Paper Noise Overlay */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 0.05;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+
+    .container {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ==========================
+       Navbar
+       ========================== */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-light);
+      z-index: 1000;
+      transition: all 0.3s ease;
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 0;
+    }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .brand-logo {
+      height: 42px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .brand-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .brand-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.15rem;
+      line-height: 1.2;
+      color: var(--text-primary);
+    }
+
+    .brand-badge {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.55rem 1.1rem;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+    }
+
+    .nav-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .nav-btn.primary {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+    }
+
+    .nav-btn.primary:hover {
+      background: var(--accent-hover);
+      color: #ffffff;
+    }
+
+    .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid var(--border-color);
+      background: var(--bg-card);
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .icon-btn:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    /* ==========================
+       Hero Banner
+       ========================== */
+    .hero-banner {
+      padding: 3rem 0 2rem;
+    }
+
+    .breadcrumb {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 1.2rem;
+    }
+
+    .breadcrumb a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .breadcrumb a:hover {
+      color: var(--accent);
+    }
+
+    .breadcrumb i {
+      font-size: 0.7rem;
+    }
+
+    .hero-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card::after {
+      content: "";
+      position: absolute;
+      top: 0; right: 0;
+      width: 250px; height: 100%;
+      background: radial-gradient(circle at 80% 20%, var(--accent-light), transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-top-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--teal-light);
+      color: var(--teal-primary);
+      border: 1px solid rgba(16, 185, 129, 0.25);
+      padding: 0.35rem 0.9rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-heading);
+      font-size: 2.3rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 860px;
+      margin-bottom: 2rem;
+    }
+
+    /* Student Meta Card */
+    .student-meta-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px dashed var(--border-color);
+    }
+
+    .meta-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .meta-icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .meta-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .meta-val {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+
+    /* ==========================
+       Sticky Quick Menu Bar
+       ========================== */
+    .menu-nav-container {
+      position: sticky;
+      top: 67px;
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 900;
+      padding: 0.8rem 0;
+      margin-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border-light);
+    }
+
+    .menu-pills {
+      display: flex;
+      gap: 0.6rem;
+      overflow-x: auto;
+      padding: 4px 2px;
+      scrollbar-width: none;
+    }
+
+    .menu-pills::-webkit-scrollbar {
+      display: none;
+    }
+
+    .menu-pill {
+      white-space: nowrap;
+      padding: 0.6rem 1.1rem;
+      border-radius: 30px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-secondary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+    }
+
+    .menu-pill:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .menu-pill.active {
+      background: var(--text-primary);
+      color: var(--bg-card);
+      border-color: var(--text-primary);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pill-counter {
+      background: rgba(0, 0, 0, 0.08);
+      padding: 2px 7px;
+      border-radius: 12px;
+      font-size: 0.72rem;
+    }
+
+    [data-theme="dark"] .pill-counter {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* ==========================
+       Menu Section Styling
+       ========================== */
+    .topic-section {
+      margin-bottom: 4rem;
+      scroll-margin-top: 140px;
+    }
+
+    .section-head {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-badge-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 0.6rem;
+    }
+
+    .menu-order-badge {
+      background: var(--accent);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .menu-status-badge {
+      background: var(--teal-light);
+      color: var(--teal-primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.25rem 0.7rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .topic-title {
+      font-family: var(--font-heading);
+      font-size: 1.65rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+      margin-bottom: 0.5rem;
+    }
+
+    .topic-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 900px;
+    }
+
+    /* Split Two-Column Grid */
+    .dual-grid {
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 1.8rem;
+      align-items: stretch;
+    }
+
+    @media (max-width: 992px) {
+      .dual-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Left Column: Artifact Container */
+    .artifact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: all 0.3s ease;
+    }
+
+    .artifact-card:hover {
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+
+    .artifact-cover-box {
+      position: relative;
+      width: 100%;
+      height: 220px;
+      background: var(--bg-secondary);
+      overflow: hidden;
+    }
+
+    .artifact-cover-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .artifact-card:hover .artifact-cover-img {
+      transform: scale(1.04);
+    }
+
+    .artifact-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: rgba(34, 38, 31, 0.85);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .artifact-state-badge {
+      position: absolute;
+      bottom: 14px;
+      right: 14px;
+      background: rgba(16, 185, 129, 0.92);
+      backdrop-filter: blur(6px);
+      color: #ffffff;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 0.25rem 0.65rem;
+      border-radius: 20px;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .artifact-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .artifact-title {
+      font-family: var(--font-heading);
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.5rem;
+    }
+
+    .artifact-summary {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+
+    .artifact-meta-list {
+      background: var(--bg-secondary);
+      border-radius: 10px;
+      padding: 0.85rem 1rem;
+      margin-bottom: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 0.82rem;
+    }
+
+    .artifact-meta-row {
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-secondary);
+    }
+
+    .artifact-meta-row strong {
+      color: var(--text-primary);
+    }
+
+    .artifact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .btn-action-primary {
+      background: var(--accent);
+      color: #ffffff;
+      padding: 0.75rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-action-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217, 119, 70, 0.3);
+    }
+
+    .btn-action-secondary {
+      background: transparent;
+      color: var(--text-primary);
+      padding: 0.65rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      text-decoration: none;
+      border: 1px solid var(--border-color);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-action-secondary:hover {
+      background: var(--bg-secondary);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .artifact-placeholder-notice {
+      margin-top: 0.9rem;
+      padding: 0.6rem 0.8rem;
+      background: rgba(2, 132, 199, 0.08);
+      border-radius: 8px;
+      border: 1px dashed rgba(2, 132, 199, 0.3);
+      font-size: 0.78rem;
+      color: var(--blue-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Right Column: Analysis Container */
+    .analysis-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 1.8rem;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .analysis-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 1.2rem;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border-light);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .analysis-title-group h3 {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .analysis-title-group p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .btn-view-drawer {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.6rem 1.2rem;
+      background: var(--bg-secondary);
+      color: var(--accent);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .btn-view-drawer:hover {
+      background: var(--accent);
+      color: #ffffff;
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217, 119, 70, 0.25);
+    }
+
+    /* Aspect Cards Grid inside Analysis Container */
+    .aspect-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.2rem;
+      flex: 1;
+    }
+
+    @media (max-width: 680px) {
+      .aspect-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .aspect-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-light);
+      border-radius: 14px;
+      padding: 1.3rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.25s ease;
+    }
+
+    .aspect-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .aspect-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.8rem;
+    }
+
+    .aspect-num-pill {
+      font-size: 0.72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+      background: rgba(62, 74, 61, 0.1);
+      color: var(--text-primary);
+    }
+
+    .aspect-icon {
+      font-size: 1.1rem;
+      color: var(--accent);
+    }
+
+    .aspect-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.6rem;
+      line-height: 1.35;
+    }
+
+    .aspect-content {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .aspect-placeholder-tag {
+      margin-top: 1rem;
+      padding-top: 0.7rem;
+      border-top: 1px dashed var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    /* Video Player Mockup */
+    .video-mockup-wrapper {
+      position: relative;
+      cursor: pointer;
+    }
+
+    .video-play-btn {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px; height: 58px;
+      border-radius: 50%;
+      background: rgba(217, 119, 70, 0.9);
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      box-shadow: 0 0 25px rgba(217, 119, 70, 0.7);
+      transition: all 0.3s ease;
+      padding-left: 4px;
+    }
+
+    .video-mockup-wrapper:hover .video-play-btn {
+      transform: translate(-50%, -50%) scale(1.15);
+      background: var(--accent);
+    }
+
+    /* ==========================
+       Slide-out Drawer / Overlay
+       ========================== */
+    .drawer-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 9990;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .drawer-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .drawer-panel {
+      position: fixed;
+      top: 0;
+      right: 0;
+      width: 650px;
+      max-width: 95vw;
+      height: 100vh;
+      background: var(--drawer-bg);
+      z-index: 9995;
+      box-shadow: -10px 0 35px rgba(0, 0, 0, 0.3);
+      display: flex;
+      flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .drawer-panel.active {
+      transform: translateX(0);
+    }
+
+    .drawer-header {
+      padding: 1.5rem 2rem;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      background: var(--bg-secondary);
+    }
+
+    .drawer-badge {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      background: var(--accent-light);
+      padding: 0.25rem 0.65rem;
+      border-radius: 6px;
+      margin-bottom: 0.4rem;
+    }
+
+    .drawer-title {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.35;
+    }
+
+    .drawer-close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      margin-left: 1rem;
+    }
+
+    .drawer-close-btn:hover {
+      background: #ef4444;
+      color: #ffffff;
+      border-color: #ef4444;
+      transform: rotate(90deg);
+    }
+
+    .drawer-body {
+      padding: 2rem;
+      overflow-y: auto;
+      flex: 1;
+    }
+
+    .drawer-body::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .drawer-body::-webkit-scrollbar-thumb {
+      background: var(--border-color);
+      border-radius: 10px;
+    }
+
+    .drawer-section {
+      margin-bottom: 2rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px dashed var(--border-color);
+    }
+
+    .drawer-section:last-child {
+      border-bottom: none;
+    }
+
+    .drawer-sec-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .drawer-text {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      text-align: justify;
+      margin-bottom: 1rem;
+    }
+
+    .drawer-notice {
+      background: rgba(217, 119, 70, 0.08);
+      border-left: 3px solid var(--accent);
+      padding: 0.9rem 1.1rem;
+      border-radius: 0 8px 8px 0;
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.2rem;
+    }
+
+    .drawer-footer {
+      padding: 1.2rem 2rem;
+      border-top: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* Modal for linking / preview */
+    .link-modal {
+      position: fixed;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      width: 520px;
+      max-width: 90vw;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 18px;
+      padding: 2rem;
+      z-index: 10000;
+      box-shadow: var(--shadow-lg);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .link-modal.active {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .modal-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .modal-title {
+      font-family: var(--font-heading);
+      font-size: 1.2rem;
+      font-weight: 700;
+    }
+
+    .modal-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      margin: 1rem 0;
+      outline: none;
+    }
+
+    .modal-input:focus {
+      border-color: var(--accent);
+    }
+
+    /* ==========================
+       Contact Section & Floral Watermark (Gambar 2)
+       ========================== */
+    .contact.section {
+      padding: 6rem 0;
+      position: relative;
+      overflow: hidden;
+      background-color: var(--bg-primary);
+      margin-top: 2rem;
+    }
+
+    .contact.section::before {
+      content: "";
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 80vw; height: 80vh;
+      min-width: 600px; min-height: 600px;
+      background-image: url('ORNAMEN BUNGA.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: multiply;
+    }
+
+    [data-theme="dark"] .contact.section::before {
+      opacity: 0.08;
+      filter: invert(1);
+      mix-blend-mode: screen;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .section-badge {
+      display: inline-block;
+      padding: 0.35rem 1.2rem;
+      border-radius: 20px;
+      background-color: var(--accent-light);
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 0.6rem;
+      color: var(--text-primary);
+    }
+
+    .section-subtitle {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3.5rem;
+      align-items: flex-start;
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 992px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-heading {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--text-primary);
+    }
+
+    .contact-desc {
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .contact-items {
+      display: flex;
+      flex-direction: column;
+      gap: 1.3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+    }
+
+    .contact-icon {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .icon-red { background: var(--accent); }
+    .icon-green { background: #10b981; }
+    .icon-blue { background: #0284c7; }
+
+    .contact-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .contact-label {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-value {
+      font-weight: 700;
+      color: var(--text-primary);
+      font-size: 0.95rem;
+    }
+
+    .social-heading {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .social-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    }
+
+    .sb-linkedin { background: #0A66C2; }
+    .sb-instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+    .sb-youtube { background: #FF0000; }
+    .sb-github { background: #333333; }
+
+    .contact-form-wrapper {
+      background: var(--bg-card);
+      border-radius: 20px;
+      padding: 2.8rem;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--border-color);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .form-group {
+      width: 100%;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 1rem 1.2rem;
+      border-radius: 12px;
+      border: 1px solid var(--border-color);
+      background: var(--bg-secondary);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+      box-sizing: border-box;
+    }
+
+    .form-control:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-light);
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .btn-submit {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 1.05rem;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      margin-top: 0.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .btn-submit:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(217, 119, 70, 0.3);
+    }
+
+    /* ==========================
+       Footer Section (Matching Gambar 2 / portfolio.html)
+       ========================== */
+    .footer {
+      background-color: #2D4C3F; /* Matched with hero */
+      color: #fff;
+      padding: 4rem 0;
+      border-top: 5px solid var(--accent);
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 992px) {
+      .footer-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    }
+
+    .footer-brand {
+      max-width: 320px;
+    }
+
+    @media (max-width: 992px) {
+      .footer-brand {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+
+    .footer-logo {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+      font-family: var(--font-heading);
+    }
+
+    .footer-brand-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+
+    .footer-brand-desc {
+      color: #94A3B8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.8rem;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 992px) {
+      .footer-nav {
+        align-items: center;
+      }
+    }
+
+    .footer-heading {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+      font-family: var(--font-heading);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .footer-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 1.8rem;
+      }
+    }
+
+    .footer-link-col {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-link-col a {
+      color: #94A3B8;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-link-col a:hover {
+      color: #38BDF8;
+    }
+
+    .footer-actions {
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-ganti-portfolio {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 1rem 1.5rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .btn-ganti-portfolio:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+      transform: translateY(-2px);
+    }
+
+    .btn-gp-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(217, 119, 70, 0.2);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .btn-gp-text {
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .btn-gp-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    .btn-gp-desc {
+      font-size: 0.75rem;
+      color: #94A3B8;
+    }
+
+    .btn-gp-arrow {
+      color: #94A3B8;
+      margin-left: 0.5rem;
+    }
+
+    /* Floating Back to Top */
+    .btn-to-top {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      box-shadow: 0 4px 14px rgba(217, 119, 70, 0.4);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(15px);
+      transition: all 0.3s ease;
+      z-index: 800;
+    }
+
+    .btn-to-top.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .btn-to-top:hover {
+      background: var(--accent-hover);
+      transform: translateY(-3px);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Sticky Navigation -->
+  <header class="top-nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand-wrap">
+        <img src="uad-logo.png" alt="Logo UAD" class="brand-logo" onerror="this.src='LOGO WEB.jpg'" />
+        <div class="brand-info">
+          <span class="brand-title">PPG Calon Guru</span>
+          <span class="brand-badge">Universitas Ahmad Dahlan</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggleBtn" aria-label="Ganti Mode Gelap/Terang" title="Ganti Mode Gelap/Terang">
+          <i class="fa-solid fa-moon" id="themeIcon"></i>
+        </button>
+        <a href="index.html" class="nav-btn">
+          <i class="fa-solid fa-arrow-left"></i>
+          <span>Pilih E-Portfolio</span>
+        </a>
+        <a href="#menu-1" class="nav-btn primary">
+          <span>Jelajahi Menu</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="hero-banner">
+    <div class="container">
+      <div class="breadcrumb">
+        <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <a href="index.html">Pilih E-Portfolio</a>
+        <i class="fa-solid fa-chevron-right"></i>
+        <span>Topik 3: Praktik Mengajar Mandiri</span>
+      </div>
+
+      <div class="hero-card">
+        <div class="hero-top-badge">
+          <i class="fa-solid fa-award"></i>
+          <span>PRAKTIK PEMBELAJARAN MANDIRI (PPL II / TOPIK 3)</span>
+        </div>
+        <h1 class="hero-main-title">
+          Dokumentasi Artefak & Analisis Kritis<br>
+          Praktik Mengajar Mandiri
+        </h1>
+        <p class="hero-subtitle">
+          Portofolio digital terpadu yang memuat seluruh perangkat rancangan pembelajaran, materi, media interaktif, rekaman video pelaksanaan mengajar, kegiatan nonmengajar, serta instrumen penilaian beserta analisis refleksi kritisnya.
+        </p>
+
+        <!-- Student Meta Strip -->
+        <div class="student-meta-strip">
+          <div class="meta-box">
+            <div class="meta-icon-box"><i class="fa-solid fa-user"></i></div>
+            <div>
+              <div class="meta-label">Nama Mahasiswa</div>
+              <div class="meta-val">Orisa Satifa Alqaf</div>
+            </div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-icon-box"><i class="fa-solid fa-id-card"></i></div>
+            <div>
+              <div class="meta-label">NIM Mahasiswa</div>
+              <div class="meta-val">2518363019</div>
+            </div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-icon-box"><i class="fa-solid fa-book-open"></i></div>
+            <div>
+              <div class="meta-label">Bidang Studi & Materi</div>
+              <div class="meta-val">Bahasa Indonesia &bull; Teks Anekdot (P1)</div>
+            </div>
+          </div>
+          <div class="meta-box">
+            <div class="meta-icon-box"><i class="fa-solid fa-building-columns"></i></div>
+            <div>
+              <div class="meta-label">Perguruan Tinggi</div>
+              <div class="meta-val">Universitas Ahmad Dahlan (UAD)</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sticky Quick Navigation Menu -->
+  <nav class="menu-nav-container">
+    <div class="container">
+      <div class="menu-pills" id="menuPills">
+        <a href="#menu-1" class="menu-pill active" data-target="menu-1">
+          <i class="fa-solid fa-file-lines"></i>
+          <span>Rancangan Pembelajaran</span>
+          <span class="pill-counter">Artefak & Analisis</span>
+        </a>
+        <a href="#menu-2" class="menu-pill" data-target="menu-2">
+          <i class="fa-solid fa-book-bookmark"></i>
+          <span>Materi Pembelajaran</span>
+          <span class="pill-counter">Artefak & Analisis</span>
+        </a>
+        <a href="#menu-3" class="menu-pill" data-target="menu-3">
+          <i class="fa-solid fa-display"></i>
+          <span>Media Pembelajaran</span>
+          <span class="pill-counter">Artefak & Analisis</span>
+        </a>
+        <a href="#menu-4" class="menu-pill" data-target="menu-4">
+          <i class="fa-solid fa-video"></i>
+          <span>Video Praktik Mengajar</span>
+          <span class="pill-counter">Artefak & Analisis</span>
+        </a>
+        <a href="#menu-5" class="menu-pill" data-target="menu-5">
+          <i class="fa-solid fa-handshake-angle"></i>
+          <span>Kegiatan Nonmengajar</span>
+          <span class="pill-counter">Artefak & Analisis</span>
+        </a>
+        <a href="#menu-6" class="menu-pill" data-target="menu-6">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <span>Instrumen Penilaian</span>
+          <span class="pill-counter">Artefak & Analisis</span>
+        </a>
+        <a href="#contact" class="menu-pill" data-target="contact">
+          <i class="fa-solid fa-envelope"></i>
+          <span>Kontak</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content Sections -->
+  <main class="container">
+
+    <!-- ==============================================================
+         MENU 1: Analisis Produk Rancangan/Perencanaan Pembelajaran
+         ============================================================== -->
+    <section class="topic-section" id="menu-1">
+      <div class="section-head">
+        <div class="section-badge-wrap">
+          <span class="menu-order-badge">RANCANGAN</span>
+          <span class="menu-status-badge"><i class="fa-solid fa-circle-check"></i> Artefak & Analisis Lengkap</span>
+        </div>
+        <h2 class="topic-title">
+          Analisis Produk Rancangan / Perencanaan Pembelajaran untuk Praktik Mengajar Mandiri
+        </h2>
+        <p class="topic-desc">
+          Dokumentasi modul ajar Kurikulum Merdeka Fase E (Kelas X SMA) materi Teks Anekdot Pertemuan 1. Dirancang secara mandiri dengan mengintegrasikan sintaks Problem Based Learning (PBL), pendekatan Teaching at the Right Level (TaRL), dan Culturally Responsive Teaching (CRT).
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Artefak Slot -->
+        <div class="artifact-card">
+          <div class="artifact-cover-box">
+            <img src="modul-cover.png" alt="Cover Modul Ajar Teks Anekdot P1" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800&q=80'" />
+            <div class="artifact-tag"><i class="fa-solid fa-file-pdf"></i> ARTEFAK PERENCANAAN</div>
+            <div class="artifact-state-badge"><i class="fa-solid fa-check"></i> Google Drive Terhubung</div>
+          </div>
+          <div class="artifact-body">
+            <h3 class="artifact-title">Modul Ajar Teks Anekdot (Pertemuan 1)</h3>
+            <p class="artifact-summary">
+              Rancangan perangkat ajar mandiri Bahasa Indonesia Fase E Bab 2 "Mengungkapkan Kritik Lewat Senyuman". Memuat Capaian Pembelajaran, tujuan telaah struktur & pesan tersirat, sintaks model PBL, serta skenario diferensiasi proses dan produk.
+            </p>
+            <div class="artifact-meta-list">
+              <div class="artifact-meta-row">
+                <span>Tipe Dokumen:</span>
+                <strong>Modul Ajar Kurikulum Merdeka (P1)</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Materi & Sasaran:</span>
+                <strong>Teks Anekdot &bull; Fase E (Kelas X)</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Model & Pendekatan:</span>
+                <strong>PBL, TaRL & CRT Berdiferensiasi</strong>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Modul Ajar di Google Drive
+              </a>
+              <button class="btn-action-secondary" onclick="openDrawer('drawerMenu1')">
+                <i class="fa-solid fa-magnifying-glass"></i> Pratinjau Lembar Analisis Modul
+              </button>
+            </div>
+            <div class="artifact-placeholder-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+              <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i>
+              <span>Tautan berkas modul ajar Pertemuan 1 aktif dan dapat diakses langsung via Google Drive.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Slot -->
+        <div class="analysis-container">
+          <div class="analysis-header-row">
+            <div class="analysis-title-group">
+              <h3><i class="fa-solid fa-chart-pie" style="color: var(--accent);"></i> Analisis & Refleksi Kritis Rancangan</h3>
+              <p>Refleksi komprehensif berdasarkan 4 dimensi pedagogis pembelajaran mandiri</p>
+            </div>
+            <button class="btn-view-drawer" onclick="openDrawer('drawerMenu1')">
+              <i class="fa-solid fa-book-open"></i> Buka Lembar Analisis Lengkap
+            </button>
+          </div>
+
+          <div class="aspect-grid">
+            <!-- Aspect 1 -->
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 1</span>
+                <i class="fa-solid fa-bullseye aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kesesuaian CP, TP, & Karakteristik Murid</h4>
+              <p class="aspect-content">
+                Modul menyelaraskan CP elemen Membaca dan Memirsa dengan TP: menganalisis gagasan, pesan tersirat, dan kritik sosial dalam teks anekdot. Disusun berdasarkan asesmen awal minat dan literasi murid Fase E yang responsif terhadap narasi visual.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <!-- Aspect 2 -->
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 2</span>
+                <i class="fa-solid fa-puzzle-piece aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Integrasi TaRL, CRT, & Scaffolding</h4>
+              <p class="aspect-content">
+                Menerapkan <em>Teaching at the Right Level (TaRL)</em> lewat variasi teks stimulus (komik strip bergambar untuk kelompok berkembang, naskah transkrip opini untuk kelompok mahir). Pendekatan <em>CRT</em> mengangkat fenomena layanan publik lokal yang akrab dengan keseharian siswa.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <!-- Aspect 3 -->
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 3</span>
+                <i class="fa-solid fa-triangle-exclamation aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kendala Perancangan & Solusi Alternatif</h4>
+              <p class="aspect-content">
+                Tantangan perancangan terletak pada manajemen durasi 2x45 menit antara identifikasi struktur (abstraksi-koda) dengan bedah kritik tersirat. Solusinya adalah menyusun LKPD berbasis tabel dekonstruksi cepat dengan panduan kata kunci pemandu.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <!-- Aspect 4 -->
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 4</span>
+                <i class="fa-solid fa-arrow-trend-up aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Faktor Keberhasilan & Rencana Tindak Lanjut</h4>
+              <p class="aspect-content">
+                Sintaks PBL efektif mendorong keberanian siswa berpendapat kritis dalam suasana humor interaktif. Rekomendasi tindak lanjut adalah memperjelas batasan etis antara humor satir yang santun dengan ujaran sarkastik pada rubrik panduan.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         MENU 2: Analisis Materi Pembelajaran yang Sudah Disusun
+         ============================================================== -->
+    <section class="topic-section" id="menu-2">
+      <div class="section-head">
+        <div class="section-badge-wrap">
+          <span class="menu-order-badge">MATERI</span>
+          <span class="menu-status-badge"><i class="fa-solid fa-circle-check"></i> Artefak & Analisis Lengkap</span>
+        </div>
+        <h2 class="topic-title">
+          Analisis Materi Pembelajaran yang Sudah Disusun dan Diterapkan Praktik Mengajar Mandiri
+        </h2>
+        <p class="topic-desc">
+          Telaah kritis terhadap bahan ajar Teks Anekdot Pertemuan 1. Berfokus pada pembedaan konseptual antara humor murni dengan kritik sosial tersirat, dekonstruksi 5 struktur teks, serta penguasaan kaidah kebahasaan yang kontekstual bagi murid Fase E.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Artefak Slot -->
+        <div class="artifact-card">
+          <div class="artifact-cover-box">
+            <img src="materi-cover.png" alt="Cover Bahan Ajar Teks Anekdot" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800&q=80'" />
+            <div class="artifact-tag"><i class="fa-solid fa-book-open"></i> ARTEFAK BAHAN AJAR</div>
+            <div class="artifact-state-badge"><i class="fa-solid fa-check"></i> Google Drive Terhubung</div>
+          </div>
+          <div class="artifact-body">
+            <h3 class="artifact-title">Bahan Ajar Teks Anekdot: Kritik Lewat Senyuman</h3>
+            <p class="artifact-summary">
+              Handout materi pembelajaran terstruktur yang memuat konsep esensial teks anekdot: karakteristik, fungsi sosial kritik konstruktif, struktur narasi (abstraksi hingga koda), dan ragam majas sindiran (ironi, sinisme, sarkasme).
+            </p>
+            <div class="artifact-meta-list">
+              <div class="artifact-meta-row">
+                <span>Materi Pokok:</span>
+                <strong>Teks Anekdot (Pertemuan 1)</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Fokus Analisis:</span>
+                <strong>Struktur 5 Tahap & Pesan Tersirat</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Tautan Berkas:</span>
+                <strong>Google Drive (Terintegrasi Modul Ajar)</strong>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Bahan Ajar di Google Drive
+              </a>
+              <button class="btn-action-secondary" onclick="openDrawer('drawerMenu2')">
+                <i class="fa-solid fa-magnifying-glass"></i> Pratinjau Lembar Analisis Materi
+              </button>
+            </div>
+            <div class="artifact-placeholder-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+              <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i>
+              <span>Artefak materi ajar tersemat lengkap dalam lampiran dokumen Google Drive Modul Ajar.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Slot -->
+        <div class="analysis-container">
+          <div class="analysis-header-row">
+            <div class="analysis-title-group">
+              <h3><i class="fa-solid fa-magnifying-glass-chart" style="color: var(--accent);"></i> Analisis & Refleksi Kritis Materi</h3>
+              <p>Evaluasi kedalaman materi, keakuratan konsep, dan relevansi penerapan</p>
+            </div>
+            <button class="btn-view-drawer" onclick="openDrawer('drawerMenu2')">
+              <i class="fa-solid fa-book-open"></i> Buka Lembar Analisis Lengkap
+            </button>
+          </div>
+
+          <div class="aspect-grid">
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 1</span>
+                <i class="fa-solid fa-graduation-cap aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kedalaman & Keakuratan Konseptual</h4>
+              <p class="aspect-content">
+                Materi membedakan secara rigid antara lelucon hiburan (*joke*) dengan teks anekdot (*anecdote*). Konsep kritik tersirat dijabarkan melalui dekonstruksi kalimat fakta vs opini sehingga terbebas dari bias miskonsepsi.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 2</span>
+                <i class="fa-solid fa-earth-americas aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kontekstualisasi & Relevansi Otentik</h4>
+              <p class="aspect-content">
+                Teks stimulus mengangkat isu nyata seputar antrean layanan publik dan interaksi media sosial remaja, mendorong keterikatan emosional murid saat membedah pesan moral dan kritik yang disampaikan pengarang.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 3</span>
+                <i class="fa-solid fa-users aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Keterjangkauan & Daya Serap Murid</h4>
+              <p class="aspect-content">
+                Infografik bagan alur krisis-reaksi dan glosarium istilah sastra mempermudah murid menyerap konsep teknis tanpa kelelahan kognitif (*cognitive load*), terbukti dari kelancaran diskusi LKPD.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 4</span>
+                <i class="fa-solid fa-arrows-split-up-and-left aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Diferensiasi Konten & Rencana Pengayaan</h4>
+              <p class="aspect-content">
+                Disediakan teks komparasi transkrip lawakan tunggal (*stand-up comedy*) untuk kelompok mahir, serta teks berpenanda warna (*color coding*) untuk murid yang memerlukan pendampingan pengenalan struktur.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         MENU 3: Analisis Media Pembelajaran yang Dipergunakan
+         ============================================================== -->
+    <section class="topic-section" id="menu-3">
+      <div class="section-head">
+        <div class="section-badge-wrap">
+          <span class="menu-order-badge">MEDIA</span>
+          <span class="menu-status-badge"><i class="fa-solid fa-circle-check"></i> Artefak & Analisis Lengkap</span>
+        </div>
+        <h2 class="topic-title">
+          Analisis Media Pembelajaran yang Dipergunakan dalam Praktik Mengajar Mandiri
+        </h2>
+        <p class="topic-desc">
+          Refleksi pemanfaatan media multimodal berbasis teknologi interaktif (slide presentasi Canva, stimulus video komika, dan komik strip digital) untuk mengkonkretkan konsep kritik tersirat dalam Teks Anekdot Pertemuan 1.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Artefak Slot -->
+        <div class="artifact-card">
+          <div class="artifact-cover-box">
+            <img src="media-cover.png" alt="Cover Media Pembelajaran Teks Anekdot" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800&q=80'" />
+            <div class="artifact-tag"><i class="fa-solid fa-display"></i> ARTEFAK MEDIA</div>
+            <div class="artifact-state-badge"><i class="fa-solid fa-check"></i> Google Drive Terhubung</div>
+          </div>
+          <div class="artifact-body">
+            <h3 class="artifact-title">Media Pembelajaran Interaktif Teks Anekdot</h3>
+            <p class="artifact-summary">
+              Rangkaian media presentasi visual Canva interaktif dan media stimulus audio-visual (rekaman monolog komedi & komik strip digital) yang digunakan untuk apersepsi, pemodelan struktur, dan presentasi kelompok.
+            </p>
+            <div class="artifact-meta-list">
+              <div class="artifact-meta-row">
+                <span>Ragam Media:</span>
+                <strong>Slide Interaktif, Video, & Komik Strip</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Fungsi Utama:</span>
+                <strong>Apersepsi, Visualisasi, & Diskusi LKPD</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Tautan Berkas:</span>
+                <strong>Google Drive (Terintegrasi Modul Ajar)</strong>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Media di Google Drive
+              </a>
+              <button class="btn-action-secondary" onclick="openDrawer('drawerMenu3')">
+                <i class="fa-solid fa-magnifying-glass"></i> Pratinjau Lembar Analisis Media
+              </button>
+            </div>
+            <div class="artifact-placeholder-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+              <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i>
+              <span>Artefak media ajar tersemat dalam tautan Google Drive modul dan siap dieksplorasi.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Slot -->
+        <div class="analysis-container">
+          <div class="analysis-header-row">
+            <div class="analysis-title-group">
+              <h3><i class="fa-solid fa-laptop-code" style="color: var(--accent);"></i> Analisis & Refleksi Kritis Media</h3>
+              <p>Analisis kegunaan, keterlibatan peserta didik, dan efisiensi teknologi</p>
+            </div>
+            <button class="btn-view-drawer" onclick="openDrawer('drawerMenu3')">
+              <i class="fa-solid fa-book-open"></i> Buka Lembar Analisis Lengkap
+            </button>
+          </div>
+
+          <div class="aspect-grid">
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 1</span>
+                <i class="fa-solid fa-bullhorn aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kesesuaian Media dengan Karakter Materi</h4>
+              <p class="aspect-content">
+                Penayangan video komika dan karikatur tunggal sangat selaras dengan hakikat teks anekdot; menjembatani konsep "kritik tersirat" menjadi stimulus konkret yang memantik gelak tawa dan nalar kritis siswa.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 2</span>
+                <i class="fa-solid fa-hand-pointer aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Daya Tarik & Interaktivitas Siswa</h4>
+              <p class="aspect-content">
+                Fitur tebak pesan tersirat pada slide Canva memancing keaktifan spontan. Siswa berani berebut mengemukakan penafsiran tanpa rasa takut salah karena dikemas dalam suasana permainan telaah humor.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 3</span>
+                <i class="fa-solid fa-wifi aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kendala Teknis & Mitigasi Lapangan</h4>
+              <p class="aspect-content">
+                Koneksi internet sekolah sempat tersendat saat memutar video resolusi tinggi. Kendala teratasi cepat karena mahasiswa telah menyiapkan video luring di penyimpanan lokal serta lembar cetak transkrip dialog.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 4</span>
+                <i class="fa-solid fa-wand-magic-sparkles aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Rekomendasi Modifikasi & Inovasi</h4>
+              <p class="aspect-content">
+                Perlu ditambahkan media respon kilat seperti Wordwall atau Mentimeter di akhir apersepsi agar seluruh siswa dapat berpartisipasi secara simultan dalam mengecek pemahaman konsep awal.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         MENU 4: Analisis Video Pelaksanaan Praktik Mengajar Mandiri
+         ============================================================== -->
+    <section class="topic-section" id="menu-4">
+      <div class="section-head">
+        <div class="section-badge-wrap">
+          <span class="menu-order-badge">VIDEO PRAKTIK</span>
+          <span class="menu-status-badge" style="background: rgba(217, 119, 70, 0.15); color: var(--accent);"><i class="fa-solid fa-clock"></i> Tautan Video Menyusul &bull; Analisis Siap</span>
+        </div>
+        <h2 class="topic-title">
+          Analisis Video Pelaksanaan Praktik Mengajar Mandiri
+        </h2>
+        <p class="topic-desc">
+          Refleksi kritis atas rekaman video pelaksanaan pembelajaran mandiri materi Teks Anekdot Pertemuan 1. Menganalisis kompetensi pedagogis guru, penerapan sintaks Problem Based Learning (PBL), interaksi kelas, dan manajemen waktu berpedoman pada lembar LK-3 Refleksi Mengajar.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Artefak Slot Video -->
+        <div class="artifact-card">
+          <div class="artifact-cover-box video-mockup-wrapper" onclick="openLinkModal('Tautan Video Praktik Mengajar (YouTube)', '')">
+            <img src="thumbnail-micro.png" alt="Thumbnail Video Praktik Mandiri" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80'" />
+            <div class="artifact-tag"><i class="fa-solid fa-video"></i> REKAMAN VIDEO</div>
+            <div class="video-play-btn"><i class="fa-solid fa-play"></i></div>
+            <div class="artifact-state-badge" style="background: rgba(217, 119, 70, 0.95);"><i class="fa-solid fa-clock"></i> Tautan YouTube Menyusul</div>
+          </div>
+          <div class="artifact-body">
+            <h3 class="artifact-title">Rekaman Video Praktik Mengajar Mandiri</h3>
+            <p class="artifact-summary">
+              Video rekaman pembelajaran nyata kelas Fase E materi Teks Anekdot P1. Tautan video YouTube menyusul dan dapat ditautkan sewaktu-waktu. Analisis performa mengajar telah disusun lengkap berdasarkan lembar refleksi diri (LK-3).
+            </p>
+            <div class="artifact-meta-list">
+              <div class="artifact-meta-row">
+                <span>Materi & Sasaran:</span>
+                <strong>Teks Anekdot P1 &bull; Fase E (Kelas X)</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Durasi & Model:</span>
+                <strong>2 x 45 Menit (Sintaks PBL)</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Rujukan Analisis:</span>
+                <strong>LK-3 Refleksi Mengajar (Google Drive)</strong>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <button class="btn-action-primary" onclick="openLinkModal('Tautan Video Praktik Mengajar (YouTube)', '')">
+                <i class="fa-brands fa-youtube"></i> Tautkan Video YouTube (Menyusul)
+              </button>
+              <a href="https://drive.google.com/file/d/14yd3XQJWTYQwTUwzgFN47jAaFsjG9oVs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action-secondary">
+                <i class="fa-solid fa-file-lines"></i> Buka LK-3 Refleksi Mengajar (Drive)
+              </a>
+            </div>
+            <div class="artifact-placeholder-notice" style="background: rgba(217, 119, 70, 0.08); border-color: rgba(217, 119, 70, 0.3); color: var(--text-primary);">
+              <i class="fa-solid fa-circle-info" style="color: var(--accent);"></i>
+              <span>Tautan video YouTube menyusul (segera diunggah). Analisis performa mengajar telah terintegrasi di lembar kerja bawah.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Slot Video -->
+        <div class="analysis-container">
+          <div class="analysis-header-row">
+            <div class="analysis-title-group">
+              <h3><i class="fa-solid fa-film" style="color: var(--accent);"></i> Analisis & Refleksi Rekaman Video</h3>
+              <p>Analisis penampilan mengajar, interaksi kelas, dan manajemen waktu</p>
+            </div>
+            <button class="btn-view-drawer" onclick="openDrawer('drawerMenu4')">
+              <i class="fa-solid fa-book-open"></i> Buka Lembar Analisis Lengkap
+            </button>
+          </div>
+
+          <div class="aspect-grid">
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 1</span>
+                <i class="fa-solid fa-door-open aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Keterampilan Apersepsi & Motivasi Awal</h4>
+              <p class="aspect-content">
+                Guru membuka kelas dengan salam hangat, presensi berbasis kesiapan emosi, dan memutar video komika pendek. Pertanyaan pemantik: <em>"Mengapa kita sering menertawakan hal yang sebenarnya merupakan kritik sosial?"</em> berhasil memfokuskan atensi murid sejak menit awal.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-file-signature" style="color: var(--accent);"></i> Berdasarkan LK-3 Refleksi</span>
+                <strong style="color: var(--accent);">Tuntas Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 2</span>
+                <i class="fa-solid fa-list-check aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Keterlaksanaan Sintaks Problem Based Learning</h4>
+              <p class="aspect-content">
+                Sintaks PBL berjalan runtut dari orientasi masalah teks anekdot janggal, pembagian kelompok heterogen, penyelidikan struktur (krisis & reaksi), hingga presentasi hasil kerja kelompok yang saling menanggapi secara konstruktif.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-file-signature" style="color: var(--accent);"></i> Berdasarkan LK-3 Refleksi</span>
+                <strong style="color: var(--accent);">Tuntas Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 3</span>
+                <i class="fa-solid fa-comments aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Manajemen Kelas, Gestur, & Komunikasi</h4>
+              <p class="aspect-content">
+                Guru menunjukkan mobilitas aktif berkeliling mendekati meja siswa yang membutuhkan scaffolding, menggunakan intonasi suara modulatif yang jelas, serta memberikan penguatan verbal (*positive reinforcement*) yang hangat.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-file-signature" style="color: var(--accent);"></i> Berdasarkan LK-3 Refleksi</span>
+                <strong style="color: var(--accent);">Tuntas Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 4</span>
+                <i class="fa-solid fa-flag-checkered aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Keterampilan Menutup & Refleksi Bersama</h4>
+              <p class="aspect-content">
+                Sesi penutup dimanfaatkan untuk merangkum esensi nilai kritik santun bersama murid. Guru memberikan asesmen formatif kilat (tiket keluar/exit ticket), mengapresiasi dinamika kelompok, dan menyampaikan topik pertemuan kedua.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-file-signature" style="color: var(--accent);"></i> Berdasarkan LK-3 Refleksi</span>
+                <strong style="color: var(--accent);">Tuntas Direfleksi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         MENU NONMENGAJAR: Analisis Kegiatan Nonmengajar
+         ============================================================== -->
+    <section class="topic-section" id="menu-5">
+      <div class="section-head">
+        <div class="section-badge-wrap">
+          <span class="menu-order-badge">NONMENGAJAR</span>
+          <span class="menu-status-badge"><i class="fa-solid fa-circle-check"></i> Artefak & Analisis Lengkap</span>
+        </div>
+        <h2 class="topic-title">
+          Analisis Kegiatan Nonmengajar
+        </h2>
+        <p class="topic-desc">
+          Dokumentasi dan refleksi mendalam atas pelaksanaan tugas profesional guru di luar jam mengajar kelas: Piket 5S di gerbang sekolah, Pendampingan Solat Jamaah, serta Asistensi Mengawas ASTS (Asesmen Sumatif Tengah Semester) di sekolah mitra.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Artefak Slot Nonmengajar -->
+        <div class="artifact-card">
+          <div class="artifact-cover-box">
+            <img src="galeri-1.jpg" alt="Dokumentasi Kegiatan Nonmengajar" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1577896851231-70ef18881754?w=800&q=80'" />
+            <div class="artifact-tag"><i class="fa-solid fa-users-gear"></i> ARTEFAK NONMENGAJAR</div>
+            <div class="artifact-state-badge"><i class="fa-solid fa-check"></i> Google Drive Terhubung</div>
+          </div>
+          <div class="artifact-body">
+            <h3 class="artifact-title">Laporan Refleksi Kegiatan Nonmengajar</h3>
+            <p class="artifact-summary">
+              Kompilasi dokumentasi pengalaman lapangan dan refleksi kritis mahasiswa PPL dalam membangun kultur positif sekolah melalui 3 kegiatan utama: pembiasaan 5S, pembinaan religius salat jamaah, dan kepengawasan ujian ASTS.
+            </p>
+            <div class="artifact-meta-list">
+              <div class="artifact-meta-row">
+                <span>3 Fokus Kegiatan:</span>
+                <strong>Piket 5S, Solat Jamaah, & Asistensi ASTS</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Dimensi Profesi:</span>
+                <strong>Kompetensi Kepribadian & Sosial Guru</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Tautan Berkas:</span>
+                <strong>Google Drive (LK-3 Refleksi PPL)</strong>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <a href="https://drive.google.com/file/d/14yd3XQJWTYQwTUwzgFN47jAaFsjG9oVs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Dokumen Refleksi di Google Drive
+              </a>
+              <button class="btn-action-secondary" onclick="openDrawer('drawerMenu5')">
+                <i class="fa-solid fa-magnifying-glass"></i> Baca Analisis Kegiatan Nonmengajar
+              </button>
+            </div>
+            <div class="artifact-placeholder-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+              <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i>
+              <span>Artefak refleksi kegiatan nonmengajar terhubung ke Google Drive LK-3 mahasiswa.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Slot Nonmengajar -->
+        <div class="analysis-container">
+          <div class="analysis-header-row">
+            <div class="analysis-title-group">
+              <h3><i class="fa-solid fa-people-roof" style="color: var(--accent);"></i> Analisis & Refleksi Kegiatan Nonmengajar</h3>
+              <p>Refleksi integrasi sosial, manajemen persekolahan, dan pembentukan jati diri pendidik</p>
+            </div>
+            <button class="btn-view-drawer" onclick="openDrawer('drawerMenu5')">
+              <i class="fa-solid fa-book-open"></i> Buka Lembar Analisis Lengkap
+            </button>
+          </div>
+
+          <div class="aspect-grid">
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 1</span>
+                <i class="fa-solid fa-hand-holding-heart aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Piket 5S di Gerbang Sekolah</h4>
+              <p class="aspect-content">
+                Refleksi peran menyambut kedatangan murid di gerbang pagi hari melalui budaya 5S (Senyum, Salam, Sapa, Sopan, Santun). Terbukti efektif membangun rasa aman, menumbuhkan disiplin kerapian seragam, dan mendeteksi kondisi kesiapan mental anak sejak awal tiba di sekolah.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 2</span>
+                <i class="fa-solid fa-mosque aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Pendampingan Solat Jamaah</h4>
+              <p class="aspect-content">
+                Refleksi keterlibatan mengoordinasikan saf salat, ketertiban wudhu, dan keheningan zikir-doa bersama pada pembiasaan salat dzuhur/dhuha berjamaah di mushola sekolah. Menjadi wahana nyata penguatan Profil Pelajar Pancasila beriman-bertakwa dan keteladanan moral spiritual guru.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 3</span>
+                <i class="fa-solid fa-clipboard-check aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Asistensi Mengawas ASTS</h4>
+              <p class="aspect-content">
+                Pembelajaran manajerial dalam kepengawasan Asesmen Sumatif Tengah Semester (ASTS). Mahasiswa mengawal ketertiban ruang ujian, membagikan naskah/token asesmen, menegakkan integritas kejujuran akademik siswa tanpa intimidasi, serta merapikan berita acara ujian.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 4</span>
+                <i class="fa-solid fa-seedling aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Internalisasi Jati Diri Guru Seutuhnya</h4>
+              <p class="aspect-content">
+                Sintesis bahwa kompetensi seorang pendidik profesional melampaui kecakapan kurikulum di dalam kelas. Keteladanan akhlak, kemampuan berbaur dengan sivitas sekolah, dan dedikasi menjaga ketertiban membentuk fondasi jati diri guru seutuhnya.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==============================================================
+         MENU 5 / 6: Instrumen Penilaian yang Dirancang Beserta Analisisnya
+         ============================================================== -->
+    <section class="topic-section" id="menu-6">
+      <div class="section-head">
+        <div class="section-badge-wrap">
+          <span class="menu-order-badge">PENILAIAN</span>
+          <span class="menu-status-badge"><i class="fa-solid fa-circle-check"></i> Artefak & Analisis Lengkap</span>
+        </div>
+        <h2 class="topic-title">
+          Instrumen Penilaian yang Dirancang Beserta Analisisnya
+        </h2>
+        <p class="topic-desc">
+          Perangkat asesmen Kurikulum Merdeka materi Teks Anekdot Pertemuan 1: asesmen diagnostik kognitif/non-kognitif, asesmen formatif (LKPD telaah struktur dan kritik sosial), rubrik analitik 4 skala objektif, serta rencana tindak lanjut remedial dan pengayaan.
+        </p>
+      </div>
+
+      <div class="dual-grid">
+        <!-- Artefak Slot Penilaian -->
+        <div class="artifact-card">
+          <div class="artifact-cover-box">
+            <img src="asesmen-cover.png" alt="Cover Instrumen Penilaian" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&q=80'" />
+            <div class="artifact-tag"><i class="fa-solid fa-clipboard-check"></i> ARTEFAK INSTRUMEN</div>
+            <div class="artifact-state-badge"><i class="fa-solid fa-check"></i> Google Drive Terhubung</div>
+          </div>
+          <div class="artifact-body">
+            <h3 class="artifact-title">Instrumen Asesmen & Rubrik Teks Anekdot</h3>
+            <p class="artifact-summary">
+              Kumpulan instrumen evaluasi pembelajaran lengkap: kisi-kisi penilaian, lembar kerja murid (LKPD) analisis krisis dan pesan tersirat, rubrik analitik objektif, dan pedoman konversi skor ketuntasan belajar.
+            </p>
+            <div class="artifact-meta-list">
+              <div class="artifact-meta-row">
+                <span>Ragam Asesmen:</span>
+                <strong>Diagnostik, Formatif (LKPD), & Sikap</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Format Rubrik:</span>
+                <strong>Rubrik Analitik 4 Skala Objektif</strong>
+              </div>
+              <div class="artifact-meta-row">
+                <span>Tautan Berkas:</span>
+                <strong>Google Drive (Terintegrasi Modul Ajar)</strong>
+              </div>
+            </div>
+            <div class="artifact-actions">
+              <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-action-primary">
+                <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Instrumen Penilaian di Google Drive
+              </a>
+              <button class="btn-action-secondary" onclick="openDrawer('drawerMenu6')">
+                <i class="fa-solid fa-magnifying-glass"></i> Baca Analisis Penilaian Lengkap
+              </button>
+            </div>
+            <div class="artifact-placeholder-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+              <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i>
+              <span>Artefak instrumen asesmen dan rubrik analitik terhubung pada Google Drive modul.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Analisis Slot Penilaian -->
+        <div class="analysis-container">
+          <div class="analysis-header-row">
+            <div class="analysis-title-group">
+              <h3><i class="fa-solid fa-square-poll-vertical" style="color: var(--accent);"></i> Analisis Hasil & Kualitas Instrumen</h3>
+              <p>Evaluasi validitas instrumen, objektivitas rubrik, dan refleksi ketuntasan murid</p>
+            </div>
+            <button class="btn-view-drawer" onclick="openDrawer('drawerMenu6')">
+              <i class="fa-solid fa-book-open"></i> Buka Lembar Analisis Lengkap
+            </button>
+          </div>
+
+          <div class="aspect-grid">
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 1</span>
+                <i class="fa-solid fa-check-double aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Kesesuaian Kisi-Kisi dengan TP</h4>
+              <p class="aspect-content">
+                Instrumen asesmen formatif (LKPD Teks Anekdot) secara presisi mengukur dua indikator utama TP: 1) ketepatan memetakan 5 struktur teks (abstraksi-koda), dan 2) ketajaman menafsirkan pesan kritik sosial di balik unsur kelucuan.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 2</span>
+                <i class="fa-solid fa-sliders aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Objektivitas & Deskriptor Rubrik</h4>
+              <p class="aspect-content">
+                Rubrik analitik memecah penilaian secara transparan: kedalaman analisis kritik (40%), kelengkapan identifikasi struktur (30%), bukti kutipan teks (20%), serta ketepatan ejaan bahasa (10%), menghindari subjektivitas penilaian guru.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 3</span>
+                <i class="fa-solid fa-chart-line aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Sebaran Hasil Belajar & Ketuntasan</h4>
+              <p class="aspect-content">
+                Hasil pengerjaan LKPD menunjukkan 85% siswa mencapai Kriteria Ketercapaian Tujuan Pembelajaran (KKTP). Kesulitan tersisa pada 15% murid adalah membedakan batas kalimat antara bagian <em>krisis</em> dan <em>reaksi</em> pada teks naratif padat.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+
+            <div class="aspect-card">
+              <div class="aspect-top">
+                <span class="aspect-num-pill">ASPEK 4</span>
+                <i class="fa-solid fa-arrows-spin aspect-icon"></i>
+              </div>
+              <h4 class="aspect-title">Rencana Tindak Lanjut: Remedial & Pengayaan</h4>
+              <p class="aspect-content">
+                Tindak lanjut remedial dilakukan dengan kartu pemandu alur krisis bagi siswa yang belum tuntas. Sedangkan murid yang telah melampaui KKTP ditugaskan menganalisis komparasi pesan satir pada karikatur media massa daring.
+              </p>
+              <div class="aspect-placeholder-tag">
+                <span><i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> Analisis Terintegrasi</span>
+                <strong style="color: var(--teal-primary);">Selesai Direfleksi</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================
+       Drawers for Detailed Analysis
+       ========================== -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeAllDrawers()"></div>
+
+  <!-- Drawer 1: Rancangan Pembelajaran -->
+  <aside class="drawer-panel" id="drawerMenu1">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge">RANCANGAN &bull; LEMBAR ANALISIS LENGKAP</span>
+        <h3 class="drawer-title">Analisis Produk Rancangan Pembelajaran Mandiri</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="closeAllDrawers()" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+        <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> <strong>Lembar Analisis & Refleksi Kritis:</strong> Disusun mengacu pada Modul Ajar Teks Anekdot Pertemuan 1 Fase E Kurikulum Merdeka dan pedoman penilaian PPL PPG Calon Guru UAD.
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-compass" style="color: var(--accent);"></i> Rasionalitas Alur Tujuan Pembelajaran (ATP)</h4>
+        <p class="drawer-text">
+          Rancangan pembelajaran materi Teks Anekdot (Pertemuan 1) pada Fase E ditata dengan memprioritaskan penalaran kritis peserta didik. Alur pembelajaran bergerak secara runtut: diawali dari pengenalan konsep humor vs kritik sosial, analisis 5 tahapan struktur teks (abstraksi, orientasi, krisis, reaksi, koda), hingga dekonstruksi makna tersirat. Penataan ini memastikan pemahaman murid tidak berhenti pada hafalan definisi, melainkan berkembang menjadi kemampuan analitis terhadap teks sastra multimodal.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-puzzle-piece" style="color: var(--accent);"></i> Penerapan Prinsip TaRL dan Kontekstualisasi CRT</h4>
+        <p class="drawer-text">
+          Heterogenitas kesiapan literasi siswa diakomodasi melalui prinsip <em>Teaching at the Right Level (TaRL)</em>. Kelompok siswa dengan kesiapan awal difasilitasi stimulus berbasis komik strip untuk mempermudah identifikasi krisis dan reaksi, sedangkan kelompok siswa mahir menganalisis naskah transkrip kritik sosial kontemporer. Konsep <em>Culturally Responsive Teaching (CRT)</em> dihadirkan melalui topik pelayanan publik dan interaksi sosial remaja di lingkungan sekitar sekolah yang dekat dengan realitas sehari-hari siswa.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-stopwatch" style="color: var(--accent);"></i> Manajemen Sintaks Problem Based Learning (PBL)</h4>
+        <p class="drawer-text">
+          Tantangan utama dalam alokasi waktu 2x45 menit adalah menjaga agar tahap penyelidikan kelompok tidak melampaui jadwal. Strategi perbaikan yang dirancang mencakup penggunaan lembar kontrol waktu kelompok (*group time-tracker*) pada LKPD dan penetapan peran terstruktur bagi setiap anggota (pencatat, penelaah krisis, juru bicara), sehingga proses diskusi berjalan dinamis dan tepat waktu.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-comments" style="color: var(--accent);"></i> Umpan Balik Guru Pamong & Dosen Pembimbing</h4>
+        <p class="drawer-text">
+          Perangkat ajar memperoleh apresiasi positif terutama pada keberhasilan pertanyaan pemantik yang memicu senyum sekaligus rasa ingin tahu murid. Rekomendasi perbaikan difokuskan pada penegasan batasan etis antara kritik sosial yang santun dan humor satir yang berpotensi menyinggung kesantunan berbahasa.
+        </p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-btn primary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Berkas Modul (Drive)
+      </a>
+      <button class="nav-btn" onclick="closeAllDrawers()">Tutup Panel</button>
+    </div>
+  </aside>
+
+  <!-- Drawer 2: Materi Pembelajaran -->
+  <aside class="drawer-panel" id="drawerMenu2">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge">MATERI &bull; LEMBAR ANALISIS LENGKAP</span>
+        <h3 class="drawer-title">Analisis Materi Pembelajaran Praktik Mandiri</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+        <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> <strong>Lembar Analisis Materi:</strong> Telaah mendalam bahan ajar Teks Anekdot Pertemuan 1 mengenai keakuratan konsep, kontekstualisasi bacaan, dan gradasi keterbacaan.
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-book-open-reader" style="color: var(--accent);"></i> Keabsahan Konsep & Struktur Teks Anekdot</h4>
+        <p class="drawer-text">
+          Materi ajar menyajikan pembedaan ilmiah yang tegas antara teks anekdot dengan lelucon biasa. Anekdot ditekankan sebagai karya narasi berbobot yang memiliki fungsi sosial kritik konstruktif. Kelima elemen struktur—abstraksi, orientasi, krisis (titik balik keganjilan/kelucuan), reaksi (penyelesaian atas keganjilan), dan koda (penutup/amanat)—disajikan dengan bagan alur hubungan sebab-akibat yang logis.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-spell-check" style="color: var(--accent);"></i> Penguasaan Kaidah Kebahasaan yang Kontekstual</h4>
+        <p class="drawer-text">
+          Kaidah gramatika khas teks anekdot—seperti konjungsi urutan waktu (*lalu, kemudian*), kata kerja aksi, kalimat retoris, dan ragam majas sindiran (ironi, sinisme, sarkasme)—tidak diajarkan sebagai teori terpisah, melainkan dianalisis langsung fungsinya dalam memperkuat efek kelucuan sekaligus ketajaman sindiran sosial pada teks stimulus.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-layer-group" style="color: var(--accent);"></i> Gradasi Keterbacaan & Glosarium Konsep</h4>
+        <p class="drawer-text">
+          Untuk mengatasi kesenjangan kosakata siswa, bahan ajar dilengkapi infografik mini dan glosarium istilah sastra. Teks bacaan utama menggunakan tingkat keterbacaan yang sesuai dengan psikologi kognitif remaja Fase E (usia 15-16 tahun), sehingga materi dapat dipahami secara mandiri tanpa memerlukan intervensi berlebih dari guru.
+        </p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-btn primary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Bahan Ajar (Drive)
+      </a>
+      <button class="nav-btn" onclick="closeAllDrawers()">Tutup Panel</button>
+    </div>
+  </aside>
+
+  <!-- Drawer 3: Media Pembelajaran -->
+  <aside class="drawer-panel" id="drawerMenu3">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge">MEDIA &bull; LEMBAR ANALISIS LENGKAP</span>
+        <h3 class="drawer-title">Analisis Media Pembelajaran Interaktif</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+        <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> <strong>Lembar Analisis Media:</strong> Evaluasi efektivitas presentasi digital, keterlibatan aktif peserta didik, dan keandalan mitigasi teknologi di kelas.
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-display" style="color: var(--accent);"></i> Desain Multimedia Berpusat pada Murid</h4>
+        <p class="drawer-text">
+          Slide presentasi Canva dirancang dengan mematuhi prinsip kognitif multimedia Mayer: membatasi kepadatan teks per slide, memilih kombinasi warna kontras yang ramah mata dari barisan paling belakang, serta memanfaatkan hierarki visual untuk menyoroti kalimat kunci pada bagian krisis narasi.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-video" style="color: var(--accent);"></i> Efektivitas Stimulus Video Komika & Komik Strip</h4>
+        <p class="drawer-text">
+          Pemanfaatan cuplikan video monolog komedi pendek pada fase apersepsi terbukti secara empiris memangkas waktu pengondisian kelas. Siswa yang awalnya pasif langsung tertawa dan terstimulasi untuk mendiskusikan pesan moral di balik kelucuan tersebut hanya dalam tempo 7 menit pembuka.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-shield-halved" style="color: var(--accent);"></i> Keandalan Mitigasi Kendala Lapangan</h4>
+        <p class="drawer-text">
+          Kesiapsiagaan menghadapi kendala fluktuasi jaringan internet sekolah dibuktikan dengan penyediaan berkas video luring (*offline*) di flashdisk serta transkrip komik cetak. Pembelajaran tetap berlangsung mulus tanpa jeda teknis yang mengganggu konsentrasi siswa.
+        </p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-btn primary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Media Pembelajaran (Drive)
+      </a>
+      <button class="nav-btn" onclick="closeAllDrawers()">Tutup Panel</button>
+    </div>
+  </aside>
+
+  <!-- Drawer 4: Video Praktik Mengajar -->
+  <aside class="drawer-panel" id="drawerMenu4">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge">VIDEO PRAKTIK &bull; LEMBAR ANALISIS LENGKAP</span>
+        <h3 class="drawer-title">Analisis Video Pelaksanaan Mengajar Mandiri</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-notice" style="background: rgba(217, 119, 70, 0.08); border-color: rgba(217, 119, 70, 0.3); color: var(--text-primary);">
+        <i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> <strong>Refleksi Pelaksanaan Mengajar:</strong> Ditelaah secara komprehensif mengacu pada lembar LK-3 Refleksi Praktik Mengajar Mahasiswa dan pelaksanaan sintaks modul di kelas nyata.
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-door-open" style="color: var(--accent);"></i> Keterampilan Membuka Pelajaran & Apersepsi</h4>
+        <p class="drawer-text">
+          Berdasarkan rekaman dan catatan refleksi LK-3, guru mengawali sesi dengan presensi ramah dan pengecekan kesiapan emosi (*social-emotional check-in*). Pertanyaan pemantik: <em>"Mengapa kita sering menertawakan hal yang sebetulnya merupakan masalah serius di sekitar kita?"</em> berhasil memancing keterlibatan kognitif siswa sejak awal.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-chalkboard-user" style="color: var(--accent);"></i> Fasilitasi Kelompok & Scaffolding Proporsional</h4>
+        <p class="drawer-text">
+          Guru memposisikan diri sebagai fasilitator yang berkeliling aktif ke tiap meja kelompok. Perhatian lebih diberikan kepada kelompok yang mengalami kebuntuan membedakan letak krisis dengan reaksi, melalui pemberian pertanyaan pemandu (*guiding questions*) tanpa mendikte jawaban akhir.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-flag-checkered" style="color: var(--accent);"></i> Keterampilan Menutup & Refleksi Bersama</h4>
+        <p class="drawer-text">
+          Tahap penutupan dijalankan secara partisipatif; guru memfasilitasi murid merumuskan sendiri pesan moral bahwa kritik sosial terbaik adalah kritik yang membangun dengan bahasa santun. Kelas ditutup dengan apresiasi verbal kelompok dan arahan materi pertemuan berikutnya.
+        </p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <a href="https://drive.google.com/file/d/14yd3XQJWTYQwTUwzgFN47jAaFsjG9oVs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-btn primary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka LK-3 Refleksi (Drive)
+      </a>
+      <button class="nav-btn" onclick="closeAllDrawers()">Tutup Panel</button>
+    </div>
+  </aside>
+
+  <!-- Drawer 5: Kegiatan Nonmengajar -->
+  <aside class="drawer-panel" id="drawerMenu5">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge">NONMENGAJAR &bull; LEMBAR ANALISIS LENGKAP</span>
+        <h3 class="drawer-title">Analisis Keterlibatan Kegiatan Nonmengajar</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+        <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> <strong>Refleksi Pengalaman Lapangan Nonmengajar:</strong> Analisis mendalam atas 3 pilar kegiatan persekolahan: Piket 5S, Pendampingan Solat Jamaah, dan Asistensi Mengawas ASTS.
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-hand-holding-heart" style="color: var(--accent);"></i> Piket 5S di Gerbang Sekolah sebagai Pembiasaan Budaya Positif</h4>
+        <p class="drawer-text">
+          Bertugas piket pagi di gerbang sekolah menyambut murid dengan 5S (Senyum, Salam, Sapa, Sopan, Santun) memberikan pemahaman mendalam mengenai manajemen iklim sekolah. Melalui interaksi di gerbang, mahasiswa belajar membangun kedekatan emosional humanis, memantau kerapian atribut dan kedisiplinan waktu secara persuasif, serta menciptakan rasa aman bagi siswa sebelum melangkah ke ruang kelas.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-mosque" style="color: var(--accent);"></i> Pendampingan Solat Jamaah & Penguatan Karakter Religius</h4>
+        <p class="drawer-text">
+          Pendampingan pelaksanaan salat dzuhur dan salat dhuha berjamaah di mushola sekolah merupakan manifestasi nyata pembinaan dimensi Profil Pelajar Pancasila: Beriman, Bertakwa kepada Tuhan YME, dan Berakhlak Mulia. Mahasiswa bertindak sebagai teladan moral, menertibkan wudhu, merapikan saf salat, dan mendampingi doa bersama, memperkuat interaksi spiritual antara pendidik dan peserta didik di luar jam instruksional formal.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-clipboard-check" style="color: var(--accent);"></i> Asistensi Mengawas ASTS (Asesmen Sumatif Tengah Semester)</h4>
+        <p class="drawer-text">
+          Keterlibatan dalam kepengawasan ASTS memberikan pengalaman otentik dalam tata kelola administrasi evaluasi pendidikan. Mahasiswa bertugas membagikan instrumen soal/token CBT, menjaga suasana ruang ujian tetap hening dan tertib, menegakkan nilai integritas kejujuran akademik siswa tanpa intimidasi, serta mengarsipkan daftar hadir dan berita acara ujian bersama panitia sekolah.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-seedling" style="color: var(--accent);"></i> Sintesis Jati Diri Guru Profesional</h4>
+        <p class="drawer-text">
+          Rangkaian kegiatan nonmengajar ini mengukuhkan pemahaman bahwa panggilan seorang pendidik sejati tidak dibatasi oleh bel masuk dan bel pulang kelas. Kompetensi kepribadian dan sosial guru adalah fondasi utama yang memberi nyawa pada seluruh proses pembelajaran dan dinamika kebudayaan sekolah.
+        </p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <a href="https://drive.google.com/file/d/14yd3XQJWTYQwTUwzgFN47jAaFsjG9oVs/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-btn primary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Dokumen Refleksi (Drive)
+      </a>
+      <button class="nav-btn" onclick="closeAllDrawers()">Tutup Panel</button>
+    </div>
+  </aside>
+
+  <!-- Drawer 6: Instrumen Penilaian -->
+  <aside class="drawer-panel" id="drawerMenu6">
+    <div class="drawer-header">
+      <div>
+        <span class="drawer-badge">PENILAIAN &bull; LEMBAR ANALISIS LENGKAP</span>
+        <h3 class="drawer-title">Analisis Instrumen & Hasil Penilaian Pembelajaran</h3>
+      </div>
+      <button class="drawer-close-btn" onclick="closeAllDrawers()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="drawer-body">
+      <div class="drawer-notice" style="background: rgba(16, 185, 129, 0.08); border-color: rgba(16, 185, 129, 0.3); color: var(--text-primary);">
+        <i class="fa-solid fa-circle-check" style="color: var(--teal-primary);"></i> <strong>Lembar Analisis Penilaian:</strong> Telaah validitas kisi-kisi asesmen Teks Anekdot, rubrik analitik 4 skala objektif, rekapitulasi ketuntasan, dan program tindak lanjut.
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-ruler-combined" style="color: var(--accent);"></i> Validitas Isi & Keterukuran Asesmen Formatif</h4>
+        <p class="drawer-text">
+          Instrumen asesmen formatif (LKPD Teks Anekdot) dirancang mengukur langsung dua ranah kompetensi: 1) keterampilan kognitif menganalisis 5 struktur teks (abstraksi hingga koda), dan 2) ketajaman bernalar kritis dalam menafsirkan kritik sosial tersirat. Butir penugasan selaras dengan Taksonomi Bloom level C4 (menganalisis) dan C5 (mengevaluasi).
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-sliders" style="color: var(--accent);"></i> Transparansi Rubrik Analitik 4 Skala</h4>
+        <p class="drawer-text">
+          Rubrik analitik dirancang dengan deskriptor operasional yang jelas pada rentang 4 skala (Sangat Mahir, Mahir, Berkembang, Perlu Bimbingan). Penilaian menitikberatkan bobot pada ketajaman analisis pesan kritik sosial (40%), kelengkapan struktur (30%), bukti kutipan tekstual (20%), serta kaidah kebahasaan dan ejaan (10%).
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-chart-column" style="color: var(--accent);"></i> Analisis Sebaran Capaian Belajar Murid</h4>
+        <p class="drawer-text">
+          Hasil rekapitulasi asesmen formatif menunjukkan bahwa 85% siswa berhasil melampaui Kriteria Ketercapaian Tujuan Pembelajaran (KKTP). Kendala yang dialami 15% siswa terkonsentrasi pada penentuan batas kalimat antara krisis dan reaksi ketika disajikan teks anekdot berbentuk paragraf naratif padat.
+        </p>
+      </div>
+
+      <div class="drawer-section">
+        <h4 class="drawer-sec-title"><i class="fa-solid fa-arrows-spin" style="color: var(--accent);"></i> Program Remedial & Pengayaan Terarah</h4>
+        <p class="drawer-text">
+          Program remedial dilaksanakan melalui bimbingan terbimbing (*guided practice*) menggunakan kartu penanda alur krisis cerita. Sementara bagi siswa yang telah tuntas, pengayaan diberikan dalam bentuk analisis komparatif pesan satire pada karikatur media massa digital.
+        </p>
+      </div>
+    </div>
+    <div class="drawer-footer">
+      <a href="https://drive.google.com/file/d/1QUhxFGexHjvEc1mcuaZBu_U7B9pge-TS/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="nav-btn primary">
+        <i class="fa-solid fa-arrow-up-right-from-square"></i> Buka Instrumen Asesmen (Drive)
+      </a>
+      <button class="nav-btn" onclick="closeAllDrawers()">Tutup Panel</button>
+    </div>
+  </aside>
+
+  <!-- ==========================
+       Interactive Modal for Linking Artifacts
+       ========================== -->
+  <div class="link-modal" id="linkModal">
+    <div class="modal-head">
+      <h4 class="modal-title" id="modalTitle">Tautkan Berkas Artefak</h4>
+      <button class="drawer-close-btn" onclick="closeLinkModal()"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <p style="font-size: 0.88rem; color: var(--text-secondary);" id="modalDesc">
+      Masukkan tautan Google Drive, link YouTube, atau URL dokumen artefak Anda di bawah ini:
+    </p>
+    <input type="text" class="modal-input" id="modalLinkInput" placeholder="https://drive.google.com/..." />
+    <div style="display: flex; justify-content: flex-end; gap: 10px;">
+      <button class="nav-btn" onclick="closeLinkModal()">Batal</button>
+      <button class="nav-btn primary" onclick="saveLink()"><i class="fa-solid fa-floppy-disk"></i> Simpan Tautan</button>
+    </div>
+  </div>
+
+  <!-- Contact Section (Matching Gambar 2) -->
+  <section class="contact section" id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fa-solid fa-envelope"></i> KONTAK</div>
+        <h2 class="section-title">Hubungi Saya</h2>
+        <p class="section-subtitle">Jangan ragu untuk menghubungi saya untuk diskusi atau kolaborasi</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Info -->
+        <div class="contact-info">
+          <h3 class="contact-heading">Mari Terhubung!</h3>
+          <p class="contact-desc">
+            Saya selalu terbuka untuk berdiskusi tentang pendidikan, berbagi pengalaman, atau berkolaborasi dalam proyek pembelajaran. Silakan hubungi melalui form atau kontak di bawah ini.
+          </p>
+
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon icon-red"><i class="fa-solid fa-envelope"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">EMAIL</span>
+                <span class="contact-value">orisasatifaalqaf@gmail.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon icon-green"><i class="fa-brands fa-whatsapp"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">WHATSAPP</span>
+                <span class="contact-value">Chat via WhatsApp</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon icon-blue"><i class="fa-solid fa-location-dot"></i></div>
+              <div class="contact-text">
+                <span class="contact-label">LOKASI</span>
+                <span class="contact-value">Yogyakarta, Indonesia</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-socials">
+            <h4 class="social-heading">IKUTI SAYA</h4>
+            <div class="social-icons">
+              <a href="#" class="social-btn sb-linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="social-btn sb-instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="social-btn sb-youtube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="social-btn sb-github"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="contact-form-wrapper">
+          <form class="contact-form" onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim.'); this.reset();">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+            </div>
+            <div class="form-group">
+              <input type="email" class="form-control" placeholder="Email" required>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Subjek" required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-control" rows="5" placeholder="Pesan" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Kirim Pesan 🚀</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section (Matching Gambar 2) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fa-solid fa-graduation-cap"></i> PPG
+          </div>
+          <p class="footer-brand-title">E-Portfolio</p>
+          <p class="footer-brand-desc">Calon Guru Pendidikan Bahasa dan Sastra Indonesia<br>PPG Prajabatan 2025-2026, UAD</p>
+          <div class="social-icons footer-socials">
+            <a href="#" class="social-btn sb-linkedin"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-btn sb-instagram"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" class="social-btn sb-youtube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-btn sb-github"><i class="fa-brands fa-github"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-nav">
+          <h4 class="footer-heading">NAVIGASI</h4>
+          <div class="footer-links">
+            <ul class="footer-link-col">
+              <li><a href="index.html">Beranda</a></li>
+              <li><a href="portfolio.html">E-Portofolio 1 (UTS)</a></li>
+              <li><a href="portfolio2.html">E-Portofolio 2 (UAS)</a></li>
+            </ul>
+            <ul class="footer-link-col">
+              <li><a href="#menu-1">Perencanaan</a></li>
+              <li><a href="#menu-2">Materi Ajar</a></li>
+              <li><a href="#menu-3">Media Pembelajaran</a></li>
+            </ul>
+            <ul class="footer-link-col">
+              <li><a href="#menu-4">Video Praktik</a></li>
+              <li><a href="#menu-5">Kegiatan Nonmengajar</a></li>
+              <li><a href="#menu-6">Instrumen Penilaian</a></li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="footer-actions">
+          <a href="index.html" class="btn-ganti-portfolio">
+            <div class="btn-gp-icon"><i class="fa-solid fa-right-left"></i></div>
+            <div class="btn-gp-text">
+              <span class="btn-gp-title">Ganti Portofolio</span>
+              <span class="btn-gp-desc">Kembali ke pemilihan E-Portfolio</span>
+            </div>
+            <i class="fa-solid fa-chevron-right btn-gp-arrow"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Back to Top Button -->
+  <button class="btn-to-top" id="btnToTop" aria-label="Kembali ke Atas" title="Kembali ke Atas">
+    <i class="fa-solid fa-chevron-up"></i>
+  </button>
+
+  <!-- ==========================
+       JavaScript Logic
+       ========================== -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // 1. Theme Management (Dark / Light)
+      const themeToggleBtn = document.getElementById('themeToggleBtn');
+      const themeIcon = document.getElementById('themeIcon');
+      const htmlEl = document.documentElement;
+
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        htmlEl.setAttribute('data-theme', 'dark');
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+      } else {
+        htmlEl.setAttribute('data-theme', 'light');
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+      }
+
+      themeToggleBtn.addEventListener('click', () => {
+        const currentTheme = htmlEl.getAttribute('data-theme');
+        if (currentTheme === 'dark') {
+          htmlEl.setAttribute('data-theme', 'light');
+          localStorage.setItem('theme', 'light');
+          themeIcon.classList.replace('fa-sun', 'fa-moon');
+        } else {
+          htmlEl.setAttribute('data-theme', 'dark');
+          localStorage.setItem('theme', 'dark');
+          themeIcon.classList.replace('fa-moon', 'fa-sun');
+        }
+      });
+
+      // 2. Scroll Spy for Menu Navigation Pills
+      const sections = document.querySelectorAll('.topic-section, .contact.section');
+      const navPills = document.querySelectorAll('.menu-pill');
+
+      window.addEventListener('scroll', () => {
+        let currentSectionId = '';
+        const scrollPosition = window.scrollY + 180;
+
+        sections.forEach(sec => {
+          const secTop = sec.offsetTop;
+          const secHeight = sec.offsetHeight;
+          if (scrollPosition >= secTop && scrollPosition < secTop + secHeight) {
+            currentSectionId = sec.getAttribute('id');
+          }
+        });
+
+        if (currentSectionId) {
+          navPills.forEach(pill => {
+            if (pill.getAttribute('data-target') === currentSectionId) {
+              pill.classList.add('active');
+              // scroll pill into view horizontally
+              pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            } else {
+              pill.classList.remove('active');
+            }
+          });
+        }
+
+        // Back to top button visibility
+        const btnToTop = document.getElementById('btnToTop');
+        if (window.scrollY > 400) {
+          btnToTop.classList.add('visible');
+        } else {
+          btnToTop.classList.remove('visible');
+        }
+      });
+
+      // 3. Back to Top Click
+      document.getElementById('btnToTop').addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // 4. Drawer Logic
+    function openDrawer(drawerId) {
+      closeAllDrawers();
+      const drawer = document.getElementById(drawerId);
+      const overlay = document.getElementById('drawerOverlay');
+      if (drawer && overlay) {
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeAllDrawers() {
+      document.querySelectorAll('.drawer-panel').forEach(d => d.classList.remove('active'));
+      const overlay = document.getElementById('drawerOverlay');
+      if (overlay) overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      closeLinkModal();
+    }
+
+    // 5. Copy Analysis Structure to Clipboard
+    function copyAnalysisText(drawerId) {
+      const drawer = document.getElementById(drawerId);
+      if (!drawer) return;
+      const text = drawer.innerText;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Struktur analisis berhasil disalin ke clipboard!');
+      }).catch(() => {
+        alert('Struktur siap disalin manual.');
+      });
+    }
+
+    // 6. Artifact Link Modal Logic
+    let currentLinkContext = '';
+    function openLinkModal(title, currentVal) {
+      currentLinkContext = title;
+      const modal = document.getElementById('linkModal');
+      const overlay = document.getElementById('drawerOverlay');
+      const titleEl = document.getElementById('modalTitle');
+      const inputEl = document.getElementById('modalLinkInput');
+
+      titleEl.textContent = title;
+      inputEl.value = currentVal || '';
+      modal.classList.add('active');
+      overlay.classList.add('active');
+    }
+
+    function closeLinkModal() {
+      const modal = document.getElementById('linkModal');
+      if (modal) modal.classList.remove('active');
+      const overlay = document.getElementById('drawerOverlay');
+      // If no drawer is open, remove overlay
+      const openDrawers = document.querySelectorAll('.drawer-panel.active');
+      if (openDrawers.length === 0 && overlay) {
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function saveLink() {
+      const inputEl = document.getElementById('modalLinkInput');
+      const val = inputEl.value.trim();
+      if (val) {
+        alert(`Tautan untuk "${currentLinkContext}" berhasil disimpan!\n(${val})`);
+      } else {
+        alert(`Slot tautan diatur ke draft placeholder.`);
+      }
+      closeLinkModal();
+    }
+  </script>
+</body>
+</html>
