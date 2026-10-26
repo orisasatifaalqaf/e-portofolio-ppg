@@ -116,6 +116,9 @@
       text-decoration: none;
       color: #3e4a3d;
       position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     
     .landing-card:hover {
@@ -144,6 +147,11 @@
       font-family: 'Outfit', sans-serif;
       font-size: 1.8rem;
       margin-bottom: 1rem;
+      min-height: 4.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
     
     .card-desc {
@@ -151,6 +159,7 @@
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 2rem;
+      flex-grow: 1;
     }
     
     .card-link {
@@ -161,6 +170,7 @@
       align-items: center;
       gap: 0.5rem;
       transition: color 0.3s ease;
+      margin-top: auto;
     }
     
     .landing-card:hover .card-link {
@@ -325,6 +335,32 @@
         Kumpulan tugas dan refleksi pembelajaran khusus untuk materi Topik 3 selama program PPG Prajabatan 2026.
       </p>
       <span class="card-link">Lihat Topik 3 &rarr;</span>
+    </a>
+
+    <!-- E-Portfolio UTS Semester 2 -->
+    <a href="portfolio-uts-sem2.html" class="landing-card">
+      <div class="badge-top-right" style="background-color: #0ea5e9;">UTS</div>
+      <div class="card-icon" style="color: #7dd3fc;">
+        <i class="fa-solid fa-book-bookmark"></i>
+      </div>
+      <h2 class="card-title">E-Portfolio UTS<br><span style="font-size: 1.1rem; color: #7c8069;">Semester 2</span></h2>
+      <p class="card-desc">
+        Dokumentasi perjalanan profesional, perangkat pembelajaran, dan refleksi Ujian Tengah Semester 2.
+      </p>
+      <span class="card-link">Lihat E-Portfolio UTS &rarr;</span>
+    </a>
+
+    <!-- E-Portfolio UAS Semester 2 -->
+    <a href="portfolio-uas-sem2.html" class="landing-card">
+      <div class="badge-top-right" style="background-color: #0ea5e9;">UAS</div>
+      <div class="card-icon" style="color: #fca5a5;">
+        <i class="fa-solid fa-award"></i>
+      </div>
+      <h2 class="card-title">E-Portfolio UAS<br><span style="font-size: 1.1rem; color: #7c8069;">Semester 2</span></h2>
+      <p class="card-desc">
+        Refleksi akhir Praktik Pengalaman Lapangan Mandiri, studi kasus, dan evaluasi pembelajaran Semester 2.
+      </p>
+      <span class="card-link">Lihat E-Portfolio UAS &rarr;</span>
     </a>
 
     <!-- Break to force next items to a new row -->

@@ -81,6 +81,12 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    a, a:visited {
+      color: inherit;
+      text-decoration: none;
     }
 
     body {
@@ -199,181 +205,462 @@
       gap: 10px;
     }
 
-    .nav-btn {
+    .nav-btn, .nav-btn:visited {
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 0.55rem 1.1rem;
+      padding: 0.55rem 1.15rem;
       border-radius: 10px;
       font-size: 0.88rem;
-      font-weight: 600;
+      font-weight: 700;
       cursor: pointer;
       text-decoration: none;
       transition: all 0.25s ease;
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fdfbf7 !important;
+    }
+
+    [data-theme="light"] .nav-btn, [data-theme="light"] .nav-btn:visited {
+      border-color: #dcd6c8;
+      background: #ffffff;
+      color: #2e382d !important;
     }
 
     .nav-btn:hover {
       border-color: var(--accent);
-      color: var(--accent);
+      color: var(--accent) !important;
+      background: rgba(217, 119, 70, 0.15);
       transform: translateY(-2px);
       box-shadow: var(--shadow-sm);
     }
 
-    .nav-btn.primary {
-      background: var(--accent);
-      color: #ffffff;
-      border-color: var(--accent);
+    .nav-btn.primary, .nav-btn.primary:visited {
+      background: linear-gradient(135deg, #b45f36, #d97746) !important;
+      color: #ffffff !important;
+      border-color: #d97746 !important;
+      box-shadow: 0 4px 12px rgba(217, 119, 70, 0.35);
     }
 
     .nav-btn.primary:hover {
-      background: var(--accent-hover);
-      color: #ffffff;
+      background: linear-gradient(135deg, #c4683c, #ea8552) !important;
+      color: #ffffff !important;
+      box-shadow: 0 6px 18px rgba(217, 119, 70, 0.5);
     }
 
-    .icon-btn {
+    .icon-btn, .icon-btn:visited {
       width: 40px;
       height: 40px;
       border-radius: 10px;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid var(--border-color);
-      background: var(--bg-card);
-      color: var(--text-primary);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.08);
+      color: #fdfbf7 !important;
       cursor: pointer;
       transition: all 0.25s ease;
+      text-decoration: none;
+    }
+
+    [data-theme="light"] .icon-btn, [data-theme="light"] .icon-btn:visited {
+      border-color: #dcd6c8;
+      background: #ffffff;
+      color: #2e382d !important;
     }
 
     .icon-btn:hover {
       border-color: var(--accent);
-      color: var(--accent);
+      color: var(--accent) !important;
+      background: rgba(217, 119, 70, 0.15);
       transform: translateY(-2px);
     }
 
-    /* ==========================
-       Hero Banner
-       ========================== */
-    .hero-banner {
-      padding: 3rem 0 2rem;
-    }
-
+    /* Breadcrumb Navigation */
     .breadcrumb {
       display: flex;
       align-items: center;
       gap: 8px;
-      font-size: 0.85rem;
-      color: var(--text-muted);
+      font-size: 0.88rem;
+      color: #a3b18a;
       margin-bottom: 1.2rem;
     }
 
-    .breadcrumb a {
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color 0.2s;
+    .breadcrumb a, .breadcrumb a:visited {
+      color: #d97746 !important;
+      font-weight: 600;
+      transition: color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .breadcrumb a:hover {
-      color: var(--accent);
+      color: #f59e0b !important;
+      text-decoration: underline;
+    }
+
+    .breadcrumb span {
+      color: #fdfbf7;
+      font-weight: 600;
+    }
+
+    [data-theme="light"] .breadcrumb span {
+      color: #2e382d;
     }
 
     .breadcrumb i {
-      font-size: 0.7rem;
+      font-size: 0.75rem;
+      opacity: 0.7;
     }
 
-    .hero-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: var(--shadow-md);
+    /* ==========================
+       Hero Section (Beranda - Matching Gambar)
+       ========================== */
+    .hero-banner {
+      padding: 1.2rem 0 1rem;
+      scroll-margin-top: 85px;
+    }
+
+    .hero-banner-card {
+      background: linear-gradient(145deg, #2a3429 0%, #1e261d 100%);
+      border-radius: 24px;
+      padding: 2.2rem 2.5rem 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
       position: relative;
-      overflow: hidden;
+      color: #fdfbf7;
     }
 
-    .hero-card::after {
+    /* Watermark inside hero card */
+    .hero-banner-card::before {
       content: "";
       position: absolute;
-      top: 0; right: 0;
-      width: 250px; height: 100%;
-      background: radial-gradient(circle at 80% 20%, var(--accent-light), transparent 70%);
+      top: 50%; left: 50%;
+      width: 100%; height: 100%;
+      min-width: 600px; min-height: 600px;
+      background-image: url('ORNAMEN BUNGA.png');
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      transform: translate(-50%, -50%);
+      opacity: 0.07;
+      pointer-events: none;
+      z-index: 0;
+      mix-blend-mode: screen;
+    }
+
+    .p2-hero {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 1.8rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Left Card */
+    .p2-profile-card {
+      background: rgba(62, 74, 61, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      width: 310px;
+      flex-shrink: 0;
+      position: relative;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+    }
+
+    .p2-profile-card::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%; width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 30%, rgba(217, 119, 70, 0.18), transparent 50%);
       pointer-events: none;
     }
 
-    .hero-top-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--teal-light);
-      color: var(--teal-primary);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 0.35rem 0.9rem;
+    .p2-profile-img {
+      width: 155px;
+      height: 155px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 45%;
+      margin: 0 auto 1.1rem;
+      border: 3px solid rgba(217, 119, 70, 0.6);
+      padding: 5px;
+      box-shadow: 0 0 25px rgba(217, 119, 70, 0.3);
+      position: relative;
+      z-index: 1;
+      display: block;
+    }
+
+    .p2-profile-name {
+      font-family: var(--font-heading);
+      font-size: 1.55rem;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 0.25rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-profile-title {
+      color: #dcd6c8;
+      font-size: 0.92rem;
+      margin-bottom: 1.2rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-badge {
+      display: inline-block;
+      background: rgba(163, 177, 138, 0.18);
+      color: #a3b18a;
+      padding: 0.35rem 1.1rem;
       border-radius: 30px;
       font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.5px;
-      margin-bottom: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      border: 1px solid rgba(163, 177, 138, 0.3);
+      position: relative;
+      z-index: 1;
     }
 
-    .hero-main-title {
-      font-family: var(--font-heading);
-      font-size: 2.3rem;
-      font-weight: 800;
-      line-height: 1.25;
-      color: var(--text-primary);
-      margin-bottom: 0.8rem;
+    .p2-badge.teal {
+      background: rgba(217, 119, 70, 0.18);
+      color: #d97746;
+      border-color: rgba(217, 119, 70, 0.35);
     }
 
-    .hero-subtitle {
-      font-size: 1.05rem;
-      color: var(--text-secondary);
-      max-width: 860px;
-      margin-bottom: 2rem;
-    }
-
-    /* Student Meta Card */
-    .student-meta-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      padding-top: 1.5rem;
-      border-top: 1px dashed var(--border-color);
-    }
-
-    .meta-box {
+    .p2-socials {
       display: flex;
-      align-items: center;
-      gap: 12px;
+      justify-content: center;
+      gap: 0.85rem;
+      margin-top: 1.2rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .meta-icon-box {
-      width: 44px;
-      height: 44px;
-      border-radius: 12px;
-      background: var(--bg-secondary);
-      border: 1px solid var(--border-light);
+    .p2-social-btn, .p2-social-btn:visited {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent);
-      font-size: 1.2rem;
+      color: #dcd6c8 !important;
+      transition: all 0.3s;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      text-decoration: none;
+    }
+
+    .p2-social-btn:hover {
+      background: rgba(217, 119, 70, 0.25);
+      color: #ffffff !important;
+      border-color: rgba(217, 119, 70, 0.5);
+      transform: translateY(-2px);
+    }
+
+    /* Right Content */
+    .p2-content {
+      flex: 1;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-tag {
+      display: inline-block;
+      background: rgba(217, 119, 70, 0.18);
+      color: #d97746;
+      padding: 0.35rem 0.9rem;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 0.9rem;
+      letter-spacing: 0.5px;
+      border: 1px solid rgba(217, 119, 70, 0.35);
+    }
+
+    .p2-title {
+      font-family: var(--font-heading);
+      font-size: 2.8rem;
+      font-weight: 800;
+      line-height: 1.15;
+      color: #ffffff;
+      margin-bottom: 0.9rem;
+      letter-spacing: -0.5px;
+    }
+
+    .p2-desc {
+      color: #dcd6c8;
+      font-size: 0.98rem;
+      line-height: 1.65;
+      margin-bottom: 1.2rem;
+      max-width: 680px;
+    }
+
+    .p2-quote {
+      background: rgba(62, 74, 61, 0.6);
+      border-left: 4px solid #eab308;
+      padding: 0.9rem 1.3rem;
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: #fdfbf7;
+      margin-bottom: 1.4rem;
+      font-size: 0.96rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-left: 4px solid #eab308;
+    }
+
+    .p2-actions {
+      display: flex;
+      gap: 1.1rem;
+      flex-wrap: wrap;
+    }
+
+    .p2-btn-primary, .p2-btn-primary:visited {
+      background: linear-gradient(135deg, #b45f36, #d97746) !important;
+      color: #ffffff !important;
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(217, 119, 70, 0.4);
+    }
+
+    .p2-btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(217, 119, 70, 0.5);
+    }
+
+    .p2-btn-secondary, .p2-btn-secondary:visited {
+      background: rgba(30, 41, 59, 0.85);
+      color: #fdfbf7 !important;
+      padding: 0.8rem 1.6rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.92rem;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+
+    .p2-btn-secondary:hover {
+      background: rgba(51, 65, 85, 0.95);
+      border-color: rgba(255, 255, 255, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Bottom Section Cards */
+    .p2-sections {
+      display: flex;
+      gap: 1.4rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .p2-section-card, .p2-section-card:visited {
+      flex: 1;
+      background: rgba(62, 74, 61, 0.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 1.3rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1.3rem;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .p2-section-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(217, 119, 70, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .p2-icon-box {
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
       flex-shrink: 0;
     }
 
-    .meta-label {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
+    .p2-icon-teal {
+      background: rgba(163, 177, 138, 0.2);
+      color: #a3b18a;
     }
 
-    .meta-val {
-      font-size: 0.95rem;
+    .p2-icon-purple {
+      background: rgba(234, 179, 8, 0.2);
+      color: #facc15;
+    }
+
+    .p2-section-info {
+      flex: 1;
+    }
+
+    .p2-section-label {
+      color: #d97746;
+      font-size: 0.75rem;
       font-weight: 700;
-      color: var(--text-primary);
+      letter-spacing: 1.5px;
+      margin-bottom: 0.3rem;
+    }
+
+    .p2-section-title {
+      color: #ffffff;
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+      font-family: var(--font-heading);
+    }
+
+    .p2-section-desc {
+      color: #dcd6c8;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .p2-section-number {
+      font-size: 2.3rem;
+      font-weight: 800;
+      opacity: 0.8;
+      font-family: var(--font-heading);
+    }
+
+    .p2-num-teal { color: #a3b18a; }
+    .p2-num-purple { color: #facc15; }
+
+    @media (max-width: 900px) {
+      .hero-banner-card { padding: 1.8rem 1.4rem; }
+      .p2-hero { flex-direction: column; text-align: center; gap: 1.5rem; }
+      .p2-profile-card { width: 100%; max-width: 320px; }
+      .p2-actions { justify-content: center; }
+      .p2-sections { flex-direction: column; }
+      .p2-title { font-size: 2.2rem; }
+      .p2-quote { border-left: none; border-top: 3px solid #eab308; border-radius: 0 0 12px 12px; }
     }
 
 
@@ -404,14 +691,14 @@
       display: none;
     }
 
-    .menu-pill {
+    .menu-pill, .menu-pill:visited {
       white-space: nowrap;
-      padding: 0.6rem 1.1rem;
+      padding: 0.6rem 1.15rem;
       border-radius: 30px;
-      background: var(--bg-card);
-      border: 1px solid var(--border-color);
-      color: var(--text-secondary);
-      font-size: 0.85rem;
+      background: rgba(62, 74, 61, 0.65);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #e2ded4 !important;
+      font-size: 0.86rem;
       font-weight: 600;
       cursor: pointer;
       transition: all 0.25s ease;
@@ -419,26 +706,39 @@
       align-items: center;
       gap: 8px;
       text-decoration: none;
+      backdrop-filter: blur(8px);
+    }
+
+    [data-theme="light"] .menu-pill, [data-theme="light"] .menu-pill:visited {
+      background: #ffffff;
+      border-color: #dcd6c8;
+      color: #2e382d !important;
     }
 
     .menu-pill:hover {
-      border-color: var(--accent);
-      color: var(--accent);
+      border-color: #d97746;
+      color: #d97746 !important;
+      background: rgba(217, 119, 70, 0.15);
       transform: translateY(-2px);
     }
 
-    .menu-pill.active {
-      background: var(--text-primary);
-      color: var(--bg-card);
-      border-color: var(--text-primary);
-      box-shadow: var(--shadow-sm);
+    .menu-pill.active, .menu-pill.active:visited {
+      background: linear-gradient(135deg, #b45f36, #d97746) !important;
+      color: #ffffff !important;
+      border-color: #d97746 !important;
+      box-shadow: 0 4px 14px rgba(217, 119, 70, 0.4);
     }
 
     .pill-counter {
-      background: rgba(0, 0, 0, 0.08);
+      background: rgba(0, 0, 0, 0.12);
       padding: 2px 7px;
       border-radius: 12px;
       font-size: 0.72rem;
+    }
+
+    .menu-pill.active .pill-counter {
+      background: rgba(0, 0, 0, 0.3) !important;
+      color: #ffffff !important;
     }
 
     [data-theme="dark"] .pill-counter {
@@ -504,7 +804,7 @@
     /* Split Two-Column Grid */
     .dual-grid {
       display: grid;
-      grid-template-columns: 380px 1fr;
+      grid-template-columns: minmax(380px, 420px) 1fr;
       gap: 1.8rem;
       align-items: stretch;
     }
@@ -535,15 +835,25 @@
     .artifact-cover-box {
       position: relative;
       width: 100%;
-      height: 220px;
+      height: 235px;
       background: var(--bg-secondary);
       overflow: hidden;
+    }
+
+    .artifact-cover-box::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 65%, rgba(0, 0, 0, 0.35) 100%);
+      pointer-events: none;
+      z-index: 1;
     }
 
     .artifact-cover-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      object-position: center 26%;
       transition: transform 0.4s ease;
     }
 
@@ -555,32 +865,36 @@
       position: absolute;
       top: 14px;
       left: 14px;
-      background: rgba(34, 38, 31, 0.85);
+      background: rgba(34, 38, 31, 0.88);
       backdrop-filter: blur(6px);
       color: #ffffff;
       font-size: 0.75rem;
       font-weight: 700;
-      padding: 0.3rem 0.75rem;
+      padding: 0.32rem 0.8rem;
       border-radius: 6px;
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
     }
 
     .artifact-state-badge {
       position: absolute;
       bottom: 14px;
       right: 14px;
-      background: rgba(16, 185, 129, 0.92);
+      background: rgba(16, 185, 129, 0.95);
       backdrop-filter: blur(6px);
       color: #ffffff;
       font-size: 0.72rem;
       font-weight: 700;
-      padding: 0.25rem 0.65rem;
+      padding: 0.28rem 0.75rem;
       border-radius: 20px;
       display: inline-flex;
       align-items: center;
       gap: 5px;
+      z-index: 2;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .artifact-body {
@@ -595,36 +909,73 @@
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.65rem;
+      line-height: 1.35;
+      letter-spacing: -0.01em;
     }
 
     .artifact-summary {
       font-size: 0.88rem;
       color: var(--text-secondary);
-      line-height: 1.55;
+      line-height: 1.62;
       margin-bottom: 1.2rem;
       flex: 1;
+      text-align: justify;
+      text-justify: inter-word;
     }
 
     .artifact-meta-list {
       background: var(--bg-secondary);
-      border-radius: 10px;
-      padding: 0.85rem 1rem;
-      margin-bottom: 1.2rem;
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 0.85rem 1.05rem;
+      margin-bottom: 1.25rem;
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      font-size: 0.82rem;
+      gap: 0.65rem;
     }
 
     .artifact-meta-row {
-      display: flex;
-      justify-content: space-between;
-      color: var(--text-secondary);
+      display: grid;
+      grid-template-columns: 145px 1fr;
+      align-items: baseline;
+      gap: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--border-light);
+      font-size: 0.83rem;
+      line-height: 1.45;
     }
 
-    .artifact-meta-row strong {
+    .artifact-meta-row:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+
+    .artifact-meta-row > span {
+      color: var(--text-muted);
+      font-weight: 500;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .artifact-meta-row > span i {
+      color: var(--accent);
+      font-size: 0.78rem;
+    }
+
+    .artifact-meta-row > strong {
       color: var(--text-primary);
+      font-weight: 600;
+      text-align: left;
+    }
+
+    @media (max-width: 480px) {
+      .artifact-meta-row {
+        grid-template-columns: 1fr;
+        gap: 2px;
+      }
     }
 
     .artifact-actions {
@@ -1553,12 +1904,17 @@
       </a>
 
       <div class="nav-actions">
+        <!-- Theme Toggle Button (Simbol Matahari/Bulan) -->
         <button class="icon-btn" id="themeToggleBtn" aria-label="Ganti Mode Gelap/Terang" title="Ganti Mode Gelap/Terang">
           <i class="fa-solid fa-moon" id="themeIcon"></i>
         </button>
-        <a href="index.html" class="nav-btn">
-          <i class="fa-solid fa-arrow-left"></i>
-          <span>Pilih E-Portfolio</span>
+        <!-- Icon Home untuk Kembali ke Pilihan Portofolio -->
+        <a href="index.html" class="icon-btn" id="homeBackBtn" aria-label="Pilih E-Portfolio" title="Kembali ke Pilihan Portofolio">
+          <i class="fa-solid fa-house" style="color: #38bdf8;"></i>
+        </a>
+        <!-- Menu Utama: Hanya Beranda & Jelajahi Menu -->
+        <a href="#beranda" class="nav-btn">
+          <span>Beranda</span>
         </a>
         <a href="#menu-1" class="nav-btn primary">
           <span>Jelajahi Menu</span>
@@ -1568,60 +1924,80 @@
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero-banner">
+  <!-- Hero / Beranda Banner (Matching User Reference Image) -->
+  <section class="hero-banner" id="beranda">
     <div class="container">
-      <div class="breadcrumb">
-        <a href="index.html"><i class="fa-solid fa-house"></i> Beranda</a>
-        <i class="fa-solid fa-chevron-right"></i>
-        <a href="index.html">Pilih E-Portfolio</a>
-        <i class="fa-solid fa-chevron-right"></i>
-        <span>Topik 3: Praktik Mengajar Mandiri</span>
-      </div>
+      <div class="hero-banner-card">
+        <!-- Hero Upper: Left Profile Card + Right Content -->
+        <div class="p2-hero">
+          <!-- Left Profile Card -->
+          <div class="p2-profile-card">
+            <img src="foto-profil.jpg" alt="Orisa Satifa Alqaf" class="p2-profile-img" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80'">
+            <h2 class="p2-profile-name">Orisa Satifa Alqaf</h2>
+            <p class="p2-profile-title">Calon Guru Bahasa Indonesia</p>
+            
+            <div><span class="p2-badge"><i class="fa-solid fa-graduation-cap"></i> PPG Prajabatan 2026</span></div>
+            <div><span class="p2-badge teal"><i class="fa-solid fa-school"></i> SMA Muhammadiyah 2 Yogyakarta</span></div>
 
-      <div class="hero-card">
-        <div class="hero-top-badge">
-          <i class="fa-solid fa-award"></i>
-          <span>PRAKTIK PEMBELAJARAN MANDIRI (PPL II / TOPIK 3)</span>
+            <div class="p2-socials">
+              <a href="#" class="p2-social-btn" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+              <a href="#" class="p2-social-btn" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="p2-social-btn" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+              <a href="#" class="p2-social-btn" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+          </div>
+
+          <!-- Right Content -->
+          <div class="p2-content">
+            <span class="p2-tag"><i class="fa-solid fa-book"></i> E-Portfolio — Topik 3</span>
+            <h1 class="p2-title">PraktikMengajar&<br>FilosofiMengajar</h1>
+            <p class="p2-desc">
+              Dokumentasi artefak dan analisis kritis praktik pembelajaran mandiri pada materi Teks Anekdot Fase E Kelas X di SMA Muhammadiyah 2 Yogyakarta, mencakup modul ajar, materi, media interaktif, rekaman video, kegiatan nonmengajar, serta instrumen penilaian komprehensif.
+            </p>
+
+            <div class="p2-quote">
+              <i class="fa-solid fa-quote-left" style="color: #eab308; margin-right: 10px;"></i>
+              Mengajar adalah seni membentuk tanpa memaksa bentuk.
+            </div>
+
+            <div class="p2-actions">
+              <a href="#menu-1" class="p2-btn-primary">
+                <i class="fa-solid fa-lock" style="color: #fde047;"></i> Lihat Rancangan
+              </a>
+              <a href="#menu-4" class="p2-btn-secondary">
+                <i class="fa-solid fa-lightbulb" style="color: #d97746;"></i> Praktik & Asesmen
+              </a>
+            </div>
+          </div>
         </div>
-        <h1 class="hero-main-title">
-          Dokumentasi Artefak & Analisis Kritis<br>
-          Praktik Mengajar Mandiri
-        </h1>
-        <p class="hero-subtitle">
-          Portofolio digital terpadu yang memuat seluruh perangkat rancangan pembelajaran, materi, media interaktif, rekaman video pelaksanaan mengajar, kegiatan nonmengajar, serta instrumen penilaian beserta analisis refleksi kritisnya.
-        </p>
 
-        <!-- Student Meta Strip -->
-        <div class="student-meta-strip">
-          <div class="meta-box">
-            <div class="meta-icon-box"><i class="fa-solid fa-user"></i></div>
-            <div>
-              <div class="meta-label">Nama Mahasiswa</div>
-              <div class="meta-val">Orisa Satifa Alqaf</div>
+        <!-- Hero Bottom: 2 Section Cards Matching Reference -->
+        <div class="p2-sections">
+          <!-- Section Card 1 -->
+          <a href="#menu-1" class="p2-section-card">
+            <div class="p2-icon-box p2-icon-teal">
+              <i class="fa-solid fa-clipboard-check"></i>
             </div>
-          </div>
-          <div class="meta-box">
-            <div class="meta-icon-box"><i class="fa-solid fa-id-card"></i></div>
-            <div>
-              <div class="meta-label">NIM Mahasiswa</div>
-              <div class="meta-val">2518363019</div>
+            <div class="p2-section-info">
+              <div class="p2-section-label">SECTION 01</div>
+              <div class="p2-section-title">Perangkat & Media Pembelajaran</div>
+              <div class="p2-section-desc">Modul Ajar Teks Anekdot Fase E, materi inovatif kontekstual, & media interaktif Canva/Quizizz.</div>
             </div>
-          </div>
-          <div class="meta-box">
-            <div class="meta-icon-box"><i class="fa-solid fa-book-open"></i></div>
-            <div>
-              <div class="meta-label">Bidang Studi & Materi</div>
-              <div class="meta-val">Bahasa Indonesia &bull; Teks Anekdot (P1)</div>
+            <div class="p2-section-number p2-num-teal">3</div>
+          </a>
+
+          <!-- Section Card 2 -->
+          <a href="#menu-4" class="p2-section-card">
+            <div class="p2-icon-box p2-icon-purple">
+              <i class="fa-solid fa-lightbulb"></i>
             </div>
-          </div>
-          <div class="meta-box">
-            <div class="meta-icon-box"><i class="fa-solid fa-building-columns"></i></div>
-            <div>
-              <div class="meta-label">Perguruan Tinggi</div>
-              <div class="meta-val">Universitas Ahmad Dahlan (UAD)</div>
+            <div class="p2-section-info">
+              <div class="p2-section-label">SECTION 02</div>
+              <div class="p2-section-title">Praktik & Asesmen Mandiri</div>
+              <div class="p2-section-desc">Video pelaksanaan pembelajaran mandiri, pendampingan nonmengajar, & instrumen asesmen.</div>
             </div>
-          </div>
+            <div class="p2-section-number p2-num-purple">3+4</div>
+          </a>
         </div>
       </div>
     </div>
@@ -1631,7 +2007,11 @@
   <nav class="menu-nav-container">
     <div class="container">
       <div class="menu-pills" id="menuPills">
-        <a href="#menu-1" class="menu-pill active" data-target="menu-1">
+        <a href="#beranda" class="menu-pill active" data-target="beranda">
+          <i class="fa-solid fa-house"></i>
+          <span>Beranda</span>
+        </a>
+        <a href="#menu-1" class="menu-pill" data-target="menu-1">
           <i class="fa-solid fa-file-lines"></i>
           <span>Rancangan Pembelajaran</span>
           <span class="pill-counter">Artefak & Analisis</span>
@@ -1693,27 +2073,27 @@
         <!-- Artefak Slot -->
         <div class="artifact-card">
           <div class="artifact-cover-box">
-            <img src="modul-cover.png" alt="Cover Modul Ajar Teks Anekdot P1" class="artifact-cover-img" onerror="this.src='https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800&q=80'" />
+            <img src="modul-ajar-cover.png?v=2" alt="Cover Modul Ajar Teks Anekdot P1 Fase E Kelas X" class="artifact-cover-img" style="object-position: center;" onerror="this.src='https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800&q=80'" />
             <div class="artifact-tag"><i class="fa-solid fa-file-pdf"></i> ARTEFAK PERENCANAAN</div>
             <div class="artifact-state-badge"><i class="fa-solid fa-check"></i> Google Drive Terhubung</div>
           </div>
           <div class="artifact-body">
             <h3 class="artifact-title">Modul Ajar Teks Anekdot (Pertemuan 1)</h3>
             <p class="artifact-summary">
-              Rancangan perangkat ajar mandiri Bahasa Indonesia Fase E Bab 2 "Mengungkapkan Kritik Lewat Senyuman". Memuat Capaian Pembelajaran, tujuan telaah struktur & pesan tersirat, sintaks model PBL, serta skenario diferensiasi proses dan produk.
+              Rancangan perangkat ajar mandiri Bahasa Indonesia Fase E Bab 2 &ldquo;Mengungkapkan Kritik Lewat Senyuman&rdquo;. Memuat Capaian Pembelajaran, tujuan telaah struktur &amp; pesan tersirat, sintaks model Problem Based Learning (PBL), serta skenario diferensiasi proses dan produk.
             </p>
             <div class="artifact-meta-list">
               <div class="artifact-meta-row">
-                <span>Tipe Dokumen:</span>
+                <span><i class="fa-solid fa-file-circle-check"></i> Tipe Dokumen:</span>
                 <strong>Modul Ajar Kurikulum Merdeka (P1)</strong>
               </div>
               <div class="artifact-meta-row">
-                <span>Materi & Sasaran:</span>
+                <span><i class="fa-solid fa-book-bookmark"></i> Materi &amp; Sasaran:</span>
                 <strong>Teks Anekdot &bull; Fase E (Kelas X)</strong>
               </div>
               <div class="artifact-meta-row">
-                <span>Model & Pendekatan:</span>
-                <strong>PBL, TaRL & CRT Berdiferensiasi</strong>
+                <span><i class="fa-solid fa-diagram-project"></i> Model &amp; Pendekatan:</span>
+                <strong>PBL, TaRL &amp; CRT Berdiferensiasi</strong>
               </div>
             </div>
             <div class="artifact-actions">
@@ -2894,8 +3274,10 @@
           <div class="footer-links">
             <ul class="footer-link-col">
               <li><a href="index.html">Beranda</a></li>
-              <li><a href="portfolio.html">E-Portofolio 1 (UTS)</a></li>
-              <li><a href="portfolio2.html">E-Portofolio 2 (UAS)</a></li>
+              <li><a href="portfolio.html">E-Portofolio 1 (UTS Sem 1)</a></li>
+              <li><a href="portfolio2.html">E-Portofolio 2 (UAS Sem 1)</a></li>
+              <li><a href="portfolio-uts-sem2.html">E-Portofolio UTS (Sem 2)</a></li>
+              <li><a href="portfolio-uas-sem2.html">E-Portofolio UAS (Sem 2)</a></li>
             </ul>
             <ul class="footer-link-col">
               <li><a href="#menu-1">Perencanaan</a></li>
@@ -2963,44 +3345,155 @@
         }
       });
 
-      // 2. Scroll Spy for Menu Navigation Pills
-      const sections = document.querySelectorAll('.topic-section, .contact.section');
+      // 2. Smooth Scrolling & Click Handling for Menu Navigation Pills
+      let isClickScrolling = false;
       const navPills = document.querySelectorAll('.menu-pill');
+      const menuPillsContainer = document.getElementById('menuPills');
+
+      function scrollPillIntoViewHorizontally(pill) {
+        if (!menuPillsContainer || !pill) return;
+        const pillLeft = pill.offsetLeft;
+        const pillWidth = pill.offsetWidth;
+        const containerWidth = menuPillsContainer.offsetWidth;
+        const scrollTarget = pillLeft - (containerWidth / 2) + (pillWidth / 2);
+        menuPillsContainer.scrollTo({
+          left: Math.max(0, scrollTarget),
+          behavior: 'smooth'
+        });
+      }
+
+      function scrollToSection(targetId) {
+        if (targetId === 'beranda') {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+
+        const targetEl = document.getElementById(targetId);
+        if (!targetEl) return;
+
+        const topNav = document.querySelector('.top-nav');
+        const menuNav = document.querySelector('.menu-nav-container');
+        const topNavHeight = topNav ? topNav.offsetHeight : 65;
+        const menuNavHeight = menuNav ? menuNav.offsetHeight : 55;
+        const totalOffset = topNavHeight + menuNavHeight + 10;
+
+        const rect = targetEl.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const targetPosition = rect.top + scrollTop - totalOffset;
+
+        window.scrollTo({
+          top: Math.max(0, targetPosition),
+          behavior: 'smooth'
+        });
+      }
+
+      // Add direct click listener to all menu pills
+      navPills.forEach(pill => {
+        pill.addEventListener('click', function(e) {
+          e.preventDefault();
+          const targetId = this.getAttribute('data-target') || (this.getAttribute('href') || '').replace('#', '');
+          if (!targetId) return;
+
+          isClickScrolling = true;
+
+          // Update active class immediately
+          navPills.forEach(p => p.classList.remove('active'));
+          this.classList.add('active');
+
+          // Center the clicked pill horizontally in its container
+          scrollPillIntoViewHorizontally(this);
+
+          // Scroll page directly to the target section
+          scrollToSection(targetId);
+
+          // Re-enable scrollspy after smooth scroll finishes
+          setTimeout(() => {
+            isClickScrolling = false;
+          }, 850);
+        });
+      });
+
+      // Add direct click listener to other in-page links (nav-btn, CTA buttons, section cards)
+      document.querySelectorAll('a[href^="#"]:not(.menu-pill)').forEach(link => {
+        link.addEventListener('click', function(e) {
+          const href = this.getAttribute('href');
+          if (!href || href === '#') return;
+          const targetId = href.replace('#', '');
+          const targetEl = document.getElementById(targetId);
+          if (targetEl) {
+            e.preventDefault();
+            isClickScrolling = true;
+
+            scrollToSection(targetId);
+
+            // Update matching pill if exists
+            navPills.forEach(p => {
+              if (p.getAttribute('data-target') === targetId) {
+                p.classList.add('active');
+                scrollPillIntoViewHorizontally(p);
+              } else {
+                p.classList.remove('active');
+              }
+            });
+
+            setTimeout(() => {
+              isClickScrolling = false;
+            }, 850);
+          }
+        });
+      });
+
+      // 3. Scroll Spy for Menu Navigation Pills (Accurate Document Offset)
+      const sections = document.querySelectorAll('#beranda, .topic-section, #contact');
 
       window.addEventListener('scroll', () => {
-        let currentSectionId = '';
-        const scrollPosition = window.scrollY + 180;
+        // Back to top button visibility
+        const btnToTop = document.getElementById('btnToTop');
+        if (btnToTop) {
+          if (window.scrollY > 400) {
+            btnToTop.classList.add('visible');
+          } else {
+            btnToTop.classList.remove('visible');
+          }
+        }
+
+        if (isClickScrolling) return;
+
+        const topNav = document.querySelector('.top-nav');
+        const menuNav = document.querySelector('.menu-nav-container');
+        const topNavHeight = topNav ? topNav.offsetHeight : 65;
+        const menuNavHeight = menuNav ? menuNav.offsetHeight : 55;
+        const scrollThreshold = window.scrollY + topNavHeight + menuNavHeight + 80;
+
+        let currentSectionId = 'beranda';
 
         sections.forEach(sec => {
-          const secTop = sec.offsetTop;
+          const secTop = sec.getBoundingClientRect().top + window.pageYOffset;
           const secHeight = sec.offsetHeight;
-          if (scrollPosition >= secTop && scrollPosition < secTop + secHeight) {
+          if (scrollThreshold >= secTop && scrollThreshold < secTop + secHeight) {
             currentSectionId = sec.getAttribute('id');
           }
         });
 
+        if (window.scrollY < 200) {
+          currentSectionId = 'beranda';
+        }
+
         if (currentSectionId) {
           navPills.forEach(pill => {
             if (pill.getAttribute('data-target') === currentSectionId) {
-              pill.classList.add('active');
-              // scroll pill into view horizontally
-              pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              if (!pill.classList.contains('active')) {
+                pill.classList.add('active');
+                scrollPillIntoViewHorizontally(pill);
+              }
             } else {
               pill.classList.remove('active');
             }
           });
         }
-
-        // Back to top button visibility
-        const btnToTop = document.getElementById('btnToTop');
-        if (window.scrollY > 400) {
-          btnToTop.classList.add('visible');
-        } else {
-          btnToTop.classList.remove('visible');
-        }
       });
 
-      // 3. Back to Top Click
+      // 4. Back to Top Click
       document.getElementById('btnToTop').addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
       });
