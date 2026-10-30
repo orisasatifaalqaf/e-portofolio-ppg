@@ -19,6 +19,250 @@
   
   <!-- CSS -->
   <link rel="stylesheet" href="style.css?v=2" />
+
+  <style>
+    /* ==============================================================
+       Siklus Box Selector & UAS Semester 2 Enhancements
+       ============================================================== */
+    .siklus-box-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.2rem;
+      margin-bottom: 2rem;
+    }
+    @media (max-width: 992px) {
+      .siklus-box-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    .siklus-box {
+      background: var(--bg-primary);
+      border: 2px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 1.8rem;
+      cursor: pointer;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      user-select: none;
+    }
+    .siklus-box:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--accent);
+    }
+    .siklus-box.active {
+      transform: translateY(-4px);
+      border-color: #0284c7;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(2, 132, 199, 0.08) 100%);
+      box-shadow: 0 12px 32px rgba(2, 132, 199, 0.18);
+    }
+    .siklus-box.box-s3.active {
+      border-color: #8b5cf6;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(139, 92, 246, 0.08) 100%);
+      box-shadow: 0 12px 32px rgba(139, 92, 246, 0.18);
+    }
+    .siklus-box.box-s4.active {
+      border-color: #e11d48;
+      background: linear-gradient(135deg, var(--bg-primary) 0%, rgba(225, 29, 72, 0.08) 100%);
+      box-shadow: 0 12px 32px rgba(225, 29, 72, 0.18);
+    }
+    [data-theme="dark"] .siklus-box.active {
+      background: linear-gradient(135deg, #2a2e26 0%, rgba(2, 132, 199, 0.22) 100%);
+    }
+    [data-theme="dark"] .siklus-box.box-s3.active {
+      background: linear-gradient(135deg, #2a2e26 0%, rgba(139, 92, 246, 0.22) 100%);
+    }
+    [data-theme="dark"] .siklus-box.box-s4.active {
+      background: linear-gradient(135deg, #2a2e26 0%, rgba(225, 29, 72, 0.22) 100%);
+    }
+    .siklus-box-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .siklus-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0.35rem 0.85rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+    .badge-s2 { background: rgba(2, 132, 199, 0.15); color: #0284c7; }
+    .badge-s3 { background: rgba(139, 92, 246, 0.15); color: #8b5cf6; }
+    .badge-s4 { background: rgba(225, 29, 72, 0.15); color: #e11d48; }
+    .siklus-icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+    }
+    .icon-s2 { background: rgba(2, 132, 199, 0.12); color: #0284c7; }
+    .icon-s3 { background: rgba(139, 92, 246, 0.12); color: #8b5cf6; }
+    .icon-s4 { background: rgba(225, 29, 72, 0.12); color: #e11d48; }
+    .siklus-title {
+      font-family: var(--font-head);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 0.45rem;
+      line-height: 1.3;
+    }
+    .siklus-desc {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.55;
+      margin-bottom: 1.2rem;
+      flex: 1;
+    }
+    .siklus-bottom-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 0.85rem;
+      border-top: 1px dashed var(--glass-border);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+    .siklus-active-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.76rem;
+      color: var(--accent);
+    }
+    .siklus-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding: 0.9rem 1.4rem;
+      background: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 14px;
+    }
+    .btn-filter-pill {
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      border: 1px solid var(--glass-border);
+      padding: 0.45rem 1rem;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.25s ease;
+    }
+    .btn-filter-pill:hover {
+      color: var(--text-primary);
+      border-color: var(--accent);
+    }
+    .btn-filter-pill.active {
+      background: #0284c7;
+      color: #fff;
+      border-color: #0284c7;
+      box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+    }
+    @keyframes fadeInCard {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+      /* Landing Card Style (Gambar 2 Reference) */
+    .landing-card.siklus-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem 2.2rem;
+      width: 340px;
+      max-width: 100%;
+      text-align: center;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text-primary);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .landing-card.siklus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+    [data-theme="dark"] .landing-card.siklus-card {
+      background-color: #2a2e26;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #f3efe6;
+    }
+    [data-theme="dark"] .landing-card.siklus-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .landing-card.siklus-card .badge-top-right {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .landing-card.siklus-card .card-icon {
+      font-size: 3.8rem;
+      margin-bottom: 1.4rem;
+      transition: transform 0.35s ease;
+    }
+    .landing-card.siklus-card:hover .card-icon {
+      transform: scale(1.1);
+    }
+    .landing-card.siklus-card .card-title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+    .landing-card.siklus-card .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+      flex-grow: 1;
+    }
+    .landing-card.siklus-card .card-link {
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      font-size: 0.95rem;
+    }
+    .landing-card.siklus-card:hover .card-link {
+      transform: translateX(5px);
+    }
+  </style>
 </head>
 <body>
 
@@ -38,6 +282,7 @@
         <li><a href="#about">Profil</a></li>
         <li><a href="#education">Pendidikan</a></li>
         <li><a href="#portfolio">Artefak UAS</a></li>
+        <li><a href="#penilaian">Penilaian</a></li>
         <li><a href="#model-guru">Model Guru</a></li>
         <li><a href="#gallery">Galeri</a></li>
         <li><a href="#contact">Kontak</a></li>
@@ -236,81 +481,215 @@
     </div>
   </section>
 
-  <!-- Portfolio / Artefak UAS Section -->
+      <!-- Portfolio / Artefak UAS Section -->
   <section class="portfolio section" id="portfolio">
     <div class="container">
       <div class="section-header">
-        <div class="section-badge"><i class="fa-solid fa-award"></i> PORTOFOLIO UAS SEMESTER 2</div>
-        <h2 class="section-title">Dokumentasi Akhir & Studi Kasus</h2>
-        <p class="section-subtitle">Koleksi laporan studi kasus, evaluasi komprehensif, dan video praktik mengajar mandiri Ujian Akhir Semester 2</p>
+        <div class="section-badge"><i class="fa-solid fa-award"></i> PORTOFOLIO UAS SEMESTER 2 â€¢ PRAKTIK MENGAJAR MANDIRI SIKLUS 2â€”4</div>
+        <h2 class="section-title">Artefak Praktik Mengajar Mandiri (Siklus 2, 3, &amp; 4)</h2>
+        <p class="section-subtitle">Silakan pilih siklus praktik mengajar mandiri di bawah ini untuk meninjau koleksi komprehensif artifak pembelajaran (Modul Ajar, Video Praktik, Media Digital, Asesmen Autentik, LKPD, Hasil Belajar Siswa, dan Refleksi Nonmengajar).</p>
       </div>
 
-      <!-- Grid Cards Artefak UAS Semester 2 -->
-      <div class="portfolio-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; margin-top: 2rem;">
+      <!-- Kotakan-Kotakan Menu Siklus (Sesuai Gaya Gambar 2) -->
+      <div class="siklus-landing-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin-top: 2.5rem; margin-bottom: 3.5rem;">
         
-        <!-- Card 1: Laporan Studi Kasus -->
-        <div class="portfolio-card" style="background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
-          <div class="card-image-wrapper" style="height: 200px; position: relative; overflow: hidden;">
-            <img src="karya-siswa-cover.png" alt="Laporan Studi Kasus" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="card-badge badge-red" style="position: absolute; top: 1rem; right: 1rem; background: #e11d48; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">STUDI KASUS</div>
+        <!-- Card Siklus 2 -->
+        <a href="portfolio-uas-siklus2.html" class="landing-card siklus-card">
+          <div class="badge-top-right" style="background-color: #0284c7;">SIKLUS 2</div>
+          <div class="card-icon" style="color: #0284c7;">
+            <i class="fa-solid fa-book-open-reader"></i>
           </div>
-          <div class="card-content" style="padding: 1.5rem;">
-            <h3 class="card-title" style="font-family: var(--font-head); font-size: 1.25rem; margin-bottom: 0.5rem;">Laporan Studi Kasus Pedagogik</h3>
-            <p class="card-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.2rem;">Analisis mendalam terhadap tantangan belajar peserta didik, intervensi pedagogik berbasis bukti, dan evaluasi ketercapaian solusi.</p>
-            <span class="btn-analysis" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; cursor: pointer;">
-              Dokumentasi Laporan <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </span>
+          <h2 class="card-title">Praktik Mengajar Siklus 2<br><span style="font-size: 1.05rem; color: var(--text-secondary); font-weight: 500;">PPL Mandiri - Semester 2</span></h2>
+          <p class="card-desc">
+            Fokus pada penerapan diferensiasi konten &amp; proses (TaRL), penguatan literasi berpikir kritis materi teks negosiasi, serta integrasi media visual interaktif.
+          </p>
+          <div class="siklus-pill-info" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #0284c7; font-weight: 700; margin-bottom: 1.2rem; background: rgba(2, 132, 199, 0.1); padding: 0.4rem 1.1rem; border-radius: 20px;">
+            <i class="fa-solid fa-layer-group"></i> 7 Artifak Pembelajaran
           </div>
-        </div>
+          <span class="card-link">Lihat Artifak Siklus 2 &rarr;</span>
+        </a>
 
-        <!-- Card 2: Video Praktik Mandiri -->
-        <div class="portfolio-card" style="background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
-          <div class="card-image-wrapper" style="height: 200px; position: relative; overflow: hidden;">
-            <img src="thumbnail-micro.png" alt="Video Praktik Mandiri" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="card-badge badge-blue" style="position: absolute; top: 1rem; right: 1rem; background: #0284c7; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">VIDEO PRAKTIK</div>
+        <!-- Card Siklus 3 -->
+        <a href="portfolio-uas-siklus3.html" class="landing-card siklus-card">
+          <div class="badge-top-right" style="background-color: #8b5cf6;">SIKLUS 3</div>
+          <div class="card-icon" style="color: #8b5cf6;">
+            <i class="fa-solid fa-diagram-project"></i>
           </div>
-          <div class="card-content" style="padding: 1.5rem;">
-            <h3 class="card-title" style="font-family: var(--font-head); font-size: 1.25rem; margin-bottom: 0.5rem;">Video Praktik Mengajar Mandiri</h3>
-            <p class="card-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.2rem;">Rekaman komprehensif pelaksanaan pembelajaran siklus mandiri penuh di kelas nyata bersama peserta didik sekolah mitra.</p>
-            <span class="btn-analysis" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; cursor: pointer;">
-              Tonton Video <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </span>
+          <h2 class="card-title">Praktik Mengajar Siklus 3<br><span style="font-size: 1.05rem; color: var(--text-secondary); font-weight: 500;">PPL Mandiri - Semester 2</span></h2>
+          <p class="card-desc">
+            Fokus pada Project-Based Learning (PjBL) materi teks biografi tokoh inspiratif, teknik perancah (scaffolding) berjenjang, dan pendekatan Culturally Responsive Teaching (CRT).
+          </p>
+          <div class="siklus-pill-info" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #8b5cf6; font-weight: 700; margin-bottom: 1.2rem; background: rgba(139, 92, 246, 0.1); padding: 0.4rem 1.1rem; border-radius: 20px;">
+            <i class="fa-solid fa-layer-group"></i> 7 Artifak Pembelajaran
           </div>
-        </div>
+          <span class="card-link">Lihat Artifak Siklus 3 &rarr;</span>
+        </a>
 
-        <!-- Card 3: Rekap Evaluasi & Penilaian Akhir -->
-        <div class="portfolio-card" style="background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
-          <div class="card-image-wrapper" style="height: 200px; position: relative; overflow: hidden;">
-            <img src="rekap-nilai-cover.png" alt="Rekapitulasi Penilaian" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="card-badge badge-teal" style="position: absolute; top: 1rem; right: 1rem; background: #10b981; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">PENILAIAN AKHIR</div>
+        <!-- Card Siklus 4 -->
+        <a href="portfolio-uas-siklus4.html" class="landing-card siklus-card">
+          <div class="badge-top-right" style="background-color: #e11d48;">SIKLUS 4</div>
+          <div class="card-icon" style="color: #e11d48;">
+            <i class="fa-solid fa-award"></i>
           </div>
-          <div class="card-content" style="padding: 1.5rem;">
-            <h3 class="card-title" style="font-family: var(--font-head); font-size: 1.25rem; margin-bottom: 0.5rem;">Rekapitulasi Evaluasi & Ketercapaian</h3>
-            <p class="card-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.2rem;">Hasil pengukuran capaian pembelajaran, refleksi rubrik asesmen, dan tindak lanjut pengayaan/remedial bagi murid.</p>
-            <span class="btn-analysis" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; cursor: pointer;">
-              Dokumentasi Nilai <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </span>
+          <h2 class="card-title">Praktik Mengajar Siklus 4<br><span style="font-size: 1.05rem; color: var(--text-secondary); font-weight: 500;">PPL Mandiri - Semester 2</span></h2>
+          <p class="card-desc">
+            Siklus puncak penguasaan mandiri penuh, penulisan artikel ilmiah populer, sintesis portofolio akhir siswa, asesmen sumatif autentik, dan refleksi pedagogik paripurna.
+          </p>
+          <div class="siklus-pill-info" style="display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; color: #e11d48; font-weight: 700; margin-bottom: 1.2rem; background: rgba(225, 29, 72, 0.1); padding: 0.4rem 1.1rem; border-radius: 20px;">
+            <i class="fa-solid fa-layer-group"></i> 7 Artifak Pembelajaran
           </div>
-        </div>
-
-        <!-- Card 4: Filosofi Mengajar Terakhir -->
-        <div class="portfolio-card" style="background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease;">
-          <div class="card-image-wrapper" style="height: 200px; position: relative; overflow: hidden;">
-            <img src="modul-cover.png" alt="Filosofi Mengajar" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="card-badge badge-purple" style="position: absolute; top: 1rem; right: 1rem; background: #8b5cf6; color: white; padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700;">REFLEKSI AKHIR</div>
-          </div>
-          <div class="card-content" style="padding: 1.5rem;">
-            <h3 class="card-title" style="font-family: var(--font-head); font-size: 1.25rem; margin-bottom: 0.5rem;">Filosofi Mengajar & Transformasi</h3>
-            <p class="card-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.2rem;">Sintesis pemikiran pribadi, komitmen transformasi diri, dan manifesto guru pembelajar sepanjang hayat.</p>
-            <span class="btn-analysis" style="display: inline-flex; align-items: center; gap: 0.5rem; color: var(--accent); font-weight: 600; font-size: 0.9rem; cursor: pointer;">
-              Baca Refleksi <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </span>
-          </div>
-        </div>
+          <span class="card-link">Lihat Artifak Siklus 4 &rarr;</span>
+        </a>
 
       </div>
     </div>
   </section>
+
+  <!-- Penilaian Section (Lampiran 7 & 8: Siklus 2 s.d. 4) -->
+  <section class="penilaian section" id="penilaian">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge"><i class="fa-solid fa-shield-halved"></i> PENILAIAN DPL &amp; GP</div>
+        <h2 class="section-title">Hasil Penilaian Praktik Mengajar (Siklus 2–4)</h2>
+        <p class="section-subtitle">Lampiran 7 dan 8: Penilaian penyusunan perangkat dan pelaksanaan praktik mengajar mandiri siklus 2 hingga 4 oleh Guru Pamong dan Dosen Pembimbing Lapangan</p>
+      </div>
+
+      <div class="penilaian-grid">
+        <!-- Card 1: Lampiran 7 -->
+        <div class="penilaian-card card-cyan">
+          <div class="card-bg-number">07</div>
+          <div class="penilaian-card-body">
+            <div class="penilaian-text">
+              <div class="lampiran-badge badge-cyan"><i class="fa-solid fa-file-invoice"></i> LAMPIRAN 7</div>
+              <h3 class="penilaian-title">Penilaian Penyusunan Perangkat Pembelajaran</h3>
+              <p class="penilaian-desc">Dokumen penilaian resmi yang memuat evaluasi penyusunan modul ajar, asesmen autentik, dan media inovatif sebagai bukti capaian perencanaan pembelajaran siklus 2 s.d. 4.</p>
+              
+              <ul class="penilaian-details">
+                <li><span class="detail-label">Format</span> <span class="detail-value">PDF Resmi</span></li>
+                <li><span class="detail-label">Penilai</span> <span class="detail-value">Guru Pamong &amp; DPL</span></li>
+                <li><span class="detail-label">Status</span> <span class="detail-value" style="color: var(--accent);"><i class="fa-solid fa-clock"></i> Belum Terlampir</span></li>
+              </ul>
+              
+              <div class="penilaian-actions" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem;">PPL Mandiri Siklus 2:</div>
+                <button type="button" onclick="alert('Berkas Lampiran 7 (Perangkat Pembelajaran PPL Mandiri Siklus 2) belum terunggah. Silakan tautkan berkas dokumen terlebih dahulu.')" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-solid fa-eye"></i> Preview</button>
+                <a href="javascript:void(0)" onclick="alert('Tautan Google Drive berkas Lampiran 7 Siklus 2 belum tersedia.')" class="btn-light-blue" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
+
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-top: 0.6rem; margin-bottom: 0.2rem;">PPL Mandiri Siklus 3:</div>
+                <button type="button" onclick="alert('Berkas Lampiran 7 (Perangkat Pembelajaran PPL Mandiri Siklus 3) belum terunggah. Silakan tautkan berkas dokumen terlebih dahulu.')" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-solid fa-eye"></i> Preview</button>
+                <a href="javascript:void(0)" onclick="alert('Tautan Google Drive berkas Lampiran 7 Siklus 3 belum tersedia.')" class="btn-light-blue" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
+
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-top: 0.6rem; margin-bottom: 0.2rem;">PPL Mandiri Siklus 4:</div>
+                <button type="button" onclick="alert('Berkas Lampiran 7 (Perangkat Pembelajaran PPL Mandiri Siklus 4) belum terunggah. Silakan tautkan berkas dokumen terlebih dahulu.')" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-solid fa-eye"></i> Preview</button>
+                <a href="javascript:void(0)" onclick="alert('Tautan Google Drive berkas Lampiran 7 Siklus 4 belum tersedia.')" class="btn-light-blue" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
+              </div>
+            </div>
+            
+            <div class="penilaian-preview">
+              <div class="doc-placeholder" style="position: relative; min-height: 400px; height: 100%; justify-content: space-between; overflow: hidden;">
+                <div class="doc-header" style="justify-content: space-between;">
+                  <span class="doc-logo"><i class="fa-solid fa-graduation-cap"></i> PPG UAD</span>
+                  <span style="font-size: 0.65rem; color: #fff; font-weight: 600;">Lampiran 7.pdf</span>
+                </div>
+                <div style="padding: 0 0.5rem; flex: 1;">
+                  <div style="text-align: center; margin-bottom: 8px;">
+                    <strong style="font-size: 0.75rem; color: var(--text-primary); display: block;">Instrumen Penilaian Perangkat Pembelajaran</strong>
+                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-style: italic;">Tahapan Praktik Mengajar Mandiri (Siklus 2–4)</span>
+                  </div>
+                  <div class="doc-line short"></div>
+                  <div class="doc-line long"></div>
+                  <table class="doc-table">
+                    <tr><th></th><th></th><th></th></tr>
+                    <tr><td></td><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td></tr>
+                  </table>
+                </div>
+                <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.85); backdrop-filter: blur(2px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem; z-index: 4;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(16, 185, 129, 0.15); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 8px;">
+                    <i class="fa-solid fa-file-circle-question"></i>
+                  </div>
+                  <h5 style="margin: 0 0 4px 0; font-size: 0.95rem; color: var(--text-primary); font-weight: 700;">Berkas Belum Ditautkan</h5>
+                  <p style="margin: 0 0 8px 0; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; max-width: 220px;">Slot pratinjau Lampiran 7 siap digunakan saat berkas dokumen resmi tersedia.</p>
+                  <span style="font-size: 0.68rem; font-weight: 700; color: #10B981; text-transform: uppercase; background: rgba(16, 185, 129, 0.12); padding: 2px 8px; border-radius: 4px;">Slot Kosong (Draft)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Lampiran 8 -->
+        <div class="penilaian-card card-yellow">
+          <div class="card-bg-number">08</div>
+          <div class="penilaian-card-body">
+            <div class="penilaian-text">
+              <div class="lampiran-badge badge-yellow"><i class="fa-solid fa-file-invoice"></i> LAMPIRAN 8</div>
+              <h3 class="penilaian-title">Penilaian Praktik Mengajar Mahasiswa</h3>
+              <p class="penilaian-desc">Dokumen penilaian resmi yang merekam evaluasi observasi kelas nyata, penguasaan metodologi, komunikasi dialogis, dan profesionalitas mengajar mahasiswa PPG.</p>
+              
+              <ul class="penilaian-details">
+                <li><span class="detail-label">Format</span> <span class="detail-value">PDF Resmi</span></li>
+                <li><span class="detail-label">Penilai</span> <span class="detail-value">Guru Pamong &amp; DPL</span></li>
+                <li><span class="detail-label">Status</span> <span class="detail-value" style="color: var(--accent);"><i class="fa-solid fa-clock"></i> Belum Terlampir</span></li>
+              </ul>
+              
+              <div class="penilaian-actions" style="display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;">
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.2rem;">PPL Mandiri Siklus 2:</div>
+                <button type="button" onclick="alert('Berkas Lampiran 8 (Praktik Mengajar PPL Mandiri Siklus 2) belum terunggah. Silakan tautkan berkas dokumen terlebih dahulu.')" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-solid fa-eye"></i> Preview</button>
+                <a href="javascript:void(0)" onclick="alert('Tautan Google Drive berkas Lampiran 8 Siklus 2 belum tersedia.')" class="btn-light-blue" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
+
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-top: 0.6rem; margin-bottom: 0.2rem;">PPL Mandiri Siklus 3:</div>
+                <button type="button" onclick="alert('Berkas Lampiran 8 (Praktik Mengajar PPL Mandiri Siklus 3) belum terunggah. Silakan tautkan berkas dokumen terlebih dahulu.')" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-solid fa-eye"></i> Preview</button>
+                <a href="javascript:void(0)" onclick="alert('Tautan Google Drive berkas Lampiran 8 Siklus 3 belum tersedia.')" class="btn-light-blue" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
+
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-top: 0.6rem; margin-bottom: 0.2rem;">PPL Mandiri Siklus 4:</div>
+                <button type="button" onclick="alert('Berkas Lampiran 8 (Praktik Mengajar PPL Mandiri Siklus 4) belum terunggah. Silakan tautkan berkas dokumen terlebih dahulu.')" class="btn btn-primary" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; cursor: pointer; border: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-solid fa-eye"></i> Preview</button>
+                <a href="javascript:void(0)" onclick="alert('Tautan Google Drive berkas Lampiran 8 Siklus 4 belum tersedia.')" class="btn-light-blue" style="padding: 0.45rem 1rem; font-size: 0.82rem; border-radius: 20px; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
+              </div>
+            </div>
+            
+            <div class="penilaian-preview">
+              <div class="doc-placeholder" style="position: relative; min-height: 400px; height: 100%; justify-content: space-between; overflow: hidden;">
+                <div class="doc-header" style="justify-content: space-between; background: #0f766e;">
+                  <span class="doc-logo"><i class="fa-solid fa-graduation-cap"></i> PPG UAD</span>
+                  <span style="font-size: 0.65rem; color: #fff; font-weight: 600;">Lampiran 8.pdf</span>
+                </div>
+                <div style="padding: 0 0.5rem; flex: 1;">
+                  <div style="text-align: center; margin-bottom: 8px;">
+                    <strong style="font-size: 0.75rem; color: var(--text-primary); display: block;">Instrumen Penilaian Praktik Mengajar</strong>
+                    <span style="font-size: 0.65rem; color: var(--text-secondary); font-style: italic;">Tahapan Praktik Mengajar Mandiri (Siklus 2–4)</span>
+                  </div>
+                  <div class="doc-line short"></div>
+                  <div class="doc-line long"></div>
+                  <table class="doc-table">
+                    <tr><th></th><th></th><th></th></tr>
+                    <tr><td></td><td></td><td></td></tr>
+                    <tr><td></td><td></td><td></td></tr>
+                  </table>
+                </div>
+                <div style="position: absolute; inset: 0; background: rgba(255,255,255,0.85); backdrop-filter: blur(2px); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 1.5rem; z-index: 4;">
+                  <div style="width: 44px; height: 44px; border-radius: 50%; background: rgba(217, 119, 70, 0.15); color: var(--accent); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; margin-bottom: 8px;">
+                    <i class="fa-solid fa-file-circle-question"></i>
+                  </div>
+                  <h5 style="margin: 0 0 4px 0; font-size: 0.95rem; color: var(--text-primary); font-weight: 700;">Berkas Belum Ditautkan</h5>
+                  <p style="margin: 0 0 8px 0; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.4; max-width: 220px;">Slot pratinjau Lampiran 8 siap digunakan saat berkas dokumen resmi tersedia.</p>
+                  <span style="font-size: 0.68rem; font-weight: 700; color: var(--accent); text-transform: uppercase; background: rgba(217, 119, 70, 0.12); padding: 2px 8px; border-radius: 4px;">Slot Kosong (Draft)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Bottom Pills -->
+      <div class="penilaian-bottom-pills" style="margin-top: 2rem;">
+        <div class="bottom-pill pill-green"><i class="fa-solid fa-list-check"></i> Perencanaan</div>
+        <div class="bottom-pill pill-yellow"><i class="fa-solid fa-person-chalkboard"></i> Pelaksanaan</div>
+        <div class="bottom-pill pill-purple"><i class="fa-solid fa-arrows-rotate"></i> Refleksi</div>
+        <div class="bottom-pill pill-red"><i class="fa-solid fa-award"></i> Profesionalitas</div>
+      </div>
+    </div>
+  </section>
+
 
   <!-- Model Guru Section -->
   <section class="model-guru section" id="model-guru">
@@ -583,7 +962,87 @@
           .yt-banner { font-size: 0.75rem; padding: 0.5rem 1.5rem 0.5rem 2rem; }
           .yt-play-btn { width: 70px; height: 70px; font-size: 1.5rem; }
         }
-      </style>
+          /* Landing Card Style (Gambar 2 Reference) */
+    .landing-card.siklus-card {
+      background-color: var(--bg-primary);
+      border: 1px solid var(--glass-border);
+      border-radius: 20px;
+      padding: 3rem 2.2rem;
+      width: 340px;
+      max-width: 100%;
+      text-align: center;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text-primary);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--shadow-sm);
+    }
+    .landing-card.siklus-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 36px rgba(0,0,0,0.12);
+      border-color: var(--accent);
+    }
+    [data-theme="dark"] .landing-card.siklus-card {
+      background-color: #2a2e26;
+      border-color: rgba(255, 255, 255, 0.1);
+      color: #f3efe6;
+    }
+    [data-theme="dark"] .landing-card.siklus-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4);
+    }
+    .landing-card.siklus-card .badge-top-right {
+      position: absolute;
+      top: 1.4rem;
+      right: 1.4rem;
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 800;
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+      letter-spacing: 0.5px;
+    }
+    .landing-card.siklus-card .card-icon {
+      font-size: 3.8rem;
+      margin-bottom: 1.4rem;
+      transition: transform 0.35s ease;
+    }
+    .landing-card.siklus-card:hover .card-icon {
+      transform: scale(1.1);
+    }
+    .landing-card.siklus-card .card-title {
+      font-family: var(--font-head);
+      font-size: 1.6rem;
+      margin-bottom: 0.8rem;
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+    .landing-card.siklus-card .card-desc {
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      line-height: 1.6;
+      margin-bottom: 1.6rem;
+      flex-grow: 1;
+    }
+    .landing-card.siklus-card .card-link {
+      font-weight: 700;
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      font-size: 0.95rem;
+    }
+    .landing-card.siklus-card:hover .card-link {
+      transform: translateX(5px);
+    }
+  </style>
 
       <!-- Featured Videos -->
       <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem;">
@@ -804,8 +1263,8 @@
             </ul>
             <ul class="footer-link-col">
               <li><a href="#portfolio">Artefak UAS</a></li>
+              <li><a href="#penilaian">Penilaian Praktik</a></li>
               <li><a href="#model-guru">Model Guru</a></li>
-              <li><a href="#gallery">Galeri</a></li>
             </ul>
             <ul class="footer-link-col">
               <li><a href="#contact">Kontak</a></li>
@@ -830,6 +1289,940 @@
   </footer>
 
   <!-- JS -->
+    <!-- ==============================================================
+       ANALYSIS PANELS (Siklus 2, 3, 4, and Nonmengajar)
+       ============================================================== -->
+  <div class="analysis-overlay" id="analysisOverlay"></div>
+
+  <!-- ==================== SIKLUS 2 PANELS ==================== -->
+  <!-- Panel S2-1: Modul Ajar Siklus 2 -->
+  <div class="analysis-panel" id="panelS2Modul">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Modul Ajar: Teks Negosiasi (Siklus 2)</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 2 â€¢ Fase E (Kelas X SMA)</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Pembelajaran</h4>
+        <p class="panel-text">Modul ajar ini dirancang untuk pelaksanaan Praktik Mengajar Mandiri Siklus 2 pada peserta didik kelas X SMA mitra (36 siswa) dengan keragaman kemampuan literasi persuasif. Pembelajaran berfokus pada penguasaan struktur teks negosiasi (orientasi, pengajuan, penawaran, persetujuan) dan kesantunan berbahasa dalam menyelesaikan konflik kepentingan secara damai.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Pembelajaran</h4>
+        <div class="panel-blockquote">
+          Melalui model Problem-Based Learning (PBL) berbantuan media studi kasus riil, peserta didik mampu menganalisis struktur dan kaidah kebahasaan teks negosiasi secara akurat, merumuskan argumen persuasif santun, serta menyusun draf kesepakatan win-win solution yang berintegritas.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Rancangan Modul</h4>
+        <p class="panel-text">Sintaks PBL diintegrasikan secara runtut mulai dari orientasi studi sengketa konkret hingga refleksi metakognitif. Penerapan pendekatan Teaching at the Right Level (TaRL) diwujudkan melalui penyediaan perancah (scaffolding) matriks negosiasi berjenjang dan diferensiasi proses pendampingan kelompok.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Kekurangan &amp; Kendala Lapangan</h4>
+        <p class="panel-text">Dinamika tawar-menawar antarpeserta didik dalam kelompok terkadang memakan waktu perdebatan yang panjang, sehingga membutuhkan pengelolaan durasi waktu (timekeeper) yang lebih ketat agar tahapan konsensus tercapai tepat waktu.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Teaching at the Right Level (TaRL):</strong> Pengorganisasian kelompok berdasarkan profil kesiapan komunikasi argumentatif siswa.</li>
+          <li><strong>Zone of Proximal Development (ZPD - Vygotsky):</strong> Bimbingan terstruktur guru saat menjembatani pemahaman siswa dari debat konfrontatif menuju negosiasi persuasif santun.</li>
+          <li><strong>Prinsip Kesantunan Berbahasa (Geoffrey Leech):</strong> Membekali siswa dengan maksim kearifan, kedermawanan, dan kerendahan hati dalam bertutur kata.</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-lightbulb" style="color: #F59E0B;"></i> Tindak Lanjut &amp; Mitigasi Reflektif</h4>
+        <p class="panel-text">Menyediakan lembar panduan matriks konsensus dan pembagian peran spesifik (juru runding, notulis, penengah) di setiap kelompok untuk mempercepat perumusan kesepakatan tertulis.</p>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1txslDhLs6jvlg6pXTyZYVHinuu01pB8G/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Buka Modul Ajar Siklus 2 Lengkap
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S2-2: Video Praktik Siklus 2 -->
+  <div class="analysis-panel" id="panelS2Video">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Pelaksanaan: Video Praktik Siklus 2</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 2 â€¢ Implementasi Kelas Nyata</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Pembelajaran</h4>
+        <p class="panel-text">Video merekam dinamika pembelajaran 2 JP (2 x 45 menit) di kelas X SMA mitra. Menampilkan alur interaktif mulai dari apersepsi kontekstual, penayangan video pemantik sengketa, fasilitasi diskusi pemecahan masalah, hingga simulasi role-play negosiasi antarkelompok.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Dokumentasi</h4>
+        <div class="panel-blockquote">
+          Mendokumentasikan kecakapan pengelolaan kelas mahasiswa calon guru dalam memantik partisipasi aktif, membimbing perundingan siswa secara berimbang, serta menerapkan asesmen formatif otentik secara real-time.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Praktik</h4>
+        <p class="panel-text">Komunikasi dialogis guru terbangun sangat hangat; pemberian umpan balik seketika saat murid mempraktikkan dialog negosiasi membantu meluruskan kekeliruan diksi; antusiasme siswa saat simulasi sangat tinggi.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Evaluasi Kritis</h4>
+        <p class="panel-text">Mobilitas guru saat sesi kerja kelompok perlu diratakan hingga sudut kelas paling belakang agar seluruh kelompok terpantau dengan intensitas yang seimbang.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Interaksi Edukatif (Sardiman):</strong> Terciptanya iklim kelas demokratis di mana suara dan gagasan murid dihargai setara.</li>
+          <li><strong>TPACK (Mishra &amp; Koehler):</strong> Pemanfaatan perangkat multimedia secara efektif tanpa mendominasi interaksi tatap muka antarmurid.</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-lightbulb" style="color: #F59E0B;"></i> Tindak Lanjut</h4>
+        <p class="panel-text">Melakukan rotasi sirkulasi ruang kelas berkala dengan interval 3 menit pada setiap kelompok kerja untuk memastikan bimbingan merata.</p>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://youtu.be/RsAKAduILZY?si=iUnQMnQJeAB8-EWs" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem; background: #e11d48; border-color: #e11d48;">
+          <i class="fa-brands fa-youtube"></i> Tonton Rekaman Praktik Siklus 2 di YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S2-3: Media Interaktif Siklus 2 -->
+  <div class="analysis-panel" id="panelS2Media">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Media Digital: Canva Interaktif (Siklus 2)</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 2 â€¢ Media Multimodal</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Media</h4>
+        <p class="panel-text">Media pembelajaran berbasis presentasi visual interaktif Canva yang dirancang secara khusus untuk memvisualisasikan alur diplomasi tawar-menawar, diagram taktik negosiasi, dan video pemantik kasus perundingan riil.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Pemanfaatan</h4>
+        <div class="panel-blockquote">
+          Menjembatani pemikiran abstrak mengenai kaidah negosiasi ke dalam visualisasi konkret, memicu minat belajar murid, serta mengoptimalkan daya serap konsep melalui stimulus multimodal.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Media</h4>
+        <p class="panel-text">Desain visual bersih dengan hierarki informasi yang teratur; pemilihan palet warna sejuk dan kontras rasio sesuai standar aksesibilitas; memuat bagan alur yang memudahkan murid membedakan tahap penawaran dan persetujuan.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Kritis</h4>
+        <p class="panel-text">Ketergantungan terhadap proyektor kelas memerlukan penyiapan fail cadangan (luring/offline) untuk mengantisipasi gangguan teknis perangkat listrik/HDMI.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Cognitive Load Theory (Sweller):</strong> Membagi materi dalam potongan-potongan visual terpadu (chunking) guna meminimalkan beban kognitif berlebih pada memori kerja siswa.</li>
+          <li><strong>Dual Coding Theory (Paivio):</strong> Sinergi antara teks verbal dan grafis ikonik memperkuat retensi memori jangka panjang.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Akses Berkas Media Presentasi Canva
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S2-4: LKPD Siklus 2 -->
+  <div class="analysis-panel" id="panelS2LKPD">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis LKPD: Simulasi Negosiasi Berjenjang</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 2 â€¢ Lembar Kerja Kolaboratif</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks LKPD</h4>
+        <p class="panel-text">LKPD dirancang sebagai lembar kerja kolaboratif beranggotakan 4â€“5 murid untuk menganalisis studi kasus benturan kepentingan dan memandu mereka merancang draf naskah perundingan yang berkesudahan mufakat.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan LKPD</h4>
+        <div class="panel-blockquote">
+          Memberikan alur terstruktur bagi peserta didik dalam mengidentifikasi titik temu perundingan, menyusun tuturan persuasif logis, dan mengonstruksi solusi yang menghargai kedua belah pihak.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan LKPD</h4>
+        <p class="panel-text">Terdapat petunjuk aktivitas yang eksplisit, rubrik ceklis kesantunan berbahasa, serta kolom pemetaan kepentingan pihak pertama dan kedua yang mencegah perundingan keluar dari konteks.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Evaluatif</h4>
+        <p class="panel-text">Kelompok yang beranggotakan siswa pasif memerlukan peran pengarah kelompok yang lebih ditegaskan agar kontribusi pengerjaan LKPD merata.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Cooperative Learning (Slavin):</strong> Membangun interdependensi positif dan akuntabilitas individu dalam pencapaian tujuan kelompok.</li>
+          <li><strong>Scaffolding Konseptual:</strong> Matriks LKPD berfungsi sebagai jembatan kognitif hingga murid mampu menyusun teks negosiasi secara mandiri.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1TTCdYL1qoSAxzwSEMHMlK7bhm4BLlZD7/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Unduh Lembar Kerja Peserta Didik (LKPD)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S2-5: Asesmen Siklus 2 -->
+  <div class="analysis-panel" id="panelS2Asesmen">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Asesmen: Rubrik Autentik Kinerja Negosiasi</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 2 â€¢ Asesmen Formatif &amp; Kinerja</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Instrumen</h4>
+        <p class="panel-text">Instrumen asesmen autentik yang menggabungkan lembar observasi afektif sikap kerja sama, rubrik analitik performa simulasi tawar-menawar, dan tes formatif pemahaman struktur teks negosiasi.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Asesmen</h4>
+        <div class="panel-blockquote">
+          Mengukur kompetensi kebahasaan, keterampilan diplomasi santun, dan penalaran kritis murid secara adil, objektif, dan berorientasi pada peningkatan proses (assessment for learning).
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Keunggulan Rubrik</h4>
+        <p class="panel-text">Kriteria rubrik analitik memiliki gradasi deskriptor yang jelas (Sangat Baik, Baik, Cukup, Kurang) pada aspek kelogisan argumen, kesantunan tuturan, kemampuan kompromi, dan intonasi artikulasi.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Kritis</h4>
+        <p class="panel-text">Penskoran simultan pada saat beberapa kelompok tampil bergantian menuntut fokus tinggi agar catatan umpan balik kualitatif tetap terdokumentasi lengkap.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Authentic Assessment (Grant Wiggins):</strong> Evaluasi didasarkan pada demonstrasi unjuk kerja nyata yang bermakna bagi kehidupan sosial siswa.</li>
+          <li><strong>Assessment as Learning:</strong> Pelibatan lembar penilaian rekan sejawat melatih kemampuan metakognisi dan evaluasi diri murid.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1D3HSIOcVI6BQ-n91HJGf_07WZNB4lfdR/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Buka Rubrik &amp; Format Asesmen Lengkap
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S2-6: Hasil Kerja Siswa Siklus 2 -->
+  <div class="analysis-panel" id="panelS2Siswa">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Hasil Belajar: Portofolio Naskah Negosiasi Siswa</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 2 â€¢ Bukti Nyata Hasil Belajar</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Artefak</h4>
+        <p class="panel-text">Kumpulan draf naskah perundingan tertulis dan lembar refleksi pribadi yang dihasilkan kelompok siswa kelas X pada pembelajaran teks negosiasi.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Analisis</h4>
+        <div class="panel-blockquote">
+          Membuktikan ketercapaian capaian pembelajaran (CP) elemen menulis dan berbicara, serta meninjau kedalaman nalar kritis murid dalam menyelesaikan studi sengketa.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Temuan &amp; Kelebihan Karya</h4>
+        <p class="panel-text">Peserta didik mampu memilih kosakata santun yang bervariasi; argumen yang diajukan bersandar pada alasan rasional; solusi kompromi yang disepakati menunjukkan kematangan empati sosial.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Evaluatif</h4>
+        <p class="panel-text">Masih ditemukan kekeliruan mekanik penulisan tanda baca petik ganda pada kalimat langsung dialog yang memerlukan bimbingan kebahasaan lanjutan.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Experiential Learning (Kolb):</strong> Siswa belajar secara mendalam melalui siklus aksi konkret, observasi reflektif, hingga konseptualisasi naskah akhir.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Periksa Sampel Portofolio Siswa Siklus 2
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SIKLUS 3 PANELS ==================== -->
+  <!-- Panel S3-1: Modul Ajar Siklus 3 -->
+  <div class="analysis-panel" id="panelS3Modul">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Modul Ajar: Teks Biografi Tokoh (Siklus 3)</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 3 â€¢ PjBL &amp; CRT di Fase E</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Pembelajaran</h4>
+        <p class="panel-text">Modul Ajar Siklus 3 dirancang menggunakan model Project-Based Learning (PjBL) terintegrasi pendekatan Culturally Responsive Teaching (CRT). Peserta didik diajak menelaah riwayat keteladanan tokoh pejuang pendidikan dan tokoh inspiratif bangsa, kemudian mentransformasikannya ke dalam produk infografis biografi digital.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Pembelajaran</h4>
+        <div class="panel-blockquote">
+          Peserta didik mampu menganalisis karakter unggul, rintangan hidup, dan nilai integritas tokoh biografi, menyintesis informasi ke dalam infografis multimodal yang estetik dan komunikatif, serta menginternalisasi Profil Pelajar Pancasila dimensi Mandiri dan Bernalar Kritis.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Rancangan Modul</h4>
+        <p class="panel-text">Pendekatan CRT sangat efektif memantik kebanggaan identitas budaya murid melalui pengenalan kiprah tokoh lokal Yogyakarta; sintaks proyek tertata dengan tahapan tenggat waktu (milestone) yang realistis.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Kekurangan &amp; Kendala Lapangan</h4>
+        <p class="panel-text">Perbedaan keterampilan dasar murid dalam mengoperasikan aplikasi desain grafis digital memerlukan penyediaan template awal (canvasing) agar fokus pembelajaran esensial bahasa dan sastra tidak tereduksi.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Culturally Responsive Teaching (Geneva Gay):</strong> Mengakui dan memanfaatkan warisan budaya peserta didik sebagai modalitas pembelajaran yang bermakna.</li>
+          <li><strong>Understanding by Design (Wiggins &amp; McTighe):</strong> Perancangan mundur yang menetapkan produk infografis keteladanan sebagai bukti pemahaman mendalam sebelum aktivitas kelas dijalankan.</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-lightbulb" style="color: #F59E0B;"></i> Tindak Lanjut</h4>
+        <p class="panel-text">Menyertakan panduan teknis desain sederhana (tata letak, tipografi, dan komposisi warna) pada lampiran modul ajar.</p>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1txslDhLs6jvlg6pXTyZYVHinuu01pB8G/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Buka Modul Ajar Siklus 3 Lengkap
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S3-2: Video Praktik Siklus 3 -->
+  <div class="analysis-panel" id="panelS3Video">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Pelaksanaan: Video Praktik Siklus 3</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 3 â€¢ Fasilitasi Proyek Kelas</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Video</h4>
+        <p class="panel-text">Video mendokumentasikan pelaksanaan pembelajaran proyek mandiri Siklus 3: pembimbingan riset pustaka biografi, pemonitoran progres desain infografis kelompok, hingga sesi presentasi silang galeri karya (gallery walk).</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Dokumentasi</h4>
+        <div class="panel-blockquote">
+          Menunjukkan pergeseran peran guru menjadi fasilitator dan coach belajar yang membimbing murid mengolah data sejarah secara kritis dan membangun budaya apresiasi positif.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Praktik</h4>
+        <p class="panel-text">Interaksi antarmurid dalam metode gallery walk sangat aktif; pertanyaan yang diajukan para peninjau karya menunjukkan daya nalar kritis tingkat tinggi (HOTS); guru memberikan scaffolding pertanyaan pemantik secara tepat sasaran.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Evaluasi Kritis</h4>
+        <p class="panel-text">Kerapian tata ruang meja kelas saat pergerakan gallery walk perlu ditata lebih longgar untuk melancarkan sirkulasi murid.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Student-Centered Learning (Carl Rogers):</strong> Pembelajaran yang memanusiakan murid dengan memberikan ruang kebebasan berkarya secara bertanggung jawab.</li>
+          <li><strong>Peer-Tutoring:</strong> Murid yang mahir teknologi membantu mendampingi rekannya secara sukarela (tutor sebaya).</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://youtu.be/RsAKAduILZY?si=iUnQMnQJeAB8-EWs" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem; background: #e11d48; border-color: #e11d48;">
+          <i class="fa-brands fa-youtube"></i> Tonton Praktik Siklus 3 di YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S3-3: Media Interaktif Siklus 3 -->
+  <div class="analysis-panel" id="panelS3Media">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Media Multimodal: Infografis Digital Siklus 3</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 3 â€¢ Media Visual &amp; Literasi Digital</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Media</h4>
+        <p class="panel-text">Koleksi slide presentasi digital, cuplikan film dokumenter pendek tokoh pahlawan, dan template infografis biografi yang disiapkan untuk menstimulasi imajinasi serta ketertarikan peserta didik terhadap riwayat keteladanan para tokoh.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Media</h4>
+        <div class="panel-blockquote">
+          Menyajikan contoh konkret bentuk luaran proyek infografis, memperjelas kaidah visualisasi informasi kronologis, dan memotivasi murid menghasilkan karya kreatif berkualitas tinggi.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Keunggulan Media</h4>
+        <p class="panel-text">Kombinasi visual naratif dan data historis tersaji ringkas dan memikat; integrasi tautan kode QR memudahkan murid membaca rujukan primer di gawai masing-masing.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Kritis</h4>
+        <p class="panel-text">Pastikan izin penggunaan aset gambar tokoh mematuhi prinsip lisensi terbuka (Creative Commons) dan domain publik kependidikan.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Multimodal Literacy (Jewitt &amp; Kress):</strong> Mengembangkan kompetensi murid dalam membaca dan memproduksi makna melalui interaksi teks, gambar, dan tata ruang.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Akses Aset Media Pembelajaran Siklus 3
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S3-4: LKPD Siklus 3 -->
+  <div class="analysis-panel" id="panelS3LKPD">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis LKPD: Riset Karakter &amp; Bagan Biografi</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 3 â€¢ Lembar Kerja Berbasis Masalah</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks LKPD</h4>
+        <p class="panel-text">LKPD dirancang dengan format graphic organizer (peta jalan kehidupan tokoh) untuk memandu kelompok siswa mengekstraksi fakta penting: latar belakang, titik balik perjuangan, nilai keteladanan, dan relevansi pesan bagi pemuda masa kini.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan LKPD</h4>
+        <div class="panel-blockquote">
+          Melatih keterampilan literasi tingkat tinggi dalam menyaring informasi penting dari teks narasi panjang, membedakan fakta riwayat dengan opini, dan menyusun sintesis karakter inspiratif.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Desain LKPD</h4>
+        <p class="panel-text">Struktur grafis yang sistematis mencegah murid sekadar menyalin mentah teks biografi dari mesin pencari; menstimulasi keterampilan parafrasa kritis.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Evaluatif</h4>
+        <p class="panel-text">Perlu penegasan batasan panjang uraian pada tiap kotak bagan agar infografis akhir tidak terlalu padat dengan teks naratif.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Graphic Organizers in Comprehension (Ausubel &amp; Novak):</strong> Mengaitkan konsep baru dengan kerangka kognitif yang telah dimiliki siswa melalui visualisasi relasional.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1TTCdYL1qoSAxzwSEMHMlK7bhm4BLlZD7/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Unduh Berkas LKPD Siklus 3
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S3-5: Asesmen Siklus 3 -->
+  <div class="analysis-panel" id="panelS3Asesmen">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Asesmen: Rubrik Penilaian Proyek &amp; Sikap</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 3 â€¢ Penilaian Produk &amp; Afektif</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Instrumen</h4>
+        <p class="panel-text">Instrumen evaluasi proyek mencakup rubrik holistik-analitik penilaian infografis biografi (isi, kebahasaan, estetika visual) dan instrumen observasi keterlibatan profil pelajar pancasila saat kerja kelompok.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Asesmen</h4>
+        <div class="panel-blockquote">
+          Memberikan penilaian yang adil dan transparan terhadap karya kreativitas murid, serta mengukur perkembangan dimensi Bergotong Royong dan Bernalar Kritis secara berkesinambungan.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Instrumen</h4>
+        <p class="panel-text">Deskriptor penilaian yang rinci memudahkan penilai dalam membedakan kualitas kedalaman telaah nilai keteladanan; memuat rubrik umpan balik rekan sebaya (peer-review) saat sesi gallery walk.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Kritis</h4>
+        <p class="panel-text">Perlu penyelarasan bobot antara aspek konten substantif bahasa (60%) dengan unsur artistik visual (40%) agar fokus materi esensial tetap prima.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Performance &amp; Product Assessment:</strong> Mengukur kemampuan sintesis kompleks yang tidak dapat dijangkau oleh tes pilihan ganda konvensional.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1D3HSIOcVI6BQ-n91HJGf_07WZNB4lfdR/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Unduh Rubrik Penilaian Proyek Siklus 3
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S3-6: Hasil Kerja Siswa Siklus 3 -->
+  <div class="analysis-panel" id="panelS3Siswa">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Karya Siswa: Infografis &amp; Refleksi Keteladanan</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 3 â€¢ Portofolio Proyek Murid</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Portofolio</h4>
+        <p class="panel-text">Kompilasi produk infografis biografi digital hasil kreasi kelompok siswa kelas X, dilengkapi lembar esai reflektif mengenai tekad pribadi mengimplementasikan nilai keteladanan tokoh dalam keseharian di sekolah.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Penelaahan</h4>
+        <div class="panel-blockquote">
+          Menilai kedalaman internalisasi nilai budi pekerti dan keterampilan menyajikan gagasan tertulis secara estetik, komunikatif, dan bertanggung jawab.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Temuan &amp; Kelebihan Karya</h4>
+        <p class="panel-text">Kualitas visual infografis murid sangat memukau dengan komposisi warna harmonis; esai refleksi murid menunjukkan kesadaran mendalam mengenai pentingnya integritas, kejujuran akademik, dan kegigihan menghadapi ujian hidup.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Evaluatif</h4>
+        <p class="panel-text">Beberapa kutipan riwayat hidup memerlukan penulisan sumber rujukan (sitasi) yang lebih terstandar sesuai kaidah penulisan ilmiah populer.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Transformative Learning (Mezirow):</strong> Refleksi kritis terhadap biografi tokoh mampu mengubah asumsi dan cara pandang moral murid terhadap masa depan mereka.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Lihat Sampel Infografis &amp; Esai Refleksi Siswa
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== SIKLUS 4 PANELS ==================== -->
+  <!-- Panel S4-1: Modul Ajar Siklus 4 -->
+  <div class="analysis-panel" id="panelS4Modul">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Modul Ajar: Karya Ilmiah Populer (Siklus 4 Puncak)</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 4 â€¢ Siklus Puncak Kemandirian Penuh</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Pembelajaran</h4>
+        <p class="panel-text">Modul Ajar Siklus 4 merupakan puncak kemandirian penuh calon guru dalam merancang, melaksanakan, dan mengevaluasi siklus pembelajaran pada materi menulis dan memublikasikan karya ilmiah populer berbasis isu lingkungan dan kearifan lokal sekolah mitra.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Pembelajaran</h4>
+        <div class="panel-blockquote">
+          Peserta didik mampu mengidentifikasi fakta dan opini, merumuskan kalimat tesis logis, menyusun artikel ilmiah populer dengan kaidah bahasa baku yang santun dan lugas, serta menyebarluaskannya pada mading kelas atau majalah digital sekolah.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Keunggulan Rancangan</h4>
+        <p class="panel-text">Modul memadukan pendekatan inkuiri ilmiah dengan strategi menulis berproses (process writing approach); alur pembelajaran menumbuhkan kemandirian metakognitif tingkat tinggi; diferensiasi topik berdasarkan isu yang diminati masing-masing murid.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Kekurangan &amp; Kendala Lapangan</h4>
+        <p class="panel-text">Verifikasi orisinalitas data riset sederhana peserta didik memerlukan pendampingan ketat agar kesimpulan artikel tetap valid dan tidak terjebak pada generalisasi semata.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Inquiry-Based Learning:</strong> Melatih pola pikir saintifik siswa melalui observasi lapangan nyata dan sintesis data terpercaya.</li>
+          <li><strong>Writing as a Process (Donald Graves):</strong> Menempatkan penulisan artikel sebagai rangkaian draf, revisi sebaya, penyuntingan bahasa, dan publikasi.</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-lightbulb" style="color: #F59E0B;"></i> Tindak Lanjut</h4>
+        <p class="panel-text">Menyediakan rubrik self-editing mandiri agar siswa dapat memeriksa kepatuhan EYD V secara mandiri sebelum menyerahkan draf final artikel.</p>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1txslDhLs6jvlg6pXTyZYVHinuu01pB8G/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Buka Modul Ajar Siklus 4 Lengkap
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S4-2: Video Praktik Siklus 4 -->
+  <div class="analysis-panel" id="panelS4Video">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Pelaksanaan: Video Praktik Siklus 4</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 4 â€¢ Puncak Kemandirian Mengajar</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Video</h4>
+        <p class="panel-text">Video merekam puncak penampilan mengajar mandiri mahasiswa calon guru: manajemen kelas yang matang, transisi instruksional mulus, interaksi kelas reflektif, serta penguatan kompetensi sosial-emosional siswa dalam menyelesaikan draf tulisan ilmiah populer.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Dokumentasi</h4>
+        <div class="panel-blockquote">
+          Menjadi representasi komprehensif atas seluruh kompetensi guru profesional (pedagogik, kepribadian, sosial, dan profesional) yang telah terasah selama masa PPL Mandiri Semester 2.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Praktik</h4>
+        <p class="panel-text">Percaya diri pendidik sangat kokoh; intonasi vokal jelas dan menenteramkan; manajemen respon terhadap pertanyaan kompleks siswa sangat lugas dan berbobot; iklim kelas sangat kondusif.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Evaluasi Kritis</h4>
+        <p class="panel-text">Alokasi waktu sesi penyimpulan di akhir jam pembelajaran perlu diperlebar sedikit untuk memberi panggung bagi apresiasi karya murid terpilih.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Self-Efficacy Theory (Bandura):</strong> Kemandirian guru dalam mengelola ketidakpastian situasi kelas mencerminkan efikasi diri pedagogik yang tinggi.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://youtu.be/RsAKAduILZY?si=iUnQMnQJeAB8-EWs" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem; background: #e11d48; border-color: #e11d48;">
+          <i class="fa-brands fa-youtube"></i> Tonton Praktik Mandiri Siklus 4 di YouTube
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S4-3: Media Interaktif Siklus 4 -->
+  <div class="analysis-panel" id="panelS4Media">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Media Digital: Evaluasi &amp; Refleksi Siklus 4</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 4 â€¢ Media Visual &amp; Portofolio Digital</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Media</h4>
+        <p class="panel-text">Pemanfaatan platform presentasi interaktif dan papan kurasi digital (Padlet/Canva) untuk menampilkan proses bedah artikel karya ilmiah populer, pedoman penyuntingan tata bahasa, dan galeri pameran tulisan murid.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Pemanfaatan</h4>
+        <div class="panel-blockquote">
+          Menyediakan wadah publikasi karya yang mudah diakses oleh seluruh warga sekolah, memfasilitasi telaah silang antarsiswa, dan mendokumentasikan jejak digital pencapaian literasi siswa.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Keunggulan Media</h4>
+        <p class="panel-text">Media interaktif mampu memperlihatkan perbandingan 'sebelum vs sesudah' penyuntingan artikel secara visual, mempercepat pemahaman murid mengenai pentingnya revisi naskah.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Kritis</h4>
+        <p class="panel-text">Memerlukan moderasi aktif dari pendidik saat murid saling memberikan komentar tertulis pada papan kurasi karya digital.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>TPACK Framework:</strong> Mengintegrasikan teknologi digital sebagai sarana publikasi tulisan nyata, melampaui sekadar media tayang pasif.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Akses Galeri Media &amp; Kurasi Tulisan Siklus 4
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S4-4: Asesmen Siklus 4 -->
+  <div class="analysis-panel" id="panelS4Asesmen">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Asesmen Sumatif: Rubrik Evaluasi Artikel Ilmiah</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 4 â€¢ Asesmen Sumatif Autentik</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Instrumen</h4>
+        <p class="panel-text">Instrumen penilaian sumatif akhir siklus mandiri yang mengukur kualitas artikel ilmiah populer siswa pada lima dimensi utama: kejelasan tesis argumen, keakuratan data fakta, keterpaduan struktur paragraf, ketepatan ejaan EYD V, dan etika kejujuran akademik (sitasi).</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Asesmen</h4>
+        <div class="panel-blockquote">
+          Memberikan penilaian sumatif yang akuntabel, komprehensif, dan mencerminkan capaian literasi puncak peserta didik di akhir siklus mandiri PPL.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Keunggulan Rubrik</h4>
+        <p class="panel-text">Dilengkapi pedoman penskoran terperinci dengan rentang interval nilai yang objektif; memuat catatan umpan balik kualitatif untuk panduan revisi lanjutan.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Evaluatif</h4>
+        <p class="panel-text">Penskoran artikel menuntut ketelitian tinggi pendidik dalam membaca baris per baris argumen dan mengecek integritas sitasi rujukan siswa.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Standards-Based Assessment:</strong> Mengukur kompetensi siswa terhadap kriteria capaian standar, bukan membandingkan antarsiswa secara subjektif.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1D3HSIOcVI6BQ-n91HJGf_07WZNB4lfdR/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Unduh Rubrik Asesmen Sumatif Siklus 4
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S4-5: LKPD Siklus 4 -->
+  <div class="analysis-panel" id="panelS4LKPD">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis LKM: Panduan Penyusunan Artikel &amp; Refleksi</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 4 â€¢ Lembar Kerja Mandiri Siswa</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks LKM</h4>
+        <p class="panel-text">Lembar Kerja Mandiri (LKM) berorientasi pembimbingan kepenulisan yang mencakup matriks outline artikel (judul pemantik, pengantar tesis, tubuh argumen berbukti, dan solusi penutup) serta lembar refleksi capaian diri siswa.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan LKM</h4>
+        <div class="panel-blockquote">
+          Mengarahkan kemandirian murid dalam menata gagasan ilmiah secara runut dan bertanggung jawab, serta melatih kemampuan metakognisi dalam mengevaluasi efektivitas strategi belajarnya sendiri.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Kelebihan Desain</h4>
+        <p class="panel-text">Dilengkapi daftar ceklis kepatuhan ejaan dan struktur teks yang dapat diisi sendiri oleh murid sebelum mengumpulkan draf (self-assessment checklist).</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Kritis</h4>
+        <p class="panel-text">Kolom perumusan kalimat tesis sering kali memerlukan bimbingan asistensi agar tidak terlalu umum atau kabur maknanya.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Self-Regulated Learning (Zimmerman):</strong> Menuntun peserta didik mengatur perencanaan, monitoring, dan evaluasi diri dalam proses belajar.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/file/d/1TTCdYL1qoSAxzwSEMHMlK7bhm4BLlZD7/view?usp=sharing" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Unduh Lembar Kerja Mandiri (LKM) Siklus 4
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel S4-6: Hasil Kerja Siswa Siklus 4 -->
+  <div class="analysis-panel" id="panelS4Siswa">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Portofolio Akhir: Kompilasi Artikel Ilmiah Siswa</h3>
+        <p class="panel-subtitle">Praktik Mengajar Mandiri Siklus 4 â€¢ Hasil Belajar Puncak Murid</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Artefak</h4>
+        <p class="panel-text">Kumpulan artikel ilmiah populer karya peserta didik kelas X yang telah melalui proses bimbingan draf, revisi teman sejawat, dan penyuntingan akhir oleh guru pamong dan mahasiswa calon guru.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Penelaahan</h4>
+        <div class="panel-blockquote">
+          Menjadi saksi empiris transformasi keterampilan bernalar kritis, kepekaan terhadap isu sosial lingkungan sekolah, dan kepiawaian bertutur ilmiah dalam bahasa Indonesia yang baik dan benar.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Temuan &amp; Keunggulan Karya</h4>
+        <p class="panel-text">Topik artikel sangat variatif dan solutif (pengelolaan sampah sekolah, etika bermedia sosial, kesehatan mental remaja); kohesi dan koherensi antarkalimat terbangun sangat kokoh.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-triangle-exclamation" style="color: #EF4444;"></i> Catatan Evaluatif</h4>
+        <p class="panel-text">Pentingnya pendampingan kurasi lanjutan agar karya-karya terbaik dapat dikirimkan ke majalah dinding sekolah dan buletin pendidikan daerah.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Authentic Student Voice:</strong> Memberdayakan murid menyuarakan gagasan orisinal mereka mengenai perbaikan lingkungan sekitarnya melalui bahasa tulisan.</li>
+        </ul>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Periksa Portofolio Kompilasi Artikel Siswa Siklus 4
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== NONMENGAJAR PANEL ==================== -->
+  <!-- Panel Nonmengajar: Kegiatan Nonmengajar UAS -->
+  <div class="analysis-panel" id="panelUASNonmengajar">
+    <div class="panel-header">
+      <div>
+        <h3 class="panel-title">Analisis Artefak: Refleksi Kegiatan Nonmengajar UAS</h3>
+        <p class="panel-subtitle">Integrasi Kultur Persekolahan â€¢ Pembentukan Jati Diri Guru Seutuhnya</p>
+      </div>
+      <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+    <div class="panel-content">
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Kegiatan Nonmengajar</h4>
+        <p class="panel-text">Pelaksanaan pengabdian kependidikan di luar jam tatap muka kelas selama PPL Mandiri Semester 2 di SMA mitra: pembiasaan Piket 5S (Senyum, Salam, Sapa, Sopan, Santun) di gerbang utama, pendampingan ibadah shalat berjamaah di mushola, serta asistensi pengawasan Asesmen Sumatif (ASTS/ASAS).</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-bullseye" style="color: var(--accent);"></i> Tujuan Integrasi</h4>
+        <div class="panel-blockquote">
+          Menginternalisasi jati diri guru profesional seutuhnya melalui keteladanan budi pekerti, penguatan kompetensi sosial-kepribadian, serta partisipasi aktif dalam manajemen ekosistem sekolah.
+        </div>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-thumbs-up" style="color: #10B981;"></i> Refleksi &amp; Dampak Positif</h4>
+        <p class="panel-text">Menumbuhkan kelekatan relasi batin dengan murid; mempererat kolaborasi dengan sejawat guru dan tenaga kependidikan; memperluas pemahaman mengenai manajemen ketertiban ujian dan budaya sekolah yang positif.</p>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-book-bookmark" style="color: #3B82F6;"></i> Kajian Teori Integratif</h4>
+        <ul class="panel-list">
+          <li><strong>Empat Kompetensi Guru Profesional (UU No. 14 Tahun 2005):</strong> Kompetensi kepribadian dan sosial menjadi pondasi utama yang memberi nyawa bagi kompetensi pedagogik di dalam kelas.</li>
+          <li><strong>Prinsip Keteladanan Ki Hadjar Dewantara:</strong> <i>Ing Ngarso Sung Tulodo</i> hadir secara nyata dalam sambutan hangat di gerbang pagi dan kekhusyukan ibadah bersama.</li>
+        </ul>
+      </div>
+      <div class="panel-section">
+        <h4 class="panel-section-title"><i class="fa-solid fa-lightbulb" style="color: #F59E0B;"></i> Komitmen Berkelanjutan</h4>
+        <p class="panel-text">Menjadikan etos keteladanan moral dan kepedulian sosial sebagai pilar tak terpisahkan dalam perjalanan pengabdian profesi guru di mana pun bertugas.</p>
+      </div>
+      <div class="panel-section" style="margin-top: 1.5rem; padding-top: 1.2rem; border-top: 1px dashed var(--glass-border);">
+        <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="btn btn-primary" style="display: inline-flex; align-items: center; gap: 0.5rem; text-decoration: none; border-radius: 8px; font-size: 0.88rem; padding: 0.6rem 1.2rem;">
+          <i class="fa-brands fa-google-drive"></i> Buka Dokumentasi Refleksi Nonmengajar (LK-3)
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPT FOR SIKLUS FILTERING & ANALYSIS PANEL INTERACTIVITY -->
+  <script>
+    // Filtering logic for Siklus 2, 3, 4
+    function filterSiklus(siklus) {
+      const boxes = {
+        '2': document.getElementById('boxSiklus2'),
+        '3': document.getElementById('boxSiklus3'),
+        '4': document.getElementById('boxSiklus4')
+      };
+      const indicators = {
+        '2': document.getElementById('indicatorS2'),
+        '3': document.getElementById('indicatorS3'),
+        '4': document.getElementById('indicatorS4')
+      };
+      const filterBtns = {
+        'all': document.getElementById('filterBtnAll'),
+        '2': document.getElementById('filterBtnS2'),
+        '3': document.getElementById('filterBtnS3'),
+        '4': document.getElementById('filterBtnS4')
+      };
+
+      // Clear active states
+      Object.keys(boxes).forEach(k => {
+        if (boxes[k]) boxes[k].classList.remove('active');
+        if (indicators[k]) indicators[k].style.display = 'none';
+      });
+      Object.keys(filterBtns).forEach(k => {
+        if (filterBtns[k]) filterBtns[k].classList.remove('active');
+      });
+
+      const activeLabel = document.getElementById('activeFilterLabel');
+
+      if (siklus === 'all') {
+        if (filterBtns['all']) filterBtns['all'].classList.add('active');
+        if (activeLabel) activeLabel.textContent = 'Menampilkan Seluruh Artifak (Siklus 2, 3, & 4)';
+        // Show all boxes as semi-highlighted
+        Object.keys(boxes).forEach(k => {
+          if (boxes[k]) boxes[k].classList.add('active');
+          if (indicators[k]) indicators[k].style.display = 'inline-flex';
+        });
+      } else {
+        if (boxes[siklus]) boxes[siklus].classList.add('active');
+        if (indicators[siklus]) indicators[siklus].style.display = 'inline-flex';
+        if (filterBtns[siklus]) filterBtns[siklus].classList.add('active');
+        if (activeLabel) activeLabel.textContent = 'Menampilkan Artifak Praktik Mengajar Siklus ' + siklus;
+      }
+
+      // Show / hide cards with animation
+      const cards = document.querySelectorAll('.portfolio-card[data-siklus]');
+      cards.forEach(card => {
+        const cardSiklus = card.getAttribute('data-siklus');
+        if (siklus === 'all' || cardSiklus === siklus || cardSiklus === 'all') {
+          card.style.display = 'flex';
+          card.style.opacity = '1';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    // Auto-bind dynamic panel buttons
+    document.addEventListener('DOMContentLoaded', () => {
+      const panelBtns = document.querySelectorAll('.btn-analysis');
+      const overlay = document.getElementById('analysisOverlay');
+      const closeBtns = document.querySelectorAll('.btn-close-panel');
+
+      panelBtns.forEach(btn => {
+        btn.addEventListener('click', function(e) {
+          const targetId = this.getAttribute('data-target');
+          if (!targetId) return;
+          e.preventDefault();
+          const targetPanel = document.getElementById(targetId);
+          if (targetPanel && overlay) {
+            overlay.classList.add('active');
+            targetPanel.classList.add('active');
+            document.body.style.overflow = 'hidden';
+          }
+        });
+      });
+
+      closeBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+          if (overlay) overlay.classList.remove('active');
+          document.querySelectorAll('.analysis-panel.active').forEach(p => p.classList.remove('active'));
+          document.body.style.overflow = 'auto';
+        });
+      });
+
+      if (overlay) {
+        overlay.addEventListener('click', function() {
+          overlay.classList.remove('active');
+          document.querySelectorAll('.analysis-panel.active').forEach(p => p.classList.remove('active'));
+          document.body.style.overflow = 'auto';
+        });
+      }
+
+      // Initialize with Siklus 2 filter
+      filterSiklus('2');
+    });
+  </script>
+
   <script src="main.js?v=2"></script>
 </body>
 </html>
