@@ -2201,3 +2201,102 @@ textarea.form-control {
     justify-content: center;
   }
 }
+
+/* ==============================================================
+   Stacked Video Action Buttons (Siklus 1, 2, 3, 4 Video Card)
+   ============================================================== */
+.btn-action-primary {
+  background: #d97746;
+  color: #ffffff !important;
+  padding: 0.68rem 0.85rem;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 0.83rem;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: none;
+  box-shadow: 0 4px 12px rgba(217, 119, 70, 0.25);
+  width: 100%;
+}
+.btn-action-primary:hover {
+  background: #c26537;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(217, 119, 70, 0.35);
+}
+
+.btn-action-secondary {
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text-primary) !important;
+  padding: 0.68rem 0.55rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.80rem;
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: 1px solid var(--glass-border);
+  width: 100%;
+}
+.btn-action-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent);
+  color: var(--accent) !important;
+  transform: translateY(-2px);
+}
+[data-theme="dark"] .btn-action-secondary {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.22);
+  color: #f8fafc !important;
+}
+[data-theme="dark"] .btn-action-secondary:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: #d97746;
+  color: #ffffff !important;
+}
+
+.btn-action-tertiary {
+  background: #2563eb;
+  color: #ffffff !important;
+  padding: 0.68rem 0.85rem;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 0.83rem;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+  border: none;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+  width: 100%;
+}
+.btn-action-tertiary:hover {
+  background: #1d4ed8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.35);
+  color: #ffffff !important;
+}
+[data-theme="dark"] .btn-action-tertiary {
+  background: #2563eb;
+  color: #ffffff !important;
+}
+[data-theme="dark"] .btn-action-tertiary:hover {
+  background: #1d4ed8;
+}

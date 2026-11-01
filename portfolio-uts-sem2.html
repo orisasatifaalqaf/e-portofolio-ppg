@@ -394,22 +394,37 @@
         <div class="portfolio-card" style="background: var(--bg-primary); border: 1px solid var(--glass-border); border-radius: 18px; overflow: hidden; box-shadow: var(--shadow-sm); transition: all 0.3s ease; display: flex; flex-direction: column;">
           <div class="card-image-wrapper" style="height: 210px; position: relative; overflow: hidden;">
             <img src="karya-siswa-cover.png" alt="Contoh Hasil Kerja Siswa" style="width: 100%; height: 100%; object-fit: cover;">
-            <div class="card-badge" style="position: absolute; top: 1rem; right: 1rem; background: #64748b; color: white; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"><i class="fa-solid fa-clock"></i> MENYUSUL</div>
-            <div class="card-overlay">
-              <a href="javascript:void(0)" onclick="alert('Dokumentasi Hasil Kerja Siswa sedang dalam proses penyusunan/digitalisasi (menyusul).');" class="overlay-content" style="text-decoration: none;">
-                <i class="fa-solid fa-clock"></i> Berkas Menyusul
+            <div class="card-badge" style="position: absolute; top: 1rem; right: 1rem; background: #059669; color: white; padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.75rem; font-weight: 700; box-shadow: 0 4px 10px rgba(0,0,0,0.15);"><i class="fa-solid fa-award"></i> HASIL BELAJAR UTS</div>
+            <div class="card-overlay" style="display: flex; flex-direction: column; gap: 8px; justify-content: center; align-items: center;">
+              <a href="https://drive.google.com/file/d/1IHD4Fxq6UBAq--frAdZnPTxi_ztfZqMR/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="overlay-content" style="text-decoration: none; padding: 0.45rem 0.95rem; font-size: 0.85rem;">
+                <i class="fa-solid fa-file-pdf"></i> Sampel Hasil 1
+              </a>
+              <a href="https://drive.google.com/file/d/1fxBPXIU72se2_lDD5C9goOAYPejFTH1M/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="overlay-content" style="text-decoration: none; padding: 0.45rem 0.95rem; font-size: 0.85rem;">
+                <i class="fa-solid fa-file-pdf"></i> Sampel Hasil 2
+              </a>
+              <a href="https://drive.google.com/file/d/1-bYLqu204TbBWZlSZ2lP8GxWbnkatrhi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="overlay-content" style="text-decoration: none; padding: 0.45rem 0.95rem; font-size: 0.85rem;">
+                <i class="fa-solid fa-file-pdf"></i> Sampel Hasil 3
+              </a>
+              <a href="#" class="btn-analysis overlay-content" data-target="panelHasilSiswa" style="text-decoration: none; padding: 0.45rem 0.95rem; font-size: 0.85rem; background: rgba(16, 185, 129, 0.9);">
+                <i class="fa-solid fa-chart-simple"></i> Lihat Analisis
               </a>
             </div>
           </div>
           <div class="card-content" style="padding: 1.6rem; display: flex; flex-direction: column; flex: 1;">
-            <h3 class="card-title" style="font-family: var(--font-head); font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--text-primary);">Dokumentasi Hasil Kerja Siswa <span style="font-size: 0.75rem; font-weight: 700; color: #f59e0b; background: rgba(245, 158, 11, 0.12); padding: 2px 8px; border-radius: 12px; margin-left: 4px;">(Menyusul)</span></h3>
-            <p class="card-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; flex: 1;">Bukti autentik hasil pengerjaan LKM kelompok peserta didik serta formulir refleksi metakognitif siswa pascapembelajaran yang sedang dalam tahapan digitalisasi/kurasi.</p>
-            <div style="display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: auto; padding-top: 1rem; border-top: 1px dashed var(--glass-border);">
-              <a href="javascript:void(0)" onclick="alert('Dokumentasi Hasil Kerja Siswa sedang dalam proses penyusunan/digitalisasi (menyusul).');" class="btn btn-outline" style="padding: 0.5rem 0.9rem; font-size: 0.82rem; border-radius: 8px; text-decoration: none; opacity: 0.85;">
-                <i class="fa-solid fa-clock"></i> Berkas Menyusul
+            <h3 class="card-title" style="font-family: var(--font-head); font-size: 1.25rem; margin-bottom: 0.6rem; color: var(--text-primary);">Dokumentasi Hasil Kerja Siswa UTS</h3>
+            <p class="card-desc" style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6; margin-bottom: 1.2rem; flex: 1;">Bukti autentik hasil pengerjaan lembar kerja (LKM) kelompok peserta didik serta respon reflektif siswa kelas XI-F7 pada materi Teks Berita yang membuktikan ketercapaian kompetensi pembelajaran.</p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: auto; padding-top: 1rem; border-top: 1px dashed var(--glass-border); align-items: center;">
+              <a href="https://drive.google.com/file/d/1IHD4Fxq6UBAq--frAdZnPTxi_ztfZqMR/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.8rem; font-size: 0.8rem; border-radius: 8px; text-decoration: none;">
+                <i class="fa-brands fa-google-drive" style="color: #059669;"></i> Sampel 1
               </a>
-              <a href="#" class="btn-analysis" data-target="panelHasilSiswa" style="text-decoration: none; padding: 0.5rem 0.95rem; font-size: 0.82rem; border-radius: 8px;">
-                <i class="fa-solid fa-chart-simple"></i> Lihat Analisis
+              <a href="https://drive.google.com/file/d/1fxBPXIU72se2_lDD5C9goOAYPejFTH1M/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.8rem; font-size: 0.8rem; border-radius: 8px; text-decoration: none;">
+                <i class="fa-brands fa-google-drive" style="color: #059669;"></i> Sampel 2
+              </a>
+              <a href="https://drive.google.com/file/d/1-bYLqu204TbBWZlSZ2lP8GxWbnkatrhi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.45rem 0.8rem; font-size: 0.8rem; border-radius: 8px; text-decoration: none;">
+                <i class="fa-brands fa-google-drive" style="color: #059669;"></i> Sampel 3
+              </a>
+              <a href="#" class="btn-analysis" data-target="panelHasilSiswa" style="text-decoration: none; padding: 0.45rem 0.8rem; font-size: 0.8rem; border-radius: 8px;">
+                <i class="fa-solid fa-chart-simple"></i> Analisis
               </a>
             </div>
           </div>
@@ -470,7 +485,7 @@
               </ul>
               
               <div class="penilaian-actions">
-                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem;">Praktik Mengajar Terbimbing:</div>
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem;">Praktik Mengajar Mandiri:</div>
                 <a href="https://drive.google.com/file/d/15a2ZkLGo_o5kLpcYsOwOQRy9iqpM4-GO/preview" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" onclick="if(document.getElementById('iframe-lampiran-7')){ document.getElementById('iframe-lampiran-7').src='https://drive.google.com/file/d/15a2ZkLGo_o5kLpcYsOwOQRy9iqpM4-GO/preview'; }"><i class="fa-solid fa-eye"></i> Preview</a>
                 <a href="https://drive.google.com/file/d/15a2ZkLGo_o5kLpcYsOwOQRy9iqpM4-GO/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-light-blue" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
               </div>
@@ -506,7 +521,7 @@
               </div>
               
               <div class="penilaian-actions">
-                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem;">PPLT Terbimbing:</div>
+                <div style="width: 100%; font-size: 0.85rem; font-weight: 700; color: var(--text-secondary); margin-bottom: 0.4rem;">Praktik Mengajar Mandiri:</div>
                 <a href="https://drive.google.com/file/d/1arwSY5w3gtle7GLiPKzt7Ntt5wgSC6ZC/preview" target="_blank" rel="noopener noreferrer" class="btn btn-primary" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;" onclick="if(document.getElementById('iframe-lampiran-8')){ document.getElementById('iframe-lampiran-8').src='https://drive.google.com/file/d/1arwSY5w3gtle7GLiPKzt7Ntt5wgSC6ZC/preview'; }"><i class="fa-solid fa-eye"></i> Preview</a>
                 <a href="https://drive.google.com/file/d/1arwSY5w3gtle7GLiPKzt7Ntt5wgSC6ZC/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-light-blue" style="padding: 0.5rem 1.15rem; font-size: 0.85rem; border-radius: 20px; text-decoration: none; display: inline-flex; align-items: center; gap: 6px;"><i class="fa-brands fa-google-drive"></i> Drive</a>
               </div>
@@ -942,117 +957,50 @@
         }
       </style>
 
-      <!-- Featured Videos -->
-      <div style="display: grid; grid-template-columns: 1fr; gap: 3rem; margin-bottom: 4rem;">
-        
-        <!-- MICROTEACHING -->
-        <div class="gallery-featured" style="width: 100%;">
-          <div class="yt-thumb-card">
-            <div class="yt-bg-pattern"></div>
-            <div class="yt-bg-circles"></div>
-            <div class="yt-bg-circles right"></div>
-            
-            <img src="foto-profil.jpg" class="yt-photo" alt="Orisa Satifa Alqaf">
-            
-            <div class="yt-content">
-              <div class="yt-text-left">
-                <div class="yt-title">PRAKTIK<br>MICROTEACHING</div>
-                <div class="yt-subtitle">"Simulasi Kelas"</div>
-                <div class="yt-details">
-                  PENDIDIKAN BAHASA INDONESIA<br>
-                  KELAS SIMULASI<br>
-                  UNIVERSITAS AHMAD DAHLAN
-                </div>
-              </div>
-            </div>
-
-            <a href="https://drive.google.com/drive/folders/1T-R5YB8LerXehuorhB_zSUUy13LCvat1" target="_blank" class="yt-play-center" style="text-decoration: none;">
-              <button class="yt-play-btn"><i class="fa-solid fa-play" style="margin-left: 5px;"></i></button>
-            </a>
-
-            <div class="yt-banner">
-              ORISA SATIFA ALQAF | PPG PRAJABATAN 2026
-            </div>
-          </div>
-        </div>
-
-        <!-- PRAKTIK MENGAJAR -->
-        <div class="gallery-featured" style="width: 100%;">
-          <div class="yt-thumb-card">
-            <div class="yt-bg-pattern"></div>
-            <div class="yt-bg-circles"></div>
-            <div class="yt-bg-circles right"></div>
-            
-            <img src="gambar_transparent.png" class="yt-photo" alt="Orisa Satifa Alqaf" onerror="this.src='foto-profil.jpg'; this.style.borderRadius='16px'; this.style.right='2rem'; this.style.bottom='2rem'; this.style.height='80%';">
-            
-            <div class="yt-content">
-              <div class="yt-text-left">
-                <div class="yt-title">PRAKTIK<br>MENGAJAR</div>
-                <div class="yt-subtitle">"Pembelajaran Aktif"</div>
-                <div class="yt-details">
-                  PENDIDIKAN BAHASA INDONESIA<br>
-                  KELAS PRAKTIK TERBIMBING<br>
-                  UNIVERSITAS AHMAD DAHLAN
-                </div>
-              </div>
-            </div>
-
-            <a href="https://youtu.be/RsAKAduILZY?si=iUnQMnQJeAB8-EWs" target="_blank" class="yt-play-center" style="text-decoration: none;">
-              <button class="yt-play-btn"><i class="fa-solid fa-play" style="margin-left: 5px;"></i></button>
-            </a>
-
-            <div class="yt-banner">
-              ORISA SATIFA ALQAF | PPG PRAJABATAN 2026
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- Gallery Grid -->
+<!-- Gallery Grid -->
       <div class="gallery-grid">
         <!-- Image 1 -->
-        <div class="gallery-item item-main" style="background-image: url('galeri-1.jpg'); background-position: center; background-size: cover;">
+        <div class="gallery-item item-main" style="background-image: url('UTS SEM 2.2.jpeg'); background-position: center; background-size: cover;">
           <div class="item-overlay"></div>
           <div class="item-content">
-            <h4 class="item-title">Sinergi Pembimbingan</h4>
-            <p class="item-desc">Bersama Guru Pamong dan Dosen Pembimbing Lapangan.</p>
+            <h4 class="item-title">Kelas Utama XI-F7: Gallery Walk</h4>
+            <p class="item-desc">Kebersamaan kelas XI-F7 pada pelaksanaan Gallery Walk unjuk karya Vlog Berita.</p>
           </div>
         </div>
 
         <!-- Image 2 -->
-        <div class="gallery-item item-narrow" style="background-image: url('galeri-2.jpg'); background-position: center; background-size: cover;">
+        <div class="gallery-item item-narrow" style="background-image: url('UTS SEM 2.jpeg'); background-position: center; background-size: cover;">
           <div class="item-overlay"></div>
           <div class="item-content">
-            <h4 class="item-title">Kelas Utama XI-F3</h4>
-            <p class="item-desc">Antusiasme belajar bersama seluruh peserta didik XI-F3.</p>
+            <h4 class="item-title">Diskusi Kolaboratif</h4>
+            <p class="item-desc">Membimbing proses telaah unsur teks berita dan interaksi aktif kelompok.</p>
           </div>
         </div>
         
         <!-- Image 3 -->
-        <div class="gallery-item item-narrow" style="background-image: url('galeri-3.jpg'); background-position: center; background-size: cover;">
+        <div class="gallery-item item-narrow" style="background-image: url('UTS SEM 2.1.jpeg'); background-position: center; background-size: cover;">
           <div class="item-overlay"></div>
           <div class="item-content">
-            <h4 class="item-title">Suasana Pembelajaran</h4>
-            <p class="item-desc">Menghadirkan kelas bermakna melalui interaksi dengan murid.</p>
+            <h4 class="item-title">Apersepsi &amp; Orientasi</h4>
+            <p class="item-desc">Penyampaian materi dan stimulasi berpikir kritis berbasis tayangan interaktif.</p>
           </div>
         </div>
         
         <!-- Image 4 -->
-        <div class="gallery-item item-narrow" style="background-image: url('galeri-4.jpg'); background-position: center; background-size: cover;">
+        <div class="gallery-item item-narrow" style="background-image: url('UTS SEM 2.3.jpeg'); background-position: center; background-size: cover;">
           <div class="item-overlay"></div>
           <div class="item-content">
-            <h4 class="item-title">Kelas Kolaborasi XI-F8</h4>
-            <p class="item-desc">Membangun dinamika belajar yang aktif dan kolaboratif.</p>
+            <h4 class="item-title">Konsultasi &amp; Scaffolding</h4>
+            <p class="item-desc">Memberikan pendampingan instruksional terfokus saat penyusunan lembar kerja.</p>
           </div>
         </div>
         
         <!-- Image 5 -->
-        <div class="gallery-item item-narrow" style="background-image: url('galeri-5.jpg'); background-position: center; background-size: cover;">
+        <div class="gallery-item item-narrow" style="background-image: url('UTS SEM 2.4.jpeg'); background-position: center; background-size: cover;">
           <div class="item-overlay"></div>
           <div class="item-content">
-            <h4 class="item-title">Bimbingan Guru Pamong</h4>
-            <p class="item-desc">Refleksi dan arahan menyempurnakan praktik mengajar.</p>
+            <h4 class="item-title">Interaksi Hangat &amp; Personal</h4>
+            <p class="item-desc">Menciptakan ruang kelas yang nyaman, mendengar, dan penuh apresiasi positif.</p>
           </div>
         </div>
       </div>
@@ -1532,18 +1480,14 @@
     <div class="panel-header">
       <div>
         <h3 class="panel-title">Analisis Artefak: Contoh Hasil Kerja Peserta Didik</h3>
-        <p class="panel-subtitle">Bukti Autentik Hasil Belajar &amp; Respon Siswa Kelas XI-F7 (Menyusul)</p>
+        <p class="panel-subtitle">Bukti Autentik Hasil Belajar &amp; Respon Siswa Kelas XI-F7 (Praktik Mandiri Siklus 1)</p>
       </div>
       <button class="btn-close-panel" aria-label="Tutup Panel"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="panel-content">
-      <div style="background: rgba(245, 158, 11, 0.1); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 10px; padding: 0.8rem 1rem; margin-bottom: 1.2rem; color: var(--text-primary); font-size: 0.88rem; display: flex; align-items: center; gap: 8px;">
-        <i class="fa-solid fa-clock" style="color: #f59e0b;"></i> <strong>Status Berkas:</strong> Dokumentasi sampel hasil kerja peserta didik sedang dalam proses digitalisasi dan akan segera ditautkan (menyusul).
-      </div>
-
       <div class="panel-section">
         <h4 class="panel-section-title"><i class="fa-solid fa-circle-info" style="color: var(--accent);"></i> Konteks Artefak</h4>
-        <p class="panel-text">Dokumentasi lembar kerja hasil telaah kelompok murid kelas XI-F7 beserta lembar refleksi diri pascapembelajaran. Menjadi bukti konkret interaksi siswa dengan modul dan media ajar yang dirancang calon guru.</p>
+        <p class="panel-text">Dokumentasi lembar kerja hasil telaah kelompok murid kelas XI-F7 beserta lembar refleksi diri pascapembelajaran. Menjadi bukti konkret interaksi siswa dengan modul dan media ajar yang dirancang calon guru pada materi Teks Berita.</p>
       </div>
 
       <div class="panel-section">
@@ -1569,6 +1513,44 @@
           <li><strong>Constructive Alignment (John Biggs):</strong> Keselarasan nyata antara Capaian Pembelajaran (CP), aktivitas berbasis masalah (PBL), dan produk pemikiran kritis yang berhasil diekspresikan murid.</li>
           <li><strong>Authentic Assessment (Grant Wiggins):</strong> Pengujian kompetensi siswa pada konteks tugas bermakna yang merepresentasikan tantangan literasi berpikir kritis di dunia nyata.</li>
         </ul>
+      </div>
+
+      <div class="panel-section">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 2px dashed rgba(0,0,0,0.05); padding-bottom: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem;">
+          <h4 class="panel-section-title" style="margin-bottom: 0; border: none; padding-bottom: 0;">Pratinjau Hasil Belajar Siswa UTS</h4>
+          <span style="background: rgba(5, 150, 105, 0.15); color: #059669; border: 1px solid rgba(5, 150, 105, 0.3); padding: 0.35rem 0.85rem; border-radius: 20px; font-size: 0.8rem; font-weight: 600;"><i class="fa-solid fa-circle-check"></i> 3 Dokumen Sampel Terlampir</span>
+        </div>
+
+        <!-- Direct Drive Buttons Grouped -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap;">
+          <a href="https://drive.google.com/file/d/1IHD4Fxq6UBAq--frAdZnPTxi_ztfZqMR/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+            <i class="fa-brands fa-google-drive" style="color: #059669;"></i> Buka Sampel 1 di Drive
+          </a>
+          <a href="https://drive.google.com/file/d/1fxBPXIU72se2_lDD5C9goOAYPejFTH1M/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+            <i class="fa-brands fa-google-drive" style="color: #059669;"></i> Buka Sampel 2 di Drive
+          </a>
+          <a href="https://drive.google.com/file/d/1-bYLqu204TbBWZlSZ2lP8GxWbnkatrhi/view?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn btn-outline" style="padding: 0.4rem 0.85rem; font-size: 0.8rem; border-radius: 8px; text-decoration: none; display: inline-flex; align-items: center; gap: 5px;">
+            <i class="fa-brands fa-google-drive" style="color: #059669;"></i> Buka Sampel 3 di Drive
+          </a>
+        </div>
+
+        <!-- Switcher Tab Karya Siswa UTS -->
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 0.8rem; flex-wrap: wrap;">
+          <button type="button" id="btnTabHasil1" onclick="switchHasilSiswaUTS('sampel1')" class="btn btn-primary" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-file-lines"></i> 1. Sampel Hasil 1
+          </button>
+          <button type="button" id="btnTabHasil2" onclick="switchHasilSiswaUTS('sampel2')" class="btn btn-outline" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-file-lines"></i> 2. Sampel Hasil 2
+          </button>
+          <button type="button" id="btnTabHasil3" onclick="switchHasilSiswaUTS('sampel3')" class="btn btn-outline" style="padding: 0.45rem 0.95rem; font-size: 0.82rem; border-radius: 8px; cursor: pointer; display: inline-flex; align-items: center; gap: 6px;">
+            <i class="fa-solid fa-file-lines"></i> 3. Sampel Hasil 3
+          </button>
+        </div>
+
+        <!-- Preview Iframe -->
+        <div style="border: 1px solid var(--glass-border); border-radius: 12px; overflow: hidden; height: 500px; background: #1e241e;">
+          <iframe id="hasilIframeUTS" src="https://drive.google.com/file/d/1IHD4Fxq6UBAq--frAdZnPTxi_ztfZqMR/preview" width="100%" height="100%" allow="autoplay" style="border: none; display: block;" loading="lazy"></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -1683,9 +1665,56 @@
         el.addEventListener('click', resetEmbedPlayer);
       });
     });
+    // Switcher Preview Hasil Belajar Siswa UTS
+    function switchHasilSiswaUTS(type) {
+      const iframe = document.getElementById('hasilIframeUTS');
+      const b1 = document.getElementById('btnTabHasil1');
+      const b2 = document.getElementById('btnTabHasil2');
+      const b3 = document.getElementById('btnTabHasil3');
+      if (!iframe || !b1 || !b2 || !b3) return;
+
+      b1.className = 'btn btn-outline';
+      b2.className = 'btn btn-outline';
+      b3.className = 'btn btn-outline';
+
+      if (type === 'sampel1') {
+        iframe.src = 'https://drive.google.com/file/d/1IHD4Fxq6UBAq--frAdZnPTxi_ztfZqMR/preview';
+        b1.className = 'btn btn-primary';
+      } else if (type === 'sampel2') {
+        iframe.src = 'https://drive.google.com/file/d/1fxBPXIU72se2_lDD5C9goOAYPejFTH1M/preview';
+        b2.className = 'btn btn-primary';
+      } else if (type === 'sampel3') {
+        iframe.src = 'https://drive.google.com/file/d/1-bYLqu204TbBWZlSZ2lP8GxWbnkatrhi/preview';
+        b3.className = 'btn btn-primary';
+      }
+    }
   </script>
 
   <!-- JS -->
-  <script src="main.js?v=2"></script>
+  <script src="main.js?v=2">
+    // Switcher Preview Hasil Belajar Siswa UTS
+    function switchHasilSiswaUTS(type) {
+      const iframe = document.getElementById('hasilIframeUTS');
+      const b1 = document.getElementById('btnTabHasil1');
+      const b2 = document.getElementById('btnTabHasil2');
+      const b3 = document.getElementById('btnTabHasil3');
+      if (!iframe || !b1 || !b2 || !b3) return;
+
+      b1.className = 'btn btn-outline';
+      b2.className = 'btn btn-outline';
+      b3.className = 'btn btn-outline';
+
+      if (type === 'sampel1') {
+        iframe.src = 'https://drive.google.com/file/d/1IHD4Fxq6UBAq--frAdZnPTxi_ztfZqMR/preview';
+        b1.className = 'btn btn-primary';
+      } else if (type === 'sampel2') {
+        iframe.src = 'https://drive.google.com/file/d/1fxBPXIU72se2_lDD5C9goOAYPejFTH1M/preview';
+        b2.className = 'btn btn-primary';
+      } else if (type === 'sampel3') {
+        iframe.src = 'https://drive.google.com/file/d/1-bYLqu204TbBWZlSZ2lP8GxWbnkatrhi/preview';
+        b3.className = 'btn btn-primary';
+      }
+    }
+  </script>
 </body>
 </html>
